@@ -18,6 +18,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.example.jhordan.semprende.fragments.Schedule;
+
 
 public class MyActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -49,24 +51,72 @@ public class MyActivity extends ActionBarActivity
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
-        // update the main content by replacing fragments
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
+
+        switch (position) {
+            case 0:
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container, Schedule.newInstance(position))
+                        .commit();
+
+                break;
+
+            case 1:
+
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container, Schedule.newInstance(position))
+                        .commit();
+
+
+                break;
+
+            case 2:
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container, Schedule.newInstance(position))
+                        .commit();
+
+
+                break;
+
+            case 3:
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container, Schedule.newInstance(position))
+                        .commit();
+
+
+
+                break;
+            case 4:
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container, Schedule.newInstance(position))
+                        .commit();
+
+
+
+                break;
+            default:
+
+        }
+
     }
 
     public void onSectionAttached(int number) {
         switch (number) {
+            case 0:
+                mTitle = getString(R.string.schedule);
+                break;
             case 1:
-                mTitle = getString(R.string.title_section1);
+                mTitle = getString(R.string.explorer);
                 break;
             case 2:
-                mTitle = getString(R.string.title_section2);
+                mTitle = getString(R.string.streaming);
                 break;
             case 3:
-                mTitle = getString(R.string.title_section3);
+                mTitle = getString(R.string.map);
                 break;
+            case 4:
+                mTitle = getString(R.string.settings);
+                break;
+            default:
         }
     }
 

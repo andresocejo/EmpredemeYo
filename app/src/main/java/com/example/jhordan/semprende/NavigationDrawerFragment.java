@@ -1,5 +1,6 @@
 package com.example.jhordan.semprende;
 
+import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
 import android.support.v7.app.ActionBar;
@@ -19,8 +20,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.jhordan.semprende.Adapter.ListViewItemAdapter;
+import com.example.jhordan.semprende.Model.ItemContentSection;
+import com.example.jhordan.semprende.util.ListViewItemInterface;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
@@ -32,6 +42,8 @@ public class NavigationDrawerFragment extends Fragment {
     /**
      * Remember the position of the selected item.
      */
+
+    public static final String ARG_SECTION_NUMBER = "section_number";
     private static final String STATE_SELECTED_POSITION = "selected_navigation_drawer_position";
 
     /**
@@ -57,6 +69,9 @@ public class NavigationDrawerFragment extends Fragment {
     private int mCurrentSelectedPosition = 0;
     private boolean mFromSavedInstanceState;
     private boolean mUserLearnedDrawer;
+    private List<ListViewItemInterface> listViewItems;
+    private ListView myListDrawer;
+    private ImageView photoUserPerfil;
 
     public NavigationDrawerFragment() {
     }
@@ -64,6 +79,14 @@ public class NavigationDrawerFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        listViewItems = new ArrayList<ListViewItemInterface>();
+        listViewItems.add(new ItemContentSection(0, R.color.black, R.string.schedule));
+        listViewItems.add(new ItemContentSection(0, R.color.black, R.string.explorer));
+        listViewItems.add(new ItemContentSection(0, R.color.black, R.string.streaming));
+        listViewItems.add(new ItemContentSection(0, R.color.black, R.string.map));
+        listViewItems.add(new ItemContentSection(0, R.color.black, R.string.settings));
 
         // Read in the flag indicating whether or not the user has demonstrated awareness of the
         // drawer. See PREF_USER_LEARNED_DRAWER for details.
@@ -86,30 +109,38 @@ public class NavigationDrawerFragment extends Fragment {
         setHasOptionsMenu(true);
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
-        mDrawerListView = (ListView) inflater.inflate(
-                R.layout.fragment_navigation_drawer, container, false);
-        mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                             Bundle savedInstanceState) {
+        // erik add this line
+        View v = inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
+
+
+        // mDrawerListView = (ListView) inflater.inflate(
+        //  R.layout.fragment_navigation_drawer, container, false);
+        // erik add this line
+
+        photoUserPerfil = (ImageView) v.findViewById(R.id.profilePicture);
+        myListDrawer = (ListView) v.findViewById(R.id.menuOptionsList);
+
+
+        myListDrawer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                selectItem(position);
+
+                if (!((ListViewItemInterface) parent.getAdapter().getItem(position)).isSection())
+                    selectItem(position);
             }
         });
-        mDrawerListView.setAdapter(new ArrayAdapter<String>(
-                getActionBar().getThemedContext(),
-                android.R.layout.simple_list_item_1,
-                android.R.id.text1,
-                new String[]{
-                        getString(R.string.title_section1),
-                        getString(R.string.title_section2),
-                        getString(R.string.title_section3),
-                }));
-        mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
-        return mDrawerListView;
-    }
+        //mDrawerListView
+        myListDrawer.setAdapter(new ListViewItemAdapter(listViewItems, getActivity()));
+        // erik add this line
+        myListDrawer.setItemChecked(mCurrentSelectedPosition, true);
+        //return mDrawerListView;
 
+        return v;
+    }
     public boolean isDrawerOpen() {
         return mDrawerLayout != null && mDrawerLayout.isDrawerOpen(mFragmentContainerView);
     }
@@ -190,8 +221,8 @@ public class NavigationDrawerFragment extends Fragment {
 
     private void selectItem(int position) {
         mCurrentSelectedPosition = position;
-        if (mDrawerListView != null) {
-            mDrawerListView.setItemChecked(position, true);
+        if (myListDrawer != null) {
+            myListDrawer.setItemChecked(position, true);
         }
         if (mDrawerLayout != null) {
             mDrawerLayout.closeDrawer(mFragmentContainerView);
