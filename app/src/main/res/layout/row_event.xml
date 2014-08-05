@@ -42,8 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="¿Qué puede hacer la OMC en favor de las pequeñas medianas empresas?"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"
+            style="@style/TitleEvent"
             android:id="@+id/event_name" />
 
         <TextView

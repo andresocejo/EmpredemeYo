@@ -1,9 +1,13 @@
 package com.example.jhordan.semprende.fragments;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.view.View;
+import android.widget.ListView;
 
+import com.example.jhordan.semprende.Activities.DetailEventActivity;
 import com.example.jhordan.semprende.Adapter.EventsAdapter;
 import com.example.jhordan.semprende.MyActivity;
 import com.example.jhordan.semprende.NavigationDrawerFragment;
@@ -60,6 +64,13 @@ public class ListEvents extends ListFragment {
 
         EventsAdapter eventsAdapter = new EventsAdapter(events,getActivity());
         setListAdapter(eventsAdapter);
+    }
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        Intent i = new Intent(getActivity(), DetailEventActivity.class);
+        startActivity(i);
     }
 
 }
