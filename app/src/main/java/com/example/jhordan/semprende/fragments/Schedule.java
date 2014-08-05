@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentTransaction;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -36,7 +37,8 @@ public class Schedule extends Fragment {
     private ViewPager mviewPager;
     private List<Fragment> listaFragments;
     private TabPageIndicator mIndicator;
-    private PageIndicator mIndicatores;
+   // private PageIndicator mIndicatores;
+    private TitlePageIndicator mIndicatores;
 
     public static Schedule newInstance(int position) {
         Schedule myschedule = new Schedule();
@@ -82,6 +84,7 @@ public class Schedule extends Fragment {
         mIndicatores = (TitlePageIndicator) v.findViewById(R.id.indicators);
         mIndicatores.setViewPager(mviewPager);
 
+        mIndicatores.setFooterColor(Color.parseColor("#BDBDBD"));
 
 
 
