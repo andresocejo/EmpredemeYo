@@ -1,26 +1,30 @@
 package com.example.jhordan.semprende.fragments;
 
 import android.app.Activity;
-import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 
 import com.example.jhordan.semprende.R;
+import com.squareup.picasso.Picasso;
 
-public class DetailEvent extends Fragment {
+/**
+ *Este fragmento contiene la información de un ponente
+ */
+public class Speaker extends Fragment {
 
-    public static DetailEvent newInstance() {
-        DetailEvent fragment = new DetailEvent();
+    ImageView photo;
+
+    public static Speaker newInstance() {
+        Speaker fragment = new Speaker();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
     }
-    public DetailEvent() {
+    public Speaker() {
         // Required empty public constructor
     }
 
@@ -33,25 +37,16 @@ public class DetailEvent extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_detail_event, container, false);
+        View root = inflater.inflate(R.layout.fragment_speaker, container, false);
+        photo = (ImageView)root.findViewById(R.id.speaker_photo);
 
-        FragmentManager manager = getActivity().getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        LinearLayout linearLayout = (LinearLayout)root.findViewById(R.id.information);
-
-        /*Prueba para agregar fragmentos del perfil de un ponente*/
-        transaction.add(linearLayout.getId(),new Speaker(),"speaker");
-        transaction.add(linearLayout.getId(),new Speaker(),"speaker2");
-        transaction.commit();
-
+        Picasso.with(getActivity()).load("http://www.codejobs.biz/www/lib/files/images/b312953ac30ff5d.png").into(photo);
         return root;
     }
-
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-
     }
 
     @Override
