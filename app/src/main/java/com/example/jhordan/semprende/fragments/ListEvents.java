@@ -9,7 +9,6 @@ import android.widget.ListView;
 
 import com.example.jhordan.semprende.Activities.DetailEventActivity;
 import com.example.jhordan.semprende.Adapter.EventsAdapter;
-import com.example.jhordan.semprende.MyActivity;
 import com.example.jhordan.semprende.NavigationDrawerFragment;
 import com.example.jhordan.semprende.util.Event;
 
@@ -39,14 +38,9 @@ public class ListEvents extends ListFragment {
 
     }
 
-
-
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        ((MyActivity) activity).onSectionAttached(getArguments()
-                .getInt(NavigationDrawerFragment.ARG_SECTION_NUMBER));
-
     }
 
     @Override

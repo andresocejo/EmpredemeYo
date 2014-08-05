@@ -1,9 +1,7 @@
 package com.example.jhordan.semprende.fragments;
 
 import android.annotation.TargetApi;
-import android.app.ActionBar;
 import android.app.Activity;
-import android.app.FragmentTransaction;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,10 +16,8 @@ import com.example.jhordan.semprende.Adapter.PageAdapter;
 import com.example.jhordan.semprende.MyActivity;
 import com.example.jhordan.semprende.NavigationDrawerFragment;
 import com.example.jhordan.semprende.R;
-import com.viewpagerindicator.PageIndicator;
 import com.viewpagerindicator.TabPageIndicator;
 import com.viewpagerindicator.TitlePageIndicator;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,11 +54,11 @@ public class Schedule extends Fragment {
 
 
 
-        listaFragments.add(new FragmentoP());
-        listaFragments.add(new FragmentoP());
-        listaFragments.add(new FragmentoP());
-        listaFragments.add(new FragmentoP());
-        listaFragments.add(new FragmentoP());
+        listaFragments.add(new ListEvents());
+        listaFragments.add(new ListEvents());
+        listaFragments.add(new ListEvents());
+        listaFragments.add(new ListEvents());
+        listaFragments.add(new ListEvents());
 
 
 

@@ -30,6 +30,13 @@
             android:label="@string/app_name">
 
         </activity>
+
+        <activity android:name=".Activities.DetailEventActivity"
+            android:label="@string/title_activity_detail_event">
+
+            </activity>
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
 
 </manifest>
