@@ -1,23 +1,18 @@
 package com.example.jhordan.semprende;
 
 import android.app.Activity;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
+import android.support.v4.app.Fragment;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.widget.DrawerLayout;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
 
+import com.example.jhordan.semprende.fragments.ListEvents;
 import com.example.jhordan.semprende.fragments.Schedule;
 
 
@@ -55,7 +50,7 @@ public class MyActivity extends ActionBarActivity
         switch (position) {
             case 0:
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, Schedule.newInstance(position))
+                        .replace(R.id.container, ListEvents.newInstance(position))
                         .commit();
 
                 break;
