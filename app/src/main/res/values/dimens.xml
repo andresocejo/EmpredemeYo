@@ -8,4 +8,7 @@
     <dimen name="navigation_drawer_width">240dp</dimen>
     <dimen name="section_padding">15dp</dimen>
     <dimen name="padding_login">30dp</dimen>
+
+    <!--Text Sizes-->
+    <dimen name="title_event">17sp</dimen>
 </resources>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:padding="10dp"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_weight="0.16"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:gravity="center_horizontal"
+        android:layout_marginRight="12dp"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="13:00 a 14:30"
+            android:id="@+id/event_date" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="#932AD2"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:layout_width="0dp"
+        android:layout_weight="0.7"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿Qué puede hacer la OMC en favor de las pequeñas medianas empresas?"
+            style="@style/TitleEvent"
+            android:id="@+id/event_name" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Lugar de la conferencia"
+            android:textColor="@android:color/white"
+            android:id="@+id/event_place" />
+    </LinearLayout>
+</LinearLayout>
