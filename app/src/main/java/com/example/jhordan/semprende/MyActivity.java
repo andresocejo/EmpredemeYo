@@ -1,6 +1,9 @@
 package com.example.jhordan.semprende;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -18,7 +21,10 @@ import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.example.jhordan.semprende.fragments.Explorer;
+import com.example.jhordan.semprende.fragments.Map;
 import com.example.jhordan.semprende.fragments.Schedule;
+import com.example.jhordan.semprende.fragments.Streaming;
 
 
 public class MyActivity extends ActionBarActivity
@@ -38,6 +44,8 @@ public class MyActivity extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
+
+        colorBar();
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -63,7 +71,7 @@ public class MyActivity extends ActionBarActivity
             case 1:
 
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, Schedule.newInstance(position))
+                        .replace(R.id.container, Explorer.newInstance(position))
                         .commit();
 
 
@@ -71,7 +79,7 @@ public class MyActivity extends ActionBarActivity
 
             case 2:
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, Schedule.newInstance(position))
+                        .replace(R.id.container, Streaming.newInstance(position))
                         .commit();
 
 
@@ -79,7 +87,7 @@ public class MyActivity extends ActionBarActivity
 
             case 3:
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, Schedule.newInstance(position))
+                        .replace(R.id.container, Map.newInstance(position))
                         .commit();
 
 
@@ -191,6 +199,13 @@ public class MyActivity extends ActionBarActivity
             ((MyActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
+    }
+
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    private void colorBar(){
+        android.app.ActionBar bar  = getActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#088A08")));
+
     }
 
 }

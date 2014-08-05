@@ -29,7 +29,7 @@
             android:layout_gravity="left|center_vertical"
             android:layout_marginLeft="10dip"
             android:duplicateParentState="true"
-            android:textColor="@color/black"
+            android:textColor="@color/gray"
             android:textStyle="bold" />
     </LinearLayout>
 

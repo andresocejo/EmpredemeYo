@@ -82,11 +82,11 @@ public class NavigationDrawerFragment extends Fragment {
 
 
         listViewItems = new ArrayList<ListViewItemInterface>();
-        listViewItems.add(new ItemContentSection(0, R.color.black, R.string.schedule));
-        listViewItems.add(new ItemContentSection(0, R.color.black, R.string.explorer));
-        listViewItems.add(new ItemContentSection(0, R.color.black, R.string.streaming));
-        listViewItems.add(new ItemContentSection(0, R.color.black, R.string.map));
-        listViewItems.add(new ItemContentSection(0, R.color.black, R.string.settings));
+        listViewItems.add(new ItemContentSection(0, R.color.gray, R.string.schedule));
+        listViewItems.add(new ItemContentSection(0, R.color.gray, R.string.explorer));
+        listViewItems.add(new ItemContentSection(0, R.color.gray, R.string.streaming));
+        listViewItems.add(new ItemContentSection(0, R.color.gray, R.string.map));
+        listViewItems.add(new ItemContentSection(0, R.color.gray, R.string.settings));
 
         // Read in the flag indicating whether or not the user has demonstrated awareness of the
         // drawer. See PREF_USER_LEARNED_DRAWER for details.
@@ -278,10 +278,7 @@ public class NavigationDrawerFragment extends Fragment {
             return true;
         }
 
-        if (item.getItemId() == R.id.action_example) {
-            Toast.makeText(getActivity(), "Example action.", Toast.LENGTH_SHORT).show();
-            return true;
-        }
+
 
         return super.onOptionsItemSelected(item);
     }
