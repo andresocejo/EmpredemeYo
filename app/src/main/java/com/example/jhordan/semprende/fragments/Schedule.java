@@ -80,20 +80,10 @@ public class Schedule extends Fragment {
         mIndicatores = (TitlePageIndicator) v.findViewById(R.id.indicators);
         mIndicatores.setViewPager(mviewPager);
 
-        mIndicatores.setFooterColor(Color.parseColor("#BDBDBD"));
-
-
-
-
-
-
-
+        mIndicatores.setFooterColor(Color.parseColor("#00e575"));
 
         return v;
     }
-
-
-
 
 
     @Override

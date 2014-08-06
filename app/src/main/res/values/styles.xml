@@ -5,6 +5,11 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="title">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
     <style name="TitleEvent">
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@android:color/white</item>

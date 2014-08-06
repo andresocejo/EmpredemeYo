@@ -30,7 +30,6 @@
         <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_semanaemprendedor2014</item>
         <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Semanaemprendedor2014</item>
         
-        
     </style>
 
     <style name="ActionBar.Solid.Semanaemprendedor2014" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
@@ -38,11 +37,13 @@
         <item name="android:backgroundStacked">@drawable/ab_stacked_solid_semanaemprendedor2014</item>
         <item name="android:backgroundSplit">@drawable/ab_bottom_solid_semanaemprendedor2014</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Semanaemprendedor2014</item>
+        <item name="android:titleTextStyle">@style/ActionBar.CustomTitle</item>
     </style>
 
     <style name="ActionBar.Transparent.Semanaemprendedor2014" parent="@style/Widget.AppCompat.Light.ActionBar">
         <item name="android:background">@drawable/ab_transparent_semanaemprendedor2014</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Semanaemprendedor2014</item>
+        <item name="android:actionMenuTextColor">@color/white</item>
     </style>
     
     <!-- this style is only referenced in a Light.DarkActionBar based theme -->
