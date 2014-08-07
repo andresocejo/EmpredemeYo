@@ -7,12 +7,43 @@ public class Event {
 
     String name;
     String date;
-    String place;
+    String timeInit;
+    String timeEnd;
 
-    public Event(String name, String date, String place) {
+    public String getTimeInit() {
+        return timeInit;
+    }
+
+    public void setTimeInit(String timeInit) {
+        this.timeInit = timeInit;
+    }
+
+    public String getTimeEnd() {
+        return timeEnd;
+    }
+
+    public void setTimeEnd(String timeEnd) {
+        this.timeEnd = timeEnd;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    String place;
+    String category;
+
+    public Event(String name, String date, String timeInit, String timeEnd, String place, String category) {
         this.name = name;
         this.date = date;
         this.place = place;
+        this.category = category;
+        this.timeInit = timeInit;
+        this.timeEnd = timeEnd;
     }
 
     public String getName() {

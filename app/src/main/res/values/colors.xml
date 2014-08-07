@@ -7,4 +7,8 @@
     <color name="green">#378d3b</color>
     <color name="green_light">#00e575</color>
     <color name="gray">#909693</color>
+
+    <color name="purple_event">#7d56C1</color>
+    <color name="green_event">#65ba69</color>
+    <color name="blue_event">#63b4f5</color>
 </resources>

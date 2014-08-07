@@ -27,6 +27,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/container_info_event"
         android:orientation="vertical"
         android:background="#932AD2"
         android:paddingTop="15dp"

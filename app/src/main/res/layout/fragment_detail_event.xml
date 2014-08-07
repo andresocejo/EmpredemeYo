@@ -13,7 +13,8 @@
         android:paddingRight="70dp"
         android:layout_height="0dp"
         android:layout_weight="0.35"
-        android:background="#B0BEC5">
+        android:id="@+id/container_general_info_event"
+        android:background="@color/blue_event">
 
 
         <TextView

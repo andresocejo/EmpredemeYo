@@ -10,6 +10,7 @@ import android.widget.ListView;
 import com.example.jhordan.semprende.Activities.DetailEventActivity;
 import com.example.jhordan.semprende.Adapter.EventsAdapter;
 import com.example.jhordan.semprende.NavigationDrawerFragment;
+import com.example.jhordan.semprende.R;
 import com.example.jhordan.semprende.util.Event;
 
 import java.util.ArrayList;
@@ -51,19 +52,29 @@ public class ListEvents extends ListFragment {
     /*Solo para prueba*/
     public void fillList(){
 
-        for(int i = 0; i<9; i++){
-            Event event = new Event("Un gran nombre para una gran conferencia","00:00 a 00:00","Escenario XYZ");
-            events.add(event);
-        }
+        Event event = new Event("PANEL Liderazgo: ¿Y si todo sale mal?","08/14/2014","16:30:00","18:00:00","Palacio Valparaiso 1", getResources().getString(R.string.conferencia));
+        events.add(event);
+
+        Event event2 = new Event("La Creatividad en la visión de un Empresario","08/14/2014","18:00:00","19:30:00","Palacio Valparaiso 2", getResources().getString(R.string.magistral));
+        events.add(event2);
+
+        Event event3 = new Event("Panel: Emprendimiento Social de la Filantropía a los Negocios Sociales","08/14/2014","18:00:00","19:30:00","Palacio Valparaiso 1", getResources().getString(R.string.taller));
+        events.add(event3);
 
         EventsAdapter eventsAdapter = new EventsAdapter(events,getActivity());
         setListAdapter(eventsAdapter);
+    }
+
+    public void fillListAgenda(){
+
+
     }
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
         Intent i = new Intent(getActivity(), DetailEventActivity.class);
+        i.putExtra("category",((Event)l.getItemAtPosition(position)).getCategory());
         startActivity(i);
     }
 

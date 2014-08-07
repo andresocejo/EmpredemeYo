@@ -1,14 +1,19 @@
 package com.example.jhordan.semprende.Adapter;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.jhordan.semprende.util.Event;
 import com.example.jhordan.semprende.R;
+import com.example.jhordan.semprende.util.Event;
+import com.example.jhordan.semprende.util.MiscellaneousMethods;
 
 import java.util.ArrayList;
 
@@ -30,6 +35,7 @@ public class EventsAdapter extends ArrayAdapter<Event> {
         layoutInflater = LayoutInflater.from(context);
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
@@ -39,7 +45,7 @@ public class EventsAdapter extends ArrayAdapter<Event> {
         if(container == null){
             propertyHolderView = new PropertyHolderView();
             container = layoutInflater.inflate(R.layout.row_event,parent,false);
-            propertyHolderView.initViewsFromIds(container, R.id.event_name,R.id.event_place, R.id.event_date);
+            propertyHolderView.initViewsFromIds(container, R.id.event_name,R.id.event_place, R.id.event_date,R.id.container_info_event);
             container.setTag(propertyHolderView);
 
         }else{
@@ -49,6 +55,20 @@ public class EventsAdapter extends ArrayAdapter<Event> {
         /*Putting content into the widgets*/
         Event propertyModel = events.get(position);
 
+        //Define event color
+        if(propertyModel.getCategory().equals(context.getResources().getString(R.string.magistral))) {
+            propertyHolderView.getContainerInfoEvent().
+                    setBackground(new ColorDrawable(context.getResources().getColor(R.color.purple_event)));
+        }
+        else if(propertyModel.getCategory().equals(context.getResources().getString(R.string.conferencia))) {
+            propertyHolderView.getContainerInfoEvent().
+                    setBackground(new ColorDrawable(context.getResources().getColor(R.color.blue_event)));
+        }
+        else{
+            propertyHolderView.getContainerInfoEvent().
+                    setBackground(new ColorDrawable(context.getResources().getColor(R.color.green_event)));
+        }
+
         propertyHolderView.getTxtEventName().
                 setText( propertyModel.getName());
 
@@ -56,7 +76,8 @@ public class EventsAdapter extends ArrayAdapter<Event> {
                 setText(propertyModel.getPlace());
 
         propertyHolderView.getTxtEventDate().
-                setText(propertyModel.getDate());
+                setText(MiscellaneousMethods.
+                        concatTime(propertyModel.getTimeInit(),propertyModel.getTimeEnd()));
 
         return container;
     }
@@ -69,16 +90,19 @@ public class EventsAdapter extends ArrayAdapter<Event> {
         private TextView txtEventPlace;
         private TextView txtEventDate;
 
+        private LinearLayout containerInfoEvent;
 
         public PropertyHolderView(){
 
         }
 
-        public void initViewsFromIds(View container,int event_name ,int event_place ,int event_date){
+        public void initViewsFromIds(View container,int event_name ,int event_place ,int event_date, int container_event){
 
             this.txtEventName = (TextView)container.findViewById(event_name);
             this.txtEventPlace = (TextView)container.findViewById(event_place);
             this.txtEventDate = (TextView)container.findViewById(event_date);
+
+            this.containerInfoEvent = (LinearLayout)container.findViewById(container_event);
 
         }
 
@@ -92,6 +116,10 @@ public class EventsAdapter extends ArrayAdapter<Event> {
 
         public TextView getTxtEventDate() {
             return txtEventDate;
+        }
+
+        public LinearLayout getContainerInfoEvent() {
+            return containerInfoEvent;
         }
     }
 
