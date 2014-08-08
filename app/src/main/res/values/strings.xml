@@ -18,4 +18,9 @@
     <string name="hello_world">Hello world!</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!--Tipos de eventos-->
+    <string name="magistral">Conferencia Magistral</string>
+    <string name="conferencia">Conferencia</string>
+    <string name="taller">Taller</string>
+
 </resources>

@@ -1,9 +1,9 @@
 package com.example.jhordan.semprende.Activities;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import com.example.jhordan.semprende.R;
 import com.example.jhordan.semprende.fragments.DetailEvent;
 
-public class DetailEventActivity extends FragmentActivity {
+public class DetailEventActivity extends ActionBarActivity{
 
     LinearLayout linearLayout;
 
