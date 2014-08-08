@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.jhordan.semprende.R;
 import com.squareup.picasso.Picasso;
@@ -14,17 +15,18 @@ import com.squareup.picasso.Picasso;
 /**
  *Este fragmento contiene la información de un ponente
  */
-public class Speaker extends Fragment {
+public class SpeakerFragment extends Fragment {
 
     ImageView photo;
 
-    public static Speaker newInstance() {
-        Speaker fragment = new Speaker();
+    public static SpeakerFragment newInstance(Bundle speaker) {
+        SpeakerFragment fragment = new SpeakerFragment();
         Bundle args = new Bundle();
+        args.putBundle("speaker",speaker);
         fragment.setArguments(args);
         return fragment;
     }
-    public Speaker() {
+    public SpeakerFragment() {
         // Required empty public constructor
     }
 
@@ -38,9 +40,19 @@ public class Speaker extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_speaker, container, false);
+        Bundle speaker = getArguments().getBundle("speaker");
+
         photo = (ImageView)root.findViewById(R.id.speaker_photo);
+        TextView speakerName = (TextView)root.findViewById(R.id.speaker_name);
+        TextView speakerCompany = (TextView)root.findViewById(R.id.speaker_company);
+        TextView speakerDescription = (TextView)root.findViewById(R.id.speaker_description);
+
+        speakerName.setText(speaker.getString("name_speaker"));
+        speakerCompany.setText(speaker.getString("dependency_speaker"));
+        speakerDescription.setText(speaker.getString("cv"));
 
         Picasso.with(getActivity()).load("http://www.codejobs.biz/www/lib/files/images/b312953ac30ff5d.png").into(photo);
+
         return root;
     }
 

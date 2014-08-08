@@ -14,18 +14,17 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import java.util.Iterator;
-
 import com.example.jhordan.semprende.Activities.DetailEventActivity;
 import com.example.jhordan.semprende.Adapter.EventsAdapter;
-import com.example.jhordan.semprende.NavigationDrawerFragment;
 import com.example.jhordan.semprende.R;
-import com.example.jhordan.semprende.util.Event;
+import com.example.jhordan.semprende.util.*;
+import com.example.jhordan.semprende.util.Speaker;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 
 public class ListEvents extends ListFragment {
@@ -77,16 +76,44 @@ public class ListEvents extends ListFragment {
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
         Intent i = new Intent(getActivity(), DetailEventActivity.class);
-        i.putExtra("category",((Event)l.getItemAtPosition(position)).getCategory());
+
+        i.putExtra("event",buildBundleEvent((Event)l.getItemAtPosition(position)));
         startActivity(i);
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putBoolean("created",true);
+        outState.putBoolean("created", true);
         //getSupportFragmentManager().putFragment(outState, "mContent", mContent);
-        Log.i("Saving","");
+        Log.i("Saving", "");
+    }
+
+    public Bundle buildBundleEvent (Event event){
+        Bundle result = new Bundle();
+
+        result.putString("name",event.getName());
+        result.putString("place",event.getPlace());
+        result.putString("date",event.getDate());
+        result.putString("description",event.getDescription());
+        result.putString("category",event.getCategory());
+
+        int i;
+
+        for( i = 0 ; i<event.getSpeakers().size(); i++){
+            Bundle bundle = new Bundle();
+            Speaker speaker = event.getSpeakers().get(i);
+
+            bundle.putString("name_speaker",speaker.getName());
+            bundle.putString("dependency_speaker",speaker.getDependency());
+            bundle.putString("cv",speaker.getCv());
+
+            result.putBundle("speaker"+(i+1),bundle);
+        }
+
+        result.putInt("number_speakers",i);
+
+        return result;
     }
 
     public void getAllEvents (){
@@ -148,6 +175,27 @@ public class ListEvents extends ListFragment {
                 temp.setDate(event.getString(getResources().getString(R.string.dia_evento)));
                 temp.setTimeInit(event.getString(getResources().getString(R.string.hora_inicio)));
                 temp.setTimeEnd(event.getString(getResources().getString(R.string.hora_fin)));
+                temp.setDescription(event.getString(getResources().getString(R.string.descripcion_conferencia)));
+
+                ArrayList <com.example.jhordan.semprende.util.Speaker> speakers = new ArrayList<Speaker>();
+                JSONObject jsonSpeakers = event.getJSONObject(getResources().getString(R.string.ponente));
+                Iterator <?> iterator = jsonSpeakers.keys();
+
+                while(iterator.hasNext()){
+                    String key =(String)iterator.next();
+
+                    JSONObject jsonSpeaker =  jsonSpeakers.getJSONObject(key);
+                    Speaker speaker = new Speaker();
+
+                    speaker.setName(jsonSpeaker.getString(getResources().getString(R.string.nombre_ponente)));
+                    speaker.setDependency(jsonSpeaker.getString(getResources().getString(R.string.dependencia_ponente)));
+                    speaker.setCv(jsonSpeaker.getString(getResources().getString(R.string.cv_ponente)));
+
+                    speakers.add(speaker);
+
+                }
+
+                temp.setSpeakers(speakers);
 
                 events.add(temp);
 

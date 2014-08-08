@@ -21,10 +21,12 @@ public class DetailEventActivity extends ActionBarActivity{
         setContentView(R.layout.activity_detail_event);
 
         linearLayout = (LinearLayout)findViewById(R.id.container_detail);
+        Bundle args = getIntent().getBundleExtra("event");
 
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(linearLayout.getId(),new DetailEvent(),"info");
+
+        transaction.add(linearLayout.getId(),DetailEvent.newInstance(args),"info");
         transaction.commit();
     }
 

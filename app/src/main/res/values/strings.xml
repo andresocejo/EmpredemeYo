@@ -34,6 +34,7 @@
     <!--IDs Json para Requests-->
 
     <string name="nombre_conferencia">NombreConferencia</string>
+    <string name="descripcion_conferencia">DescripcionConferencia</string>
     <string name="sala_conferencia">Sala</string>
     <string name="tipo_evento">TipoEvento</string>
     <string name="dia_evento">Dia</string>
@@ -41,6 +42,7 @@
     <string name="hora_fin">HoraFin</string>
     <string name="ponente">Ponente</string>
     <string name="nombre_ponente">Nombre</string>
+    <string name="foto_ponente"></string>
     <string name="dependencia_ponente">Dependencia</string>
     <string name="cv_ponente">CV</string>
 
