@@ -1,22 +1,30 @@
 package com.example.jhordan.semprende.fragments;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.jhordan.semprende.Adapter.SpeakerStreamingAdapter;
+import com.example.jhordan.semprende.GridView;
+import com.example.jhordan.semprende.Model.SpeakerModelConference;
 import com.example.jhordan.semprende.MyActivity;
 import com.example.jhordan.semprende.NavigationDrawerFragment;
 import com.example.jhordan.semprende.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Jhordan on 04/08/14.
  */
 public class Explorer extends Fragment {
 
-
+private GridView list;
     public static Explorer newInstance(int position) {
         Explorer myexplore = new Explorer();
         Bundle extraArguments = new Bundle();
@@ -25,9 +33,12 @@ public class Explorer extends Fragment {
         return myexplore;
     }
 
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
        View v = inflater.inflate(R.layout.explorer_fragment,container,false);
+
+
 
         return v;
     }

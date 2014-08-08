@@ -1,6 +1,8 @@
 package com.example.jhordan.semprende;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
@@ -11,8 +13,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.example.jhordan.semprende.Adapter.SpinnerAdapterBar;
+import com.example.jhordan.semprende.Model.SpinnerModelBar;
+import com.example.jhordan.semprende.fragments.Explorer;
+import com.example.jhordan.semprende.fragments.Map;
 import com.example.jhordan.semprende.fragments.Schedule;
+import com.example.jhordan.semprende.fragments.Streaming;
+
+import java.util.ArrayList;
 
 
 public class MyActivity extends ActionBarActivity
@@ -28,10 +38,17 @@ public class MyActivity extends ActionBarActivity
      */
     private CharSequence mTitle;
 
+    private ArrayList<SpinnerModelBar> navSpinner;
+
+    // Navigation adapter
+    private SpinnerAdapterBar adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
+
+
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -57,7 +74,7 @@ public class MyActivity extends ActionBarActivity
             case 1:
 
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, Schedule.newInstance(position))
+                        .replace(R.id.container, Explorer.newInstance(position))
                         .commit();
 
 
@@ -65,7 +82,7 @@ public class MyActivity extends ActionBarActivity
 
             case 2:
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, Schedule.newInstance(position))
+                        .replace(R.id.container, Streaming.newInstance(position))
                         .commit();
 
 
@@ -73,9 +90,8 @@ public class MyActivity extends ActionBarActivity
 
             case 3:
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, Schedule.newInstance(position))
+                        .replace(R.id.container, Map.newInstance(position))
                         .commit();
-
 
 
                 break;
@@ -83,7 +99,6 @@ public class MyActivity extends ActionBarActivity
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.container, Schedule.newInstance(position))
                         .commit();
-
 
 
                 break;
@@ -113,6 +128,10 @@ public class MyActivity extends ActionBarActivity
             default:
         }
     }
+
+
+
+
 
     public void restoreActionBar() {
         ActionBar actionBar = getSupportActionBar();
@@ -174,7 +193,7 @@ public class MyActivity extends ActionBarActivity
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
+                                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_my, container, false);
             return rootView;
         }
