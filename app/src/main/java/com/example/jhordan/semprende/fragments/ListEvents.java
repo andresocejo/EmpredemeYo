@@ -4,8 +4,17 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import java.util.Iterator;
 
 import com.example.jhordan.semprende.Activities.DetailEventActivity;
 import com.example.jhordan.semprende.Adapter.EventsAdapter;
@@ -13,29 +22,43 @@ import com.example.jhordan.semprende.NavigationDrawerFragment;
 import com.example.jhordan.semprende.R;
 import com.example.jhordan.semprende.util.Event;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 
 public class ListEvents extends ListFragment {
 
-    ArrayList<Event> events;
+    private ArrayList<Event> events;
+    private EventsAdapter adapter;
 
-    public static ListEvents newInstance(int position) {
+    public static ListEvents newInstance(String option, String day) {
         ListEvents fragment = new ListEvents();
         Bundle args = new Bundle();
-        args.putInt(NavigationDrawerFragment.ARG_SECTION_NUMBER, position);
+        args.putString("option",option);
+        args.putString("day",day);
         fragment.setArguments(args);
         return fragment;
     }
-    public ListEvents() {
-        // Required empty public constructor
+
+    public ListEvents (){
+
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        events =  new ArrayList<Event>();
-        fillList();
+
+        events = new ArrayList<Event>();
+
+        try{
+            if(getArguments().getString("option").equals("Explorer") && savedInstanceState == null){
+                getAllEvents();
+            }
+
+        }catch (Exception e){}
 
     }
 
@@ -49,26 +72,6 @@ public class ListEvents extends ListFragment {
         super.onDetach();
     }
 
-    /*Solo para prueba*/
-    public void fillList(){
-
-        Event event = new Event("PANEL Liderazgo: ¿Y si todo sale mal?","08/14/2014","16:30:00","18:00:00","Palacio Valparaiso 1", getResources().getString(R.string.conferencia));
-        events.add(event);
-
-        Event event2 = new Event("La Creatividad en la visión de un Empresario","08/14/2014","18:00:00","19:30:00","Palacio Valparaiso 2", getResources().getString(R.string.magistral));
-        events.add(event2);
-
-        Event event3 = new Event("Panel: Emprendimiento Social de la Filantropía a los Negocios Sociales","08/14/2014","18:00:00","19:30:00","Palacio Valparaiso 1", getResources().getString(R.string.taller));
-        events.add(event3);
-
-        EventsAdapter eventsAdapter = new EventsAdapter(events,getActivity());
-        setListAdapter(eventsAdapter);
-    }
-
-    public void fillListAgenda(){
-
-
-    }
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
@@ -76,6 +79,83 @@ public class ListEvents extends ListFragment {
         Intent i = new Intent(getActivity(), DetailEventActivity.class);
         i.putExtra("category",((Event)l.getItemAtPosition(position)).getCategory());
         startActivity(i);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean("created",true);
+        //getSupportFragmentManager().putFragment(outState, "mContent", mContent);
+        Log.i("Saving","");
+    }
+
+    public void getAllEvents (){
+
+        RequestQueue queue = Volley.newRequestQueue(getActivity());
+        final String url = getResources().getString(R.string.url_conferencias);
+
+        JsonObjectRequest getEvents = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        int size = 0;
+                        try{
+                            JSONObject data = response.getJSONObject("data");
+                            Iterator <?> keys = data.keys();
+
+                            while (keys.hasNext()){
+                                String key = (String)keys.next();
+
+                                if (data.get(key) instanceof JSONObject){
+                                    try {
+                                        JSONObject event = data.getJSONObject(key);
+                                        parseEventInfo(event);
+                                    }catch (JSONException e){
+                                        Log.e("Error parse",e.toString());
+                                    }
+                                }
+                            }
+
+                            adapter = new EventsAdapter(events,getActivity());
+                            setListAdapter(adapter);
+
+                        }catch (JSONException ex){
+                            Log.e("Json error",ex.toString());
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.i("Error",error.toString());
+                    }
+                });
+
+        queue.add(getEvents);
+    }
+
+    public void parseEventInfo (JSONObject event){
+
+        try{
+
+            //Detectar el dia del evento para asignarle un arraylist/
+            if(getArguments().getString("day").equals(event.getString(getResources().getString(R.string.dia_evento)))){
+                Event temp = new Event();
+
+                temp.setName(event.getString(getResources().getString(R.string.nombre_conferencia)));
+                temp.setPlace(event.getString(getResources().getString(R.string.sala_conferencia)));
+                temp.setCategory(event.getString(getResources().getString(R.string.tipo_evento)));
+                temp.setDate(event.getString(getResources().getString(R.string.dia_evento)));
+                temp.setTimeInit(event.getString(getResources().getString(R.string.hora_inicio)));
+                temp.setTimeEnd(event.getString(getResources().getString(R.string.hora_fin)));
+
+                events.add(temp);
+
+            }
+
+        }catch (JSONException e){
+            Log.e("Json event error",e.toString());
+        }
     }
 
 }

@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.jhordan.semprende.fragments.Explorer;
 import com.example.jhordan.semprende.fragments.Schedule;
 
 
@@ -57,7 +58,7 @@ public class MyActivity extends ActionBarActivity
             case 1:
 
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, Schedule.newInstance(position))
+                        .replace(R.id.container, Explorer.newInstance(position))
                         .commit();
 
 
