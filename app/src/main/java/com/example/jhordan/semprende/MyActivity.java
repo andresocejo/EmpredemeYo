@@ -11,9 +11,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.example.jhordan.semprende.Adapter.SpinnerAdapterBar;
+import com.example.jhordan.semprende.Model.SpinnerModelBar;
 import com.example.jhordan.semprende.fragments.Explorer;
+import com.example.jhordan.semprende.fragments.Map;
 import com.example.jhordan.semprende.fragments.Schedule;
+import com.example.jhordan.semprende.fragments.Streaming;
+
+import java.util.ArrayList;
 
 
 public class MyActivity extends ActionBarActivity
@@ -28,6 +35,11 @@ public class MyActivity extends ActionBarActivity
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
+
+    private ArrayList<SpinnerModelBar> navSpinner;
+
+    // Navigation adapter
+    private SpinnerAdapterBar adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +78,7 @@ public class MyActivity extends ActionBarActivity
 
             case 2:
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, Schedule.newInstance(position))
+                        .replace(R.id.container, Streaming.newInstance(position))
                         .commit();
 
 
@@ -74,7 +86,7 @@ public class MyActivity extends ActionBarActivity
 
             case 3:
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, Schedule.newInstance(position))
+                        .replace(R.id.container, Map.newInstance(position))
                         .commit();
 
 

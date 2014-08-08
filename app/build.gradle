@@ -25,4 +25,5 @@ dependencies {
     compile 'com.android.support:support-v4:19.+'
     compile 'com.mcxiaoke.viewpagerindicator:library:2.4.1'
     compile 'com.mcxiaoke.volley:library:1.0.6'
+    compile files('libs/stickygridheaders.jar')
 }
