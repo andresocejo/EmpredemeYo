@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -62,11 +63,16 @@ public class Schedule extends android.support.v4.app.Fragment implements android
         View v = inflater.inflate(R.layout.schedule_fragment, container, false);
 
         listaFragments = new ArrayList<Fragment>();
-        listaFragments.add(ListEvents.newInstance("Schedule",DAYS[0]));
-        listaFragments.add(ListEvents.newInstance("Schedule",DAYS[1]));
-        listaFragments.add(ListEvents.newInstance("Schedule",DAYS[2]));
-        listaFragments.add(ListEvents.newInstance("Schedule",DAYS[3]));
-        listaFragments.add(ListEvents.newInstance("Schedule",DAYS[4]));
+
+
+
+
+            listaFragments.add(ListEvents.newInstance("Schedule",DAYS[0]));
+            listaFragments.add(ListEvents.newInstance("Schedule",DAYS[1]));
+            listaFragments.add(ListEvents.newInstance("Schedule",DAYS[2]));
+            listaFragments.add(ListEvents.newInstance("Schedule",DAYS[3]));
+            listaFragments.add(ListEvents.newInstance("Schedule",DAYS[4]));
+
 
 
         // Creamos nuestro Adapter

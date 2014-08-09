@@ -56,14 +56,14 @@ public class ListEvents extends ListFragment {
         super.onCreate(savedInstanceState);
 
         try{
-            if(getArguments().getString("option").equals("Explorer") && !isDetached()){
+            if(getArguments().getString("option").equals("Explorer") && !this.isVisible()){
                 events = new ArrayList<Event>();
                 getAllEvents();
             }
 
-            else if (getArguments().getString("option").equals("Schedule") && !isDetached()){
+            else if (getArguments().getString("option").equals("Schedule") && !this.isVisible()){
                 events = new ArrayList<Event>();
-                getAllEventsSchedule();
+                getAllEventsSchedule(getActivity().getIntent().getStringExtra("email"),getActivity().getIntent().getStringExtra("gafete"));
             }
 
         }catch (Exception e){
@@ -78,6 +78,7 @@ public class ListEvents extends ListFragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         atach = true;
+
 
     }
 
@@ -177,11 +178,10 @@ public class ListEvents extends ListFragment {
         queue.add(getEvents);
     }
 
-    public void getAllEventsSchedule (){
+    public void getAllEventsSchedule (final String email, final String gafete){
 
         RequestQueue queue = Volley.newRequestQueue(getActivity());
-        final String url = "http://se.infoexpo.mx/2014/ae/web/utilerias/ws/google/get_attendee?idVisitante=021051&email=kike@devf.mx";
-
+        final String url = "http://se.infoexpo.mx/2014/ae/web/utilerias/ws/google/get_attendee?idVisitante=" + gafete + "&email=" + email;
         JsonObjectRequest getEvents = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override

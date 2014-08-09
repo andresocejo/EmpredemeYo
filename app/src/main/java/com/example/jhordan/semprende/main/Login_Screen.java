@@ -53,8 +53,8 @@ public class Login_Screen extends Activity {
             @Override
             public void onClick(View v) {
 
-               validaEditTex();
-               //goHome();
+                validaEditTex();
+                //goHome();
 
             }
         });
@@ -80,7 +80,14 @@ public class Login_Screen extends Activity {
 
     private void goHome() {
 
+       email = edt_email.getText().toString();
+       gafete = edt_password.getText().toString();
+
         Intent intento = new Intent(Login_Screen.this, MyActivity.class);
+
+        intento.putExtra("email",email );
+        intento.putExtra("gafete",gafete);
+
         startActivity(intento);
 
     }
@@ -105,7 +112,6 @@ public class Login_Screen extends Activity {
                 try {
 
 
-
                     JSONObject jsonObject = new JSONObject(response);
                     String estado = jsonObject.getString("status");
                     String datas = jsonObject.getString("data");
@@ -113,9 +119,6 @@ public class Login_Screen extends Activity {
 
                     String jsonText = estado;
                     String dataText = datas;
-
-
-
 
 
                     //Toast.makeText(Login_Screen.this, jsonText + " " + dataText, Toast.LENGTH_SHORT).show();
@@ -163,40 +166,7 @@ public class Login_Screen extends Activity {
         rq.add(postReq);
 
 
-
-
-
-
-
     }
-
-
-    public String parser(JSONObject response) {
-
-        String products = "";
-
-
-        try {
-            JSONArray buf = response.getJSONArray("users");
-
-            //Iterating trough the jsonarray to get the data
-            for (int i = 0; i < buf.length(); i++) {
-                JSONObject buf_2 = buf.getJSONObject(i);
-                JSONObject json_data = buf_2.getJSONObject("users");
-
-                Log.i("Desire", json_data.getString("product_name"));
-                products = json_data.getString("product_name");
-
-            }
-
-        } catch (JSONException e) {
-            Log.e("Error", e.toString());
-        }
-
-        return products;
-
-    }
-
 
 
 }
