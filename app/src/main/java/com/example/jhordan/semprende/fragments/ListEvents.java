@@ -21,6 +21,7 @@ import com.example.jhordan.semprende.util.Event;
 import com.example.jhordan.semprende.util.MiscellaneousMethods;
 import com.example.jhordan.semprende.util.Speaker;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -33,6 +34,8 @@ public class ListEvents extends ListFragment {
 
     private ArrayList<Event> events;
     private EventsAdapter adapter;
+    private String day;
+    private Boolean atach;
 
     public static ListEvents newInstance(String option, String day) {
         ListEvents fragment = new ListEvents();
@@ -52,27 +55,37 @@ public class ListEvents extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        events = new ArrayList<Event>();
-
         try{
-            if(getArguments().getString("option").equals("Explorer") && savedInstanceState == null){
+            if(getArguments().getString("option").equals("Explorer") && !isDetached()){
+                events = new ArrayList<Event>();
                 getAllEvents();
             }
 
-        }catch (Exception e){}
+            else if (getArguments().getString("option").equals("Schedule") && !isDetached()){
+                events = new ArrayList<Event>();
+                getAllEventsSchedule();
+            }
+
+        }catch (Exception e){
+            Log.e("Error",e.toString());
+        }
+
+
 
     }
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
+        atach = true;
+
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
+        atach = false;
     }
-
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
@@ -128,7 +141,7 @@ public class ListEvents extends ListFragment {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        int size = 0;
+
                         try{
                             JSONObject data = response.getJSONObject("data");
                             Iterator <?> keys = data.keys();
@@ -164,6 +177,43 @@ public class ListEvents extends ListFragment {
         queue.add(getEvents);
     }
 
+    public void getAllEventsSchedule (){
+
+        RequestQueue queue = Volley.newRequestQueue(getActivity());
+        final String url = "http://se.infoexpo.mx/2014/ae/web/utilerias/ws/google/get_attendee?idVisitante=021051&email=kike@devf.mx";
+
+        JsonObjectRequest getEvents = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+                        try{
+                            JSONObject data = response.getJSONObject("data");
+
+                            JSONArray array = data.getJSONArray("Agenda");
+
+                            for(int i = 0; i<array.length(); i++ ){
+                                JSONObject object = array.getJSONObject(i);
+                                parseEventInfo(object);
+                            }
+                            Collections.sort(events, new MiscellaneousMethods.CustomComparator());
+                            adapter = new EventsAdapter(events,getActivity());
+                            setListAdapter(adapter);
+
+                        }catch (JSONException ex){
+                            Log.e("Json error",ex.toString());
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.i("Error",error.toString());
+                    }
+                });
+
+        queue.add(getEvents);
+    }
     public void parseEventInfo (JSONObject event){
 
         try{

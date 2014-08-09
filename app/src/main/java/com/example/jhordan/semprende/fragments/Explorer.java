@@ -6,25 +6,17 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 
 import com.example.jhordan.semprende.Adapter.PageAdapter;
 import com.example.jhordan.semprende.MyActivity;
 import com.example.jhordan.semprende.NavigationDrawerFragment;
 import com.example.jhordan.semprende.R;
-import com.example.jhordan.semprende.util.Event;
-import com.viewpagerindicator.TabPageIndicator;
 import com.viewpagerindicator.TitlePageIndicator;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -37,8 +29,6 @@ public class Explorer extends Fragment {
     private PagerAdapter mPagerAdapter;
     private ViewPager mviewPager;
     private List<Fragment> listaFragments;
-    private TabPageIndicator mIndicator;
-    // private PageIndicator mIndicatores;
     private TitlePageIndicator mIndicatores;
 
 
@@ -80,9 +70,6 @@ public class Explorer extends Fragment {
 
         // Establecemos el Adapter
         mviewPager.setAdapter(mPagerAdapter);
-
-        //mIndicator = (TabPageIndicator) v.findViewById(R.id.indicator);
-        //mIndicator.setViewPager(mviewPager);
 
         mIndicatores = (TitlePageIndicator) v.findViewById(R.id.indicators);
         mIndicatores.setViewPager(mviewPager);
