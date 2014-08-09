@@ -9,6 +9,25 @@
     <dimen name="section_padding">15dp</dimen>
     <dimen name="padding_login">30dp</dimen>
 
+    <!--Paddings-->
+    <dimen name="padding_description">30dp</dimen>
+    <dimen name="padding_top_layout_info_event">40dp</dimen>
+    <dimen name="padding_lateral_layout_info_event">70dp</dimen>
+    <dimen name="padding_bottom_layout_info_event">20dp</dimen>
+
+    <!--Margins-->
+    <dimen name="margint_top_speaker">10dp</dimen>
+    <dimen name="margin_top_place_detail">15dp</dimen>
+    <dimen name="margin_top_view_detail">14dp</dimen>
+    <dimen name="margin_top_tx_speaker">12dp</dimen>
+    <dimen name="margin_top_speaker_description">14dp</dimen>
+    <dimen name="margin_right_image_speaker">15dp</dimen>
+
     <!--Text Sizes-->
     <dimen name="title_event">17sp</dimen>
+    <dimen name="tx_event_name_detail">17sp</dimen>
+    <dimen name="tx_speaker_text">16sp</dimen>
+
+    <!--Max sizes-->
+    <dimen name="max_image_speaker">80dp</dimen>
 </resources>

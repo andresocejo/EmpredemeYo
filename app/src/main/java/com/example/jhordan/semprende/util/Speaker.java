@@ -8,6 +8,15 @@ public class Speaker {
     String name;
     String dependency;
     String cv;
+    String url_photo;
+
+    public String getUrl_photo() {
+        return url_photo;
+    }
+
+    public void setUrl_photo(String url_photo) {
+        this.url_photo = url_photo;
+    }
 
     public String getName() {
         return name;

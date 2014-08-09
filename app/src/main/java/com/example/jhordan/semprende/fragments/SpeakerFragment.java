@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.jhordan.semprende.R;
+import com.example.jhordan.semprende.util.CircleTransform;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -51,7 +52,15 @@ public class SpeakerFragment extends Fragment {
         speakerCompany.setText(speaker.getString("dependency_speaker"));
         speakerDescription.setText(speaker.getString("cv"));
 
-        Picasso.with(getActivity()).load("http://www.codejobs.biz/www/lib/files/images/b312953ac30ff5d.png").into(photo);
+        if(speaker.getString("picture").isEmpty()){
+            Picasso.with(getActivity()).load("http://www.codejobs.biz/www/lib/files/images/b312953ac30ff5d.png").transform(new CircleTransform()).into(photo);
+        }
+
+        else{
+            Picasso.with(getActivity()).load(speaker.getString("picture")).transform(new CircleTransform()).into(photo);
+        }
+
+
 
         return root;
     }

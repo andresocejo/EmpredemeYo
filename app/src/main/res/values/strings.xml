@@ -42,7 +42,7 @@
     <string name="hora_fin">HoraFin</string>
     <string name="ponente">Ponente</string>
     <string name="nombre_ponente">Nombre</string>
-    <string name="foto_ponente"></string>
+    <string name="foto_ponente">Foto</string>
     <string name="dependencia_ponente">Dependencia</string>
     <string name="cv_ponente">CV</string>
 
