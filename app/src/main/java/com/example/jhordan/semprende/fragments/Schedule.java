@@ -8,12 +8,9 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.Toast;
 
 import com.example.jhordan.semprende.Adapter.PageAdapter;
@@ -36,6 +33,7 @@ import java.util.List;
 public class Schedule extends android.support.v4.app.Fragment implements android.app.ActionBar.OnNavigationListener {
 
     private ArrayList<SpinnerModelBar> navSpinner;
+    private String [] DAYS;
 
     // Navigation adapter
     private SpinnerAdapterBar adapter;
@@ -64,11 +62,11 @@ public class Schedule extends android.support.v4.app.Fragment implements android
         View v = inflater.inflate(R.layout.schedule_fragment, container, false);
 
         listaFragments = new ArrayList<Fragment>();
-        listaFragments.add(new ListEvents());
-        listaFragments.add(new ListEvents());
-        listaFragments.add(new ListEvents());
-        listaFragments.add(new ListEvents());
-        listaFragments.add(new ListEvents());
+        listaFragments.add(ListEvents.newInstance("Schedule",DAYS[0]));
+        listaFragments.add(ListEvents.newInstance("Schedule",DAYS[1]));
+        listaFragments.add(ListEvents.newInstance("Schedule",DAYS[2]));
+        listaFragments.add(ListEvents.newInstance("Schedule",DAYS[3]));
+        listaFragments.add(ListEvents.newInstance("Schedule",DAYS[4]));
 
 
         // Creamos nuestro Adapter
@@ -154,6 +152,7 @@ public class Schedule extends android.support.v4.app.Fragment implements android
         ((MyActivity) activity).onSectionAttached(getArguments()
                 .getInt(NavigationDrawerFragment.ARG_SECTION_NUMBER));
 
+        DAYS = getResources().getStringArray(R.array.days_events);
 
     }
 
