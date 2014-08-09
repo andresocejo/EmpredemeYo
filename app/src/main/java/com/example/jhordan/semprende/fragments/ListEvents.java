@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.android.volley.Request;
@@ -35,7 +37,7 @@ public class ListEvents extends ListFragment {
     private ArrayList<Event> events;
     private EventsAdapter adapter;
     private String day;
-    private Boolean atach;
+    private Boolean listCompleted = false;
 
     public static ListEvents newInstance(String option, String day) {
         ListEvents fragment = new ListEvents();
@@ -52,24 +54,38 @@ public class ListEvents extends ListFragment {
 
 
     @Override
+    public void onPause() {
+        super.onPause();
+        Log.i("Pause","");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (getActivity()!=null){
+            try {
+                if (getArguments().getString("option").equals("Explorer")) {
+                    events = new ArrayList<Event>();
+                    getAllEvents();
+                } else if (getArguments().getString("option").equals("Schedule")) {
+                    events = new ArrayList<Event>();
+                    getAllEventsSchedule(getActivity().getIntent().getStringExtra("email"), getActivity().getIntent().getStringExtra("gafete"));
+                }
+
+            } catch (Exception e) {
+                Log.e("Error", e.toString());
+            }}
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        try{
-            if(getArguments().getString("option").equals("Explorer") && !this.isVisible()){
-                events = new ArrayList<Event>();
-                getAllEvents();
-            }
-
-            else if (getArguments().getString("option").equals("Schedule") && !this.isVisible()){
-                events = new ArrayList<Event>();
-                getAllEventsSchedule(getActivity().getIntent().getStringExtra("email"),getActivity().getIntent().getStringExtra("gafete"));
-            }
-
-        }catch (Exception e){
-            Log.e("Error",e.toString());
-        }
-
 
 
     }
@@ -77,15 +93,12 @@ public class ListEvents extends ListFragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        atach = true;
-
 
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        atach = false;
     }
 
     @Override
@@ -103,6 +116,12 @@ public class ListEvents extends ListFragment {
         outState.putBoolean("created", true);
         //getSupportFragmentManager().putFragment(outState, "mContent", mContent);
         Log.i("Saving", "");
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Log.i("Destroy view","");
     }
 
     public Bundle buildBundleEvent (Event event){
@@ -162,6 +181,7 @@ public class ListEvents extends ListFragment {
                             Collections.sort(events, new MiscellaneousMethods.CustomComparator());
                             adapter = new EventsAdapter(events,getActivity());
                             setListAdapter(adapter);
+                            listCompleted = true;
 
                         }catch (JSONException ex){
                             Log.e("Json error",ex.toString());
@@ -199,6 +219,7 @@ public class ListEvents extends ListFragment {
                             Collections.sort(events, new MiscellaneousMethods.CustomComparator());
                             adapter = new EventsAdapter(events,getActivity());
                             setListAdapter(adapter);
+                            listCompleted = true;
 
                         }catch (JSONException ex){
                             Log.e("Json error",ex.toString());
@@ -219,7 +240,8 @@ public class ListEvents extends ListFragment {
         try{
 
             //Detectar el dia del evento para asignarle un arraylist/
-            if(getArguments().getString("day").equals(event.getString(getResources().getString(R.string.dia_evento)))){
+
+            if(getArguments().getString("day").equals(event.getString(getResources().getString(R.string.dia_evento)))) {
                 Event temp = new Event();
 
                 temp.setName(event.getString(getResources().getString(R.string.nombre_conferencia)));
@@ -230,14 +252,14 @@ public class ListEvents extends ListFragment {
                 temp.setTimeEnd(event.getString(getResources().getString(R.string.hora_fin)));
                 temp.setDescription(event.getString(getResources().getString(R.string.descripcion_conferencia)));
 
-                ArrayList <com.example.jhordan.semprende.util.Speaker> speakers = new ArrayList<Speaker>();
+                ArrayList<com.example.jhordan.semprende.util.Speaker> speakers = new ArrayList<Speaker>();
                 JSONObject jsonSpeakers = event.getJSONObject(getResources().getString(R.string.ponente));
-                Iterator <?> iterator = jsonSpeakers.keys();
+                Iterator<?> iterator = jsonSpeakers.keys();
 
-                while(iterator.hasNext()){
-                    String key =(String)iterator.next();
+                while (iterator.hasNext()) {
+                    String key = (String) iterator.next();
 
-                    JSONObject jsonSpeaker =  jsonSpeakers.getJSONObject(key);
+                    JSONObject jsonSpeaker = jsonSpeakers.getJSONObject(key);
                     Speaker speaker = new Speaker();
 
                     speaker.setName(jsonSpeaker.getString(getResources().getString(R.string.nombre_ponente)));
