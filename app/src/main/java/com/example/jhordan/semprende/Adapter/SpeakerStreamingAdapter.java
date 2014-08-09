@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.jhordan.semprende.Model.SpeakerModelConference;
 import com.example.jhordan.semprende.R;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +32,24 @@ public class SpeakerStreamingAdapter extends BaseAdapter {
     private List<SpeakerModelConference> speaker;
     private Context mContext;
     private LayoutInflater layoutInflater;
+    private Integer[] images ={
+            R.drawable.img_andres_bustamante,
+            R.drawable.img_andy_cohen,
+            R.drawable.img_arjan_dijk,
+            R.drawable.img_blanca_trevino,
+            R.drawable.img_carlos_arguello,
+            R.drawable.img_christopher_gardner,
+            R.drawable.img_david_konzevik,
+            R.drawable.img_ildefonso_guajardo,
+            R.drawable.img_luis_barrios,
+            R.drawable.img_marc_vidal,
+            R.drawable.img_peter_diamandis,
+            R.drawable.img_ramon_munoz,
+            R.drawable.img_renee_mauborgne,
+            R.drawable.img_roberto_azevedo
+
+    };
+
 
 
     public SpeakerStreamingAdapter(List<SpeakerModelConference> speaker, Context mContext) {
@@ -88,7 +107,7 @@ public class SpeakerStreamingAdapter extends BaseAdapter {
         }
         streamingHolderView.getTitleContainer().setText("Una Interesante Conferencia");
         streamingHolderView.getHourContainer().setText("En vivo ahora");
-        streamingHolderView.getSpeakerImageContainer().setImageResource(R.drawable.larry_page);
+        streamingHolderView.getSpeakerImageContainer().setImageResource(images[position]);
 
         String num = Integer.toString(position);
 

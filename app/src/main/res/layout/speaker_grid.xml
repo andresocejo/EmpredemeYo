@@ -7,11 +7,8 @@
 
 
 
-
-
-
     <ImageView
-        android:layout_width="180dp"
+        android:layout_width="match_parent"
         android:layout_height="175dp"
         android:id="@+id/speaker_image"
         android:layout_gravity="center_horizontal"
@@ -21,7 +18,7 @@
         />
     <TextView
         android:id="@+id/speaker_color"
-        android:layout_width="180dp"
+        android:layout_width="match_parent"
         android:layout_height="175dp"
         android:text=""
         android:textColor="@color/white"

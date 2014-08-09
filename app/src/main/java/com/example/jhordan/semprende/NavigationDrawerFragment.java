@@ -1,17 +1,16 @@
 package com.example.jhordan.semprende;
 
-import android.graphics.Color;
-import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,11 +18,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.jhordan.semprende.Adapter.ListViewItemAdapter;
 import com.example.jhordan.semprende.Model.ItemContentSection;
@@ -82,11 +78,10 @@ public class NavigationDrawerFragment extends Fragment {
 
 
         listViewItems = new ArrayList<ListViewItemInterface>();
-        listViewItems.add(new ItemContentSection(0, R.color.gray, R.string.schedule));
-        listViewItems.add(new ItemContentSection(0, R.color.gray, R.string.explorer));
-        listViewItems.add(new ItemContentSection(0, R.color.gray, R.string.streaming));
-        listViewItems.add(new ItemContentSection(0, R.color.gray, R.string.map));
-        listViewItems.add(new ItemContentSection(0, R.color.gray, R.string.settings));
+        listViewItems.add(new ItemContentSection(R.drawable.ic_my_schedule, R.color.gray, R.string.schedule));
+        listViewItems.add(new ItemContentSection(R.drawable.ic_explore, R.color.gray, R.string.explorer));
+        listViewItems.add(new ItemContentSection(R.drawable.ic_streaming, R.color.gray, R.string.streaming));
+        listViewItems.add(new ItemContentSection(R.drawable.ic_map, R.color.gray, R.string.map));
 
         // Read in the flag indicating whether or not the user has demonstrated awareness of the
         // drawer. See PREF_USER_LEARNED_DRAWER for details.
@@ -266,7 +261,6 @@ public class NavigationDrawerFragment extends Fragment {
         // If the drawer is open, show the global app actions in the action bar. See also
         // showGlobalContextActionBar, which controls the top-left area of the action bar.
         if (mDrawerLayout != null && isDrawerOpen()) {
-            inflater.inflate(R.menu.global, menu);
             showGlobalContextActionBar();
         }
         super.onCreateOptionsMenu(menu, inflater);

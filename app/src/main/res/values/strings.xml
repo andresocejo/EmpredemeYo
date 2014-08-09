@@ -9,7 +9,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
-    <string name="schedule">Mi agenda</string>
+    <string name="schedule">Mi Agenda</string>
     <string name="explorer">Explorar</string>
     <string name="streaming">Streaming</string>
     <string name="map">Mapa</string>
@@ -17,11 +17,43 @@
     <string name="title_activity_detail_event">Detalle del evento</string>
     <string name="hello_world">Hello world!</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btn_acceder">Entrar</string>
+    <string name="welcome_login">¡Bienvenido!, para entrar a tu cuenta,</string>
+    <string name="input_data">ingresa los siguientes datos:</string>
+    <string name="hint_email"> Correo electrónico</string>
+    <string name="hint_password"> Id de Registro</string>
 
     <!--Tipos de eventos-->
     <string name="magistral">Conferencia Magistral</string>
     <string name="conferencia">Conferencia</string>
     <string name="taller">Taller</string>
     <string name="google_maps_key">AIzaSyDQpa7X_TIKDf_BvDzhSNBMlkJE73PUJ0w</string>
+
+    <string-array name="days_events">
+        <item>Lunes, 11 de Agosto</item>
+        <item>Martes, 12 de Agosto</item>
+        <item>Miércoles, 13 de Agosto</item>
+        <item>Jueves, 14 de Agosto</item>
+        <item>Viernes, 15 de Agosto</item>
+    </string-array>
+
+    <!--IDs Json para Requests-->
+
+    <string name="nombre_conferencia">NombreConferencia</string>
+    <string name="descripcion_conferencia">DescripcionConferencia</string>
+    <string name="sala_conferencia">Sala</string>
+    <string name="tipo_evento">TipoEvento</string>
+    <string name="dia_evento">Dia</string>
+    <string name="hora_inicio">HoraInicio</string>
+    <string name="hora_fin">HoraFin</string>
+    <string name="ponente">Ponente</string>
+    <string name="nombre_ponente">Nombre</string>
+    <string name="foto_ponente">Foto</string>
+    <string name="dependencia_ponente">Dependencia</string>
+    <string name="cv_ponente">CV</string>
+
+    <!--URLS-->
+    <string name="url_conferencias">http://se.infoexpo.mx/2014/ae/web/utilerias/ws/google/conferencias</string>
+    <string name="url_login_user">http://se.infoexpo.mx/2014/ae/web/utilerias/ws/google/get_attendee</string>
 
 </resources>

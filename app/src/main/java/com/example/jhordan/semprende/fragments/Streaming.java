@@ -31,6 +31,7 @@ public class Streaming extends Fragment {
     private GridView list;
     private Layout rls;
 
+
     public static Streaming newInstance(int position) {
         Streaming myexplore = new Streaming();
         Bundle extraArguments = new Bundle();
@@ -47,11 +48,14 @@ public class Streaming extends Fragment {
         list = (GridView) v.findViewById(R.id.list);
 
 
+
+
+
         List<SpeakerModelConference> ponente = new ArrayList<SpeakerModelConference>();
         SpeakerStreamingAdapter ponenteAdapter = new SpeakerStreamingAdapter(ponente, getActivity());
 
         //Esto es para probar el gridview con datos
-        for (int index = 0; index < 10; index++) {
+        for (int index = 0; index < 13; index++) {
             SpeakerModelConference confe = new SpeakerModelConference();
 
 
@@ -63,8 +67,8 @@ public class Streaming extends Fragment {
         list.setAdapter(ponenteAdapter);
 
 
-        View header = View.inflate(getActivity(), R.layout.speaker_gridtwo, null);
-        list.addHeaderView(header);
+      //  View header = View.inflate(getActivity(), R.layout.speaker_gridtwo, null);
+        //list.addHeaderView(header);
         list.setNumColumns(2);
 
 

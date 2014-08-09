@@ -1,20 +1,20 @@
 package com.example.jhordan.semprende.fragments;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
-import android.os.Build;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.jhordan.semprende.Adapter.SpeakerStreamingAdapter;
-import com.example.jhordan.semprende.GridView;
-import com.example.jhordan.semprende.Model.SpeakerModelConference;
+import com.example.jhordan.semprende.Adapter.PageAdapter;
 import com.example.jhordan.semprende.MyActivity;
 import com.example.jhordan.semprende.NavigationDrawerFragment;
 import com.example.jhordan.semprende.R;
+import com.viewpagerindicator.TitlePageIndicator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,15 @@ import java.util.List;
  */
 public class Explorer extends Fragment {
 
-private GridView list;
+    private String [] DAYS;
+
+    private PagerAdapter mPagerAdapter;
+    private ViewPager mviewPager;
+    private List<Fragment> listaFragments;
+    private TitlePageIndicator mIndicatores;
+
+
+
     public static Explorer newInstance(int position) {
         Explorer myexplore = new Explorer();
         Bundle extraArguments = new Bundle();
@@ -33,12 +41,43 @@ private GridView list;
         return myexplore;
     }
 
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
        View v = inflater.inflate(R.layout.explorer_fragment,container,false);
 
+        DAYS = new String[]{"Lunes, 11 de Agosto","Martes, 12 de Agosto","Jueves, 14 de Agosto","Miércoles, 13 de Agosto","Viernes, 15 de Agosto"};
 
+
+        listaFragments = new ArrayList<Fragment>();
+
+        for(int i = 0; i<5; i++){
+
+            listaFragments.add(ListEvents.newInstance("Explorer",DAYS[i]));
+
+        }
+
+        // Creamos nuestro Adapter
+        mPagerAdapter = new PageAdapter(getActivity().getSupportFragmentManager(),
+                listaFragments);
+
+
+        // Instanciamos nuestro ViewPager
+        mviewPager = (ViewPager) v.findViewById(R.id.pager);
+        mviewPager.setOffscreenPageLimit(5);
+
+
+        // Establecemos el Adapter
+        mviewPager.setAdapter(mPagerAdapter);
+
+        mIndicatores = (TitlePageIndicator) v.findViewById(R.id.indicators);
+        mIndicatores.setViewPager(mviewPager);
+
+        mIndicatores.setFooterColor(Color.parseColor("#00e575"));
 
         return v;
     }
@@ -48,5 +87,8 @@ private GridView list;
         super.onAttach(activity);
         ((MyActivity) activity).onSectionAttached(getArguments()
                 .getInt(NavigationDrawerFragment.ARG_SECTION_NUMBER));
+
     }
+
+
 }

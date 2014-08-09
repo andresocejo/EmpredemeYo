@@ -1,8 +1,8 @@
 <LinearLayout
     android:orientation="horizontal"
+    android:layout_marginTop="@dimen/margint_top_speaker"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:padding="5dp"
+    android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 
@@ -10,15 +10,16 @@
         android:orientation="vertical"
         android:layout_width="0dp"
         android:layout_weight="0.3"
-        android:gravity="top"
+        android:layout_marginRight="@dimen/margin_right_image_speaker"
+        android:gravity="top|left"
         android:layout_height="wrap_content">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
-            android:maxHeight="90dp"
-            android:maxWidth="90dp"
+            android:maxHeight="@dimen/max_image_speaker"
+            android:maxWidth="@dimen/max_image_speaker"
             android:adjustViewBounds="true"
             android:id="@+id/speaker_photo" />
     </LinearLayout>
@@ -45,7 +46,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="@dimen/margin_top_speaker_description"
             android:text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore "
             android:id="@+id/speaker_description" />
     </LinearLayout>
