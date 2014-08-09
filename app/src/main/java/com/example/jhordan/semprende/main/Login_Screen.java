@@ -22,6 +22,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.jhordan.semprende.MyActivity;
 import com.example.jhordan.semprende.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -52,7 +53,8 @@ public class Login_Screen extends Activity {
             @Override
             public void onClick(View v) {
 
-                validaEditTex();
+               validaEditTex();
+               //goHome();
 
             }
         });
@@ -103,13 +105,21 @@ public class Login_Screen extends Activity {
                 try {
 
 
+
                     JSONObject jsonObject = new JSONObject(response);
                     String estado = jsonObject.getString("status");
-                    String data = jsonObject.getString("data");
+                    String datas = jsonObject.getString("data");
+
 
                     String jsonText = estado;
-                    String dataText = data;
-                    //  Toast.makeText(Login_Screen.this, jsonText + " " + dataText, Toast.LENGTH_SHORT).show();
+                    String dataText = datas;
+
+
+
+
+
+                    //Toast.makeText(Login_Screen.this, jsonText + " " + dataText, Toast.LENGTH_SHORT).show();
+
 
                     if (jsonText.equals("true") && dataText.equals("[]")) {
 
@@ -118,6 +128,7 @@ public class Login_Screen extends Activity {
 
                     } else {
                         goHome();
+
                     }
 
 
@@ -152,6 +163,40 @@ public class Login_Screen extends Activity {
         rq.add(postReq);
 
 
+
+
+
+
+
     }
+
+
+    public String parser(JSONObject response) {
+
+        String products = "";
+
+
+        try {
+            JSONArray buf = response.getJSONArray("users");
+
+            //Iterating trough the jsonarray to get the data
+            for (int i = 0; i < buf.length(); i++) {
+                JSONObject buf_2 = buf.getJSONObject(i);
+                JSONObject json_data = buf_2.getJSONObject("users");
+
+                Log.i("Desire", json_data.getString("product_name"));
+                products = json_data.getString("product_name");
+
+            }
+
+        } catch (JSONException e) {
+            Log.e("Error", e.toString());
+        }
+
+        return products;
+
+    }
+
+
 
 }

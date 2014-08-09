@@ -99,7 +99,7 @@ public class Schedule extends android.support.v4.app.Fragment implements android
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        spinnerBar();
+
 
 
     }

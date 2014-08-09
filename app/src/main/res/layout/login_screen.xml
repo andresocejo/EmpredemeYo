@@ -3,7 +3,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green"
+    android:background="@drawable/bg_login"
     android:orientation="vertical"
     android:padding="30dp">
 
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
-        android:drawableLeft="@drawable/ic_drawer"
+        android:drawableLeft="@drawable/ic_email"
         android:drawablePadding="10dp"
         android:ems="10"
         android:hint="@string/hint_email"
