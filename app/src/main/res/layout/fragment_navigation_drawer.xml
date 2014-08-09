@@ -1,4 +1,3 @@
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/menuOptions"
     android:layout_width="280sp"
@@ -6,7 +5,6 @@
     android:layout_gravity="start"
     android:background="#ffffff"
     android:choiceMode="singleChoice"
-
     android:orientation="vertical"
 
     >
@@ -16,10 +14,8 @@
         android:id="@+id/profilePicture"
         android:layout_width="match_parent"
         android:layout_height="135sp"
-        android:scaleType="fitXY"
-        android:background="@color/green" />
-
-
+        android:background="@color/green"
+        android:src="@drawable/img_sde_menu" />
 
 
     <ListView
