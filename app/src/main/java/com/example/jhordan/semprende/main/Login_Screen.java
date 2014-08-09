@@ -1,6 +1,9 @@
 package com.example.jhordan.semprende.main;
 
+import android.app.ActionBar;
 import android.app.Activity;
+import android.app.DownloadManager;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,17 +12,23 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.jhordan.semprende.MyActivity;
 import com.example.jhordan.semprende.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Jhordan on 04/08/14.
@@ -45,8 +54,8 @@ public class Login_Screen extends Activity {
             @Override
             public void onClick(View v) {
 
-                //validaEditTex();
-                goHome();
+                validaEditTex();
+
 
             }
         });
@@ -72,13 +81,13 @@ public class Login_Screen extends Activity {
 
     private void goHome() {
 
-       email = edt_email.getText().toString();
-       gafete = edt_password.getText().toString();
+        email = edt_email.getText().toString();
+        gafete = edt_password.getText().toString();
 
         Intent intento = new Intent(Login_Screen.this, MyActivity.class);
 
-        intento.putExtra("email",email );
-        intento.putExtra("gafete",gafete);
+        intento.putExtra("email", email);
+        intento.putExtra("gafete", gafete);
 
         startActivity(intento);
 
@@ -90,8 +99,11 @@ public class Login_Screen extends Activity {
 
     private void loginUser(final String email, final String gafete) {
 
+        // String gafete="010176";
+        // String email= "javierr@infoexpo.com.mx";
         RequestQueue rq = Volley.newRequestQueue(this);
         String url = "http://se.infoexpo.mx/2014/ae/web/utilerias/ws/google/get_attendee?idVisitante=" + gafete + "&email=" + email;
+        final ProgressDialog progressDialog = ProgressDialog.show(this, "Espera por Favor ...", "Validando datos ...", true);
 
         StringRequest postReq = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
 
@@ -129,7 +141,7 @@ public class Login_Screen extends Activity {
                     Log.i("ERROR", "ERROR");
                 }
 
-
+                progressDialog.dismiss();
             }
         }, new Response.ErrorListener() {
 
@@ -141,6 +153,16 @@ public class Login_Screen extends Activity {
         })
 
         {
+            /*@Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("email", "javierr@infoexpo.com.mx");
+                params.put("idVisitante", "010176");
+
+                return params;
+            }*/
+
+
         };
 
         rq.add(postReq);
