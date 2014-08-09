@@ -50,14 +50,16 @@ public class Explorer extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
        View v = inflater.inflate(R.layout.explorer_fragment,container,false);
 
+        DAYS = new String[]{"Lunes, 11 de Agosto","Martes, 12 de Agosto","Jueves, 14 de Agosto","Miércoles, 13 de Agosto","Viernes, 15 de Agosto"};
+
+
         listaFragments = new ArrayList<Fragment>();
 
-        listaFragments.add(ListEvents.newInstance("Explorer",DAYS[0]));
-        listaFragments.add(ListEvents.newInstance("Explorer",DAYS[1]));
-        listaFragments.add(ListEvents.newInstance("Explorer",DAYS[2]));
-        listaFragments.add(ListEvents.newInstance("Explorer",DAYS[3]));
-        listaFragments.add(ListEvents.newInstance("Explorer",DAYS[4]));
+        for(int i = 0; i<5; i++){
 
+            listaFragments.add(ListEvents.newInstance("Explorer",DAYS[i]));
+
+        }
 
         // Creamos nuestro Adapter
         mPagerAdapter = new PageAdapter(getActivity().getSupportFragmentManager(),
@@ -66,6 +68,7 @@ public class Explorer extends Fragment {
 
         // Instanciamos nuestro ViewPager
         mviewPager = (ViewPager) v.findViewById(R.id.pager);
+        mviewPager.setOffscreenPageLimit(5);
 
 
         // Establecemos el Adapter
@@ -76,7 +79,6 @@ public class Explorer extends Fragment {
 
         mIndicatores.setFooterColor(Color.parseColor("#00e575"));
 
-
         return v;
     }
 
@@ -86,7 +88,6 @@ public class Explorer extends Fragment {
         ((MyActivity) activity).onSectionAttached(getArguments()
                 .getInt(NavigationDrawerFragment.ARG_SECTION_NUMBER));
 
-        DAYS = getResources().getStringArray(R.array.days_events);
     }
 
 

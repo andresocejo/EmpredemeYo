@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -20,7 +19,6 @@ import com.example.jhordan.semprende.Model.SpinnerModelBar;
 import com.example.jhordan.semprende.MyActivity;
 import com.example.jhordan.semprende.NavigationDrawerFragment;
 import com.example.jhordan.semprende.R;
-import com.viewpagerindicator.TabPageIndicator;
 import com.viewpagerindicator.TitlePageIndicator;
 
 import java.util.ArrayList;
@@ -42,8 +40,6 @@ public class Schedule extends android.support.v4.app.Fragment implements android
     private PagerAdapter mPagerAdapter;
     private ViewPager mviewPager;
     private List<Fragment> listaFragments;
-    private TabPageIndicator mIndicator;
-    // private PageIndicator mIndicatores;
     private TitlePageIndicator mIndicatores;
 
 
@@ -63,16 +59,11 @@ public class Schedule extends android.support.v4.app.Fragment implements android
         View v = inflater.inflate(R.layout.schedule_fragment, container, false);
 
         listaFragments = new ArrayList<Fragment>();
-
-
-
-
-            listaFragments.add(ListEvents.newInstance("Schedule",DAYS[0]));
-            listaFragments.add(ListEvents.newInstance("Schedule",DAYS[1]));
-            listaFragments.add(ListEvents.newInstance("Schedule",DAYS[2]));
-            listaFragments.add(ListEvents.newInstance("Schedule",DAYS[3]));
-            listaFragments.add(ListEvents.newInstance("Schedule",DAYS[4]));
-
+        listaFragments.add(ListEvents.newInstance("Schedule",DAYS[0]));
+        listaFragments.add(ListEvents.newInstance("Schedule",DAYS[1]));
+        listaFragments.add(ListEvents.newInstance("Schedule",DAYS[2]));
+        listaFragments.add(ListEvents.newInstance("Schedule",DAYS[3]));
+        listaFragments.add(ListEvents.newInstance("Schedule",DAYS[4]));
 
 
         // Creamos nuestro Adapter
@@ -86,6 +77,7 @@ public class Schedule extends android.support.v4.app.Fragment implements android
 
         // Establecemos el Adapter
         mviewPager.setAdapter(mPagerAdapter);
+        mviewPager.setOffscreenPageLimit(5);
 
         //mIndicator = (TabPageIndicator) v.findViewById(R.id.indicator);
         //mIndicator.setViewPager(mviewPager);
@@ -145,8 +137,6 @@ public class Schedule extends android.support.v4.app.Fragment implements android
                 return false;
             }
         });
-
-
 
 
     }
