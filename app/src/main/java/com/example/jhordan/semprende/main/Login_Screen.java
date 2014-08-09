@@ -53,8 +53,8 @@ public class Login_Screen extends Activity {
             @Override
             public void onClick(View v) {
 
-                validaEditTex();
-                //goHome();
+                //validaEditTex();
+                goHome();
 
             }
         });
