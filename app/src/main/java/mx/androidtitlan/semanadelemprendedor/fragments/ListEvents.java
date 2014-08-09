@@ -110,13 +110,11 @@ public class ListEvents extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-
         try{
             Intent i = new Intent(getActivity(), DetailEventActivity.class);
             i.putExtra("event",buildBundleEvent((Event)l.getItemAtPosition(position)));
             startActivity(i);
         }catch (Exception e){}
-
     }
 
     @Override

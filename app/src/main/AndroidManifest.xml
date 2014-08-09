@@ -47,6 +47,7 @@
             android:screenOrientation="portrait"
             android:noHistory="true">
 
+
             </activity>
     </application>
 
