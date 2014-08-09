@@ -8,10 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import mx.androidtitlan.semanadelemprendedor.MyActivity;
-import mx.androidtitlan.semanadelemprendedor.NavigationDrawerFragment;
-import mx.androidtitlan.semanadelemprendedor.R;
-import mx.androidtitlan.semanadelemprendedor.util.PointStaff;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -24,6 +20,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
+
+import mx.androidtitlan.semanadelemprendedor.MyActivity;
+import mx.androidtitlan.semanadelemprendedor.NavigationDrawerFragment;
+import mx.androidtitlan.semanadelemprendedor.R;
+import mx.androidtitlan.semanadelemprendedor.util.PointStaff;
 
 /**
  * Created by Jhordan on 04/08/14.
@@ -198,7 +199,7 @@ public class Map extends Fragment {
                             icon = 8;
                         } else if (cadena.contains("icon-503-FFDD5E")) {
                             icon = 9;
-                        } else if (cadena.contains("icon-503-DB4436")) {
+                        } else if (cadena.contains("icon-503-A61B4A")) {
                             icon = 10;
                         }
                     }
