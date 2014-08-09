@@ -3,7 +3,6 @@ package com.example.jhordan.semprende.main;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.DownloadManager;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -54,8 +53,8 @@ public class Login_Screen extends Activity {
             @Override
             public void onClick(View v) {
 
-                validaEditTex();
-               //goHome();
+                //validaEditTex();
+                goHome();
 
             }
         });
@@ -103,7 +102,7 @@ public class Login_Screen extends Activity {
         // String email= "javierr@infoexpo.com.mx";
         RequestQueue rq = Volley.newRequestQueue(this);
         String url = "http://se.infoexpo.mx/2014/ae/web/utilerias/ws/google/get_attendee?idVisitante=" + gafete + "&email=" + email;
-        final ProgressDialog progressDialog = ProgressDialog.show(this, "Espera por Favor ...", "Validando Datos ...", true);
+
         StringRequest postReq = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
 
             @Override
@@ -140,14 +139,13 @@ public class Login_Screen extends Activity {
                     Log.i("ERROR", "ERROR");
                 }
 
-                progressDialog.dismiss();
+
             }
         }, new Response.ErrorListener() {
 
             @Override
             public void onErrorResponse(VolleyError error) {
                 System.out.println("Error [" + error + "]");
-                progressDialog.dismiss();
 
             }
         })

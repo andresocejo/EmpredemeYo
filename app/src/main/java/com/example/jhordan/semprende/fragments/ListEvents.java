@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.android.volley.Request;
@@ -216,10 +217,22 @@ public class ListEvents extends ListFragment {
                                 JSONObject object = array.getJSONObject(i);
                                 parseEventInfo(object);
                             }
-                            Collections.sort(events, new MiscellaneousMethods.CustomComparator());
-                            adapter = new EventsAdapter(events,getActivity());
-                            setListAdapter(adapter);
-                            listCompleted = true;
+
+                            if(events.isEmpty()){
+                                String mensaje = "No hay eventos";
+                                ArrayList<String> temp = new ArrayList<String>();
+                                temp.add(mensaje);
+
+                                ArrayAdapter<String> adapter1 = new ArrayAdapter<String>( getActivity(), android.R.layout.simple_list_item_1, temp );
+                                setListAdapter(adapter1);
+                            }
+
+                            else{
+                                Collections.sort(events, new MiscellaneousMethods.CustomComparator());
+                                adapter = new EventsAdapter(events,getActivity());
+                                setListAdapter(adapter);
+                                listCompleted = true;
+                            }
 
                         }catch (JSONException ex){
                             Log.e("Json error",ex.toString());
