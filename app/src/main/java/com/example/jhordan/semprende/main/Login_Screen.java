@@ -3,6 +3,7 @@ package com.example.jhordan.semprende.main;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.DownloadManager;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -53,8 +54,8 @@ public class Login_Screen extends Activity {
             @Override
             public void onClick(View v) {
 
-                //validaEditTex();
-                goHome();
+                validaEditTex();
+
 
             }
         });
@@ -80,13 +81,13 @@ public class Login_Screen extends Activity {
 
     private void goHome() {
 
-       email = edt_email.getText().toString();
-       gafete = edt_password.getText().toString();
+        email = edt_email.getText().toString();
+        gafete = edt_password.getText().toString();
 
         Intent intento = new Intent(Login_Screen.this, MyActivity.class);
 
-        intento.putExtra("email",email );
-        intento.putExtra("gafete",gafete);
+        intento.putExtra("email", email);
+        intento.putExtra("gafete", gafete);
 
         startActivity(intento);
 
@@ -102,6 +103,7 @@ public class Login_Screen extends Activity {
         // String email= "javierr@infoexpo.com.mx";
         RequestQueue rq = Volley.newRequestQueue(this);
         String url = "http://se.infoexpo.mx/2014/ae/web/utilerias/ws/google/get_attendee?idVisitante=" + gafete + "&email=" + email;
+        final ProgressDialog progressDialog = ProgressDialog.show(this, "Espera por Favor ...", "Validando datos ...", true);
 
         StringRequest postReq = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
 
@@ -139,7 +141,7 @@ public class Login_Screen extends Activity {
                     Log.i("ERROR", "ERROR");
                 }
 
-
+                progressDialog.dismiss();
             }
         }, new Response.ErrorListener() {
 
