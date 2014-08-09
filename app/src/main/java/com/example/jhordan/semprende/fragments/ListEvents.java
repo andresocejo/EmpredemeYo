@@ -17,13 +17,15 @@ import com.android.volley.toolbox.Volley;
 import com.example.jhordan.semprende.Activities.DetailEventActivity;
 import com.example.jhordan.semprende.Adapter.EventsAdapter;
 import com.example.jhordan.semprende.R;
-import com.example.jhordan.semprende.util.*;
+import com.example.jhordan.semprende.util.Event;
+import com.example.jhordan.semprende.util.MiscellaneousMethods;
 import com.example.jhordan.semprende.util.Speaker;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 
 
@@ -107,6 +109,7 @@ public class ListEvents extends ListFragment {
             bundle.putString("name_speaker",speaker.getName());
             bundle.putString("dependency_speaker",speaker.getDependency());
             bundle.putString("cv",speaker.getCv());
+            bundle.putString("picture",speaker.getUrl_photo());
 
             result.putBundle("speaker"+(i+1),bundle);
         }
@@ -142,7 +145,7 @@ public class ListEvents extends ListFragment {
                                     }
                                 }
                             }
-
+                            Collections.sort(events, new MiscellaneousMethods.CustomComparator());
                             adapter = new EventsAdapter(events,getActivity());
                             setListAdapter(adapter);
 
@@ -191,6 +194,8 @@ public class ListEvents extends ListFragment {
                     speaker.setDependency(jsonSpeaker.getString(getResources().getString(R.string.dependencia_ponente)));
                     speaker.setCv(jsonSpeaker.getString(getResources().getString(R.string.cv_ponente)));
 
+                    speaker.setUrl_photo(jsonSpeaker.getString(getResources().getString(R.string.foto_ponente)));
+
                     speakers.add(speaker);
 
                 }
@@ -200,7 +205,6 @@ public class ListEvents extends ListFragment {
                 events.add(temp);
 
             }
-
         }catch (JSONException e){
             Log.e("Json event error",e.toString());
         }

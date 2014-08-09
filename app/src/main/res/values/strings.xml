@@ -9,7 +9,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
-    <string name="schedule">Mi agenda</string>
+    <string name="schedule">Mi Agenda</string>
     <string name="explorer">Explorar</string>
     <string name="streaming">Streaming</string>
     <string name="map">Mapa</string>
@@ -47,7 +47,7 @@
     <string name="hora_fin">HoraFin</string>
     <string name="ponente">Ponente</string>
     <string name="nombre_ponente">Nombre</string>
-    <string name="foto_ponente"></string>
+    <string name="foto_ponente">Foto</string>
     <string name="dependencia_ponente">Dependencia</string>
     <string name="cv_ponente">CV</string>
 

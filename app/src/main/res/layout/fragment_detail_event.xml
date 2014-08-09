@@ -8,9 +8,10 @@
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:gravity="left"
-        android:paddingTop="40dp"
-        android:paddingLeft="70dp"
-        android:paddingRight="70dp"
+        android:paddingTop="@dimen/padding_top_layout_info_event"
+        android:paddingLeft="@dimen/padding_lateral_layout_info_event"
+        android:paddingRight="@dimen/padding_lateral_layout_info_event"
+        android:paddingBottom="@dimen/padding_bottom_layout_info_event"
         android:layout_height="0dp"
         android:layout_weight="0.35"
         android:id="@+id/container_general_info_event"
@@ -23,14 +24,14 @@
             style="@style/TitleEvent"
             android:text="Qué puedo hacer por las pequeñas y medianas empresas?"
             android:gravity="left"
-            android:textSize="17sp"
+            android:textSize="@dimen/tx_event_name_detail"
             android:id="@+id/event_name_detail"
             android:layout_gravity="center_horizontal" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="17dp"
+            android:layout_marginTop="@dimen/margin_top_place_detail"
             android:text="Foro del sol deno se donde"
             android:textColor="@android:color/white"
             android:layout_gravity="left"
@@ -46,18 +47,22 @@
             android:layout_gravity="left" />
     </LinearLayout>
 
-    <ScrollView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.65"
+        android:layout_weight="0.65">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/scrollView" >
 
         <LinearLayout
             android:orientation="vertical"
-            android:padding="20dp"
+            android:padding="@dimen/padding_description"
             android:id="@+id/information"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -66,7 +71,7 @@
                 android:id="@+id/event_description"
                 android:layout_gravity="left" />
             <View
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="@dimen/margin_top_view_detail"
                 android:layout_width="fill_parent"
                 android:layout_height="2dp"
                 android:background="#B0BEC5"/>
@@ -75,14 +80,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#748B91"
-                android:textSize="16sp"
+                android:textSize="@dimen/tx_speaker_text"
                 android:text="Ponentes"
-                android:layout_marginTop="12dp"/>
+                android:layout_marginTop="@dimen/margin_top_tx_speaker"/>
 
         </LinearLayout>
 
     </ScrollView>
-
+    </LinearLayout>
 
 
 
