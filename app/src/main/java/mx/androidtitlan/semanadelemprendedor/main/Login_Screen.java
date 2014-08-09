@@ -18,11 +18,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import mx.androidtitlan.semanadelemprendedor.MyActivity;
-import mx.androidtitlan.semanadelemprendedor.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import mx.androidtitlan.semanadelemprendedor.MyActivity;
+import mx.androidtitlan.semanadelemprendedor.R;
 
 /**
  * Created by Jhordan on 04/08/14.
@@ -71,18 +72,16 @@ public class Login_Screen extends Activity {
 
     private void validaEditTex() {
 
-
         boolean mailvalido = isEmailValid(edt_email.getText().toString());
         String valida_mail = Boolean.toString(mailvalido);
 
-
-         if (edt_email.getText().toString().equals("") || edt_password.getText().toString().equals("")) {
+        if (edt_email.getText().toString().equals("") || edt_password.getText().toString().equals("")) {
 
             Toast.makeText(Login_Screen.this, "Campos vacios", Toast.LENGTH_SHORT).show();
 
         } else if (valida_mail.equals("false")) {
             Toast.makeText(Login_Screen.this, "email invalido!", Toast.LENGTH_SHORT).show();
-        }  else {
+        } else {
             loginUser(edt_email.getText().toString(), edt_password.getText().toString());
         }
 
@@ -141,9 +140,7 @@ public class Login_Screen extends Activity {
 
 
                     } else {
-
                         goHome();
-
 
                     }
 

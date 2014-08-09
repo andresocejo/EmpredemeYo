@@ -17,12 +17,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import mx.androidtitlan.semanadelemprendedor.util.Event;
-import mx.androidtitlan.semanadelemprendedor.util.MiscellaneousMethods;
-import mx.androidtitlan.semanadelemprendedor.util.Speaker;
-import mx.androidtitlan.semanadelemprendedor.Activities.DetailEventActivity;
-import mx.androidtitlan.semanadelemprendedor.Adapter.EventsAdapter;
-import mx.androidtitlan.semanadelemprendedor.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,6 +25,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
+
+import mx.androidtitlan.semanadelemprendedor.Activities.DetailEventActivity;
+import mx.androidtitlan.semanadelemprendedor.Adapter.EventsAdapter;
+import mx.androidtitlan.semanadelemprendedor.R;
+import mx.androidtitlan.semanadelemprendedor.util.Event;
+import mx.androidtitlan.semanadelemprendedor.util.MiscellaneousMethods;
+import mx.androidtitlan.semanadelemprendedor.util.Speaker;
 
 
 public class ListEvents extends ListFragment {
@@ -63,12 +64,20 @@ public class ListEvents extends ListFragment {
     @Override
     public void onResume() {
         super.onResume();
+
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         if (getActivity()!=null){
             try {
-                if (getArguments().getString("option").equals("Explorer")) {
+                if (getArguments().getString("option").equals("Explorer") && savedInstanceState == null) {
+                    Log.i("Creating explorer","");
                     events = new ArrayList<Event>();
                     getAllEvents();
-                } else if (getArguments().getString("option").equals("Schedule")) {
+                } else if (getArguments().getString("option").equals("Schedule") && savedInstanceState == null) {
+                    Log.i("Creating schedule","");
                     events = new ArrayList<Event>();
                     getAllEventsSchedule(getActivity().getIntent().getStringExtra("email"), getActivity().getIntent().getStringExtra("gafete"));
                 }
@@ -76,10 +85,6 @@ public class ListEvents extends ListFragment {
             } catch (Exception e) {
                 Log.e("Error", e.toString());
             }}
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         return super.onCreateView(inflater, container, savedInstanceState);
     }
@@ -105,10 +110,13 @@ public class ListEvents extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        Intent i = new Intent(getActivity(), DetailEventActivity.class);
 
-        i.putExtra("event",buildBundleEvent((Event)l.getItemAtPosition(position)));
-        startActivity(i);
+        try{
+            Intent i = new Intent(getActivity(), DetailEventActivity.class);
+            i.putExtra("event",buildBundleEvent((Event)l.getItemAtPosition(position)));
+            startActivity(i);
+        }catch (Exception e){}
+
     }
 
     @Override
