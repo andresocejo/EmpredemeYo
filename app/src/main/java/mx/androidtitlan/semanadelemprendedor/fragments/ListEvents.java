@@ -105,10 +105,14 @@ public class ListEvents extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        Intent i = new Intent(getActivity(), DetailEventActivity.class);
 
-        i.putExtra("event",buildBundleEvent((Event)l.getItemAtPosition(position)));
-        startActivity(i);
+
+        try{
+            Intent i = new Intent(getActivity(), DetailEventActivity.class);
+            i.putExtra("event",buildBundleEvent((Event)l.getItemAtPosition(position)));
+            startActivity(i);
+        }catch (Exception e){}
+
     }
 
     @Override
@@ -225,6 +229,7 @@ public class ListEvents extends ListFragment {
 
                                 ArrayAdapter<String> adapter1 = new ArrayAdapter<String>( getActivity(), android.R.layout.simple_list_item_1, temp );
                                 setListAdapter(adapter1);
+                                getListView().setClickable(false);
                             }
 
                             else{

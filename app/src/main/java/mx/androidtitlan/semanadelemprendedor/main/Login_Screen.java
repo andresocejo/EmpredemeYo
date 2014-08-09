@@ -18,6 +18,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
 import mx.androidtitlan.semanadelemprendedor.MyActivity;
 import mx.androidtitlan.semanadelemprendedor.R;
 
@@ -33,6 +34,9 @@ public class Login_Screen extends Activity {
     private EditText edt_email, edt_password;
     String email;
     String gafete;
+    String user_email;
+    String user_gafete;
+    SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,24 +46,29 @@ public class Login_Screen extends Activity {
         edt_email = (EditText) findViewById(R.id.edt_email);
         edt_password = (EditText) findViewById(R.id.edt_password);
 
-        SharedPreferences prefs =
+        prefs =
                 getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
 
-        String user_email = prefs.getString("email_usr", "email");
-        String user_gafete = prefs.getString("gafete_usr", "gafee");
+        user_email = prefs.getString("email_usr", "");
+        user_gafete = prefs.getString("gafete_usr", "");
 
-       // Toast.makeText(this,user_email + user_gafete ,Toast.LENGTH_LONG).show();
 
-        if (user_email == user_email && user_gafete == user_gafete) {
+        if (user_email != "" && user_gafete != "") {
             goHome();
-        }
+            Toast.makeText(Login_Screen.this, user_email + user_gafete, Toast.LENGTH_SHORT).show();
 
+
+        } else {
+
+
+        }
 
 
         go = (Button) findViewById(R.id.btn_login);
         go.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
                 validaEditTex();
 
@@ -76,13 +85,13 @@ public class Login_Screen extends Activity {
         String valida_mail = Boolean.toString(mailvalido);
 
 
-         if (edt_email.getText().toString().equals("") || edt_password.getText().toString().equals("")) {
+        if (edt_email.getText().toString().equals("") || edt_password.getText().toString().equals("")) {
 
             Toast.makeText(Login_Screen.this, "Campos vacios", Toast.LENGTH_SHORT).show();
 
         } else if (valida_mail.equals("false")) {
             Toast.makeText(Login_Screen.this, "email invalido!", Toast.LENGTH_SHORT).show();
-        }  else {
+        } else {
             loginUser(edt_email.getText().toString(), edt_password.getText().toString());
         }
 
@@ -90,13 +99,11 @@ public class Login_Screen extends Activity {
 
     private void goHome() {
 
-        email = edt_email.getText().toString();
-        gafete = edt_password.getText().toString();
 
         Intent intento = new Intent(Login_Screen.this, MyActivity.class);
 
-        intento.putExtra("email", email);
-        intento.putExtra("gafete", gafete);
+        intento.putExtra("email", prefs.getString("email_usr", ""));
+        intento.putExtra("gafete", prefs.getString("gafete_usr", ""));
 
         startActivity(intento);
 
@@ -107,7 +114,7 @@ public class Login_Screen extends Activity {
     }
 
     private void loginUser(final String email, final String gafete) {
-        savePrefereces(email, gafete);
+        // savePrefereces(email, gafete);
         // String gafete="010176";
         // String email= "javierr@infoexpo.com.mx";
         RequestQueue rq = Volley.newRequestQueue(this);
@@ -141,6 +148,9 @@ public class Login_Screen extends Activity {
 
 
                     } else {
+
+                        savePrefereces(email, gafete);
+
 
                         goHome();
 
