@@ -45,7 +45,6 @@
         android:hint="@string/hint_email"
         android:inputType="textEmailAddress"
         android:padding="1dp"
-        android:text="kike@devf.mx"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:typeface="sans" />
@@ -63,7 +62,6 @@
         android:hint="@string/hint_password"
         android:inputType="textPassword"
         android:padding="1dp"
-        android:text="021051"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:typeface="sans" />
