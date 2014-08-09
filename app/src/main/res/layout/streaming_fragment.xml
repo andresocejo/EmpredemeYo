@@ -11,6 +11,8 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+
+
     <com.example.jhordan.semprende.GridView
         android:id="@+id/list"
         android:layout_width="match_parent"
