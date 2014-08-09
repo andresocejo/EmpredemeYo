@@ -4,7 +4,9 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.DownloadManager;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -48,6 +50,19 @@ public class Login_Screen extends Activity {
         edt_email = (EditText) findViewById(R.id.edt_email);
         edt_password = (EditText) findViewById(R.id.edt_password);
 
+        SharedPreferences prefs =
+                getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+
+        String user_email = prefs.getString("email_usr", "email");
+        String user_gafete = prefs.getString("gafete_usr", "gafee");
+
+       // Toast.makeText(this,user_email + user_gafete ,Toast.LENGTH_LONG).show();
+
+        if (user_email == user_email && user_gafete == user_gafete) {
+            goHome();
+        }
+
+
 
         go = (Button) findViewById(R.id.btn_login);
         go.setOnClickListener(new View.OnClickListener() {
@@ -64,16 +79,18 @@ public class Login_Screen extends Activity {
 
     private void validaEditTex() {
 
+
         boolean mailvalido = isEmailValid(edt_email.getText().toString());
         String valida_mail = Boolean.toString(mailvalido);
 
-        if (edt_email.getText().toString().equals("") || edt_password.getText().toString().equals("")) {
+
+         if (edt_email.getText().toString().equals("") || edt_password.getText().toString().equals("")) {
 
             Toast.makeText(Login_Screen.this, "Campos vacios", Toast.LENGTH_SHORT).show();
 
         } else if (valida_mail.equals("false")) {
             Toast.makeText(Login_Screen.this, "email invalido!", Toast.LENGTH_SHORT).show();
-        } else {
+        }  else {
             loginUser(edt_email.getText().toString(), edt_password.getText().toString());
         }
 
@@ -98,7 +115,7 @@ public class Login_Screen extends Activity {
     }
 
     private void loginUser(final String email, final String gafete) {
-
+        savePrefereces(email, gafete);
         // String gafete="010176";
         // String email= "javierr@infoexpo.com.mx";
         RequestQueue rq = Volley.newRequestQueue(this);
@@ -132,7 +149,9 @@ public class Login_Screen extends Activity {
 
 
                     } else {
+
                         goHome();
+
 
                     }
 
@@ -167,6 +186,19 @@ public class Login_Screen extends Activity {
 
         rq.add(postReq);
 
+
+    }
+
+
+    private void savePrefereces(String email, String gafetess) {
+
+        SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = prefs.edit();
+
+        editor.putString("email_usr", email);
+        editor.putString("gafete_usr", gafetess);
+        editor.commit();
 
     }
 
