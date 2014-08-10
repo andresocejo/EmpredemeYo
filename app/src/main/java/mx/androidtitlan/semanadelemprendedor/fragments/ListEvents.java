@@ -25,9 +25,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -358,38 +360,34 @@ public class ListEvents extends ListFragment {
 
     private void writeToFile(JSONObject agenda) throws IOException {
         String d = agenda.toString();
-        //TODO: Create a folder to save our text here
-        File folder = new File(Environment.getExternalStorageDirectory()
-                + "/sde2014");
-        boolean success = true;
-        if (!folder.exists()) {
-            success = folder.mkdir();
-            OutputStream fOut = null;
-            File file = new File(folder, "events.txt");
+        File folder = new File(Environment.getExternalStorageDirectory() + "/sde2014");
+        folder.mkdir();
+        File file = new File(folder, "events.txt");
+        //BufferedWriter buffer= null;
+        if (folder.exists()) {
             if (file.exists()) {
-                file.delete();
+                Log.e("WriteToFile", "File exists");
             } else {
                 file.createNewFile();
-                fOut = new FileOutputStream(file);
-                fOut.flush();
-                fOut.close();
-            }
-            /*try {
-
-                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(getActivity().openFileOutput("events.txt", Context.MODE_PRIVATE));
-                outputStreamWriter.write(d);
-                outputStreamWriter.close();
+                BufferedWriter writter = new BufferedWriter(new FileWriter(file));
+                writter.write(d);
+                writter.flush();
+                writter.close();
                 Log.e("writeToFile", "Saved data: " + d);
-            } catch (IOException e) {
-                Log.e("Exception", "File write failed: " + e.toString());
-            }*/
-        }
-        if (success) {
-            Log.e("ListEvents", "File created &saved in folder!");
+            }
         } else {
-            Log.e("ListEvents", "problem creating a folder");
+            folder.mkdir();
+            file.createNewFile();
+            BufferedWriter writter = new BufferedWriter(new FileWriter(file));
+            writter.write(d);
+            writter.flush();
+            writter.close();
+            Log.e("writeToFile", "Saved data: " + d);
         }
-
     }
-
 }
+
+
+
+
+
