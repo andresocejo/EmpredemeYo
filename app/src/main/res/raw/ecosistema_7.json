@@ -1,0 +1,656 @@
+[
+  {
+    "title": "RENDER FARM STUDIOS",
+    "description": "700-A",
+    "latitud": 19.4399078,
+    "longitud": -99.2249242
+  },
+  {
+    "title": "GLOBALNET INTERNETATUMEDIDA",
+    "description": "799",
+    "latitud": 19.4398913,
+    "longitud": -99.2249054
+  },
+  {
+    "title": "SKYPOS",
+    "description": "784",
+    "latitud": 19.4398737,
+    "longitud": -99.2248866
+  },
+  {
+    "title": "EXPIDE TU FACTURA",
+    "description": "783",
+    "latitud": 19.4398546,
+    "longitud": -99.2248665
+  },
+  {
+    "title": "782",
+    "description": "782",
+    "latitud": 19.4398344,
+    "longitud": -99.2248477
+  },
+  {
+    "title": "UNIVERSIDAD UEM",
+    "description": "767",
+    "latitud": 19.4398142,
+    "longitud": -99.2248263
+  },
+  {
+    "title": "RAGA CONSULTORES",
+    "description": "766",
+    "latitud": 19.4397953,
+    "longitud": -99.2248048
+  },
+  {
+    "title": "INNOVACIÓN EMPRESARIAL",
+    "description": "765",
+    "latitud": 19.4397763,
+    "longitud": -99.2247833
+  },
+  {
+    "title": "COMPU PLUS",
+    "description": "748",
+    "latitud": 19.4397548,
+    "longitud": -99.2247619
+  },
+  {
+    "title": "SOFTTIM",
+    "description": "748",
+    "latitud": 19.4397371,
+    "longitud": -99.2247403
+  },
+  {
+    "title": "ISERVIC",
+    "description": "747",
+    "latitud": 19.4397181,
+    "longitud": -99.2247203
+  },
+  {
+    "title": "INTERTELEFONIA",
+    "description": "733",
+    "latitud": 19.4396991,
+    "longitud": -99.2247015
+  },
+  {
+    "title": "TECNOLOGÍA INFORMÁTICA MÓVIL",
+    "description": "732",
+    "latitud": 19.4396788,
+    "longitud": -99.2246802
+  },
+  {
+    "title": "GESTIONIX",
+    "description": "731",
+    "latitud": 19.4396599,
+    "longitud": -99.2246573
+  },
+  {
+    "title": "CONSEJO NACIONAL DE CLÚSTERES DE SOFTWARE Y TECNOLOGÍAS DE INFORMACIÓN",
+    "description": "717",
+    "latitud": 19.4396397,
+    "longitud": -99.2246371
+  },
+  {
+    "title": "CLÚSTER TIC DE NUEVO LEÓN",
+    "description": "716",
+    "latitud": 19.4396207,
+    "longitud": -99.224617
+  },
+  {
+    "title": "PERLA.SALCEDO@INNOVATTIA.COM",
+    "description": "793",
+    "latitud": 19.4401847,
+    "longitud": -99.2246278
+  },
+  {
+    "title": "ERAÑA CONSULTORES",
+    "description": "794",
+    "latitud": 19.4401645,
+    "longitud": -99.2246492
+  },
+  {
+    "title": "SALA DE SOLUCIONES",
+    "description": "701-A",
+    "latitud": 19.4399344,
+    "longitud": -99.2248209
+  },
+  {
+    "title": "COMPETIVAL",
+    "description": "702-A",
+    "latitud": 19.4400406,
+    "longitud": -99.2247901
+  },
+  {
+    "title": "CENTRO TENOCH",
+    "description": "703-A",
+    "latitud": 19.4400646,
+    "longitud": -99.2247632
+  },
+  {
+    "title": "SOLUCIONES INTEGRALES PARA OFICINA S.A. DE C.V.",
+    "description": "704-A",
+    "latitud": 19.4401,
+    "longitud": -99.2247203
+  },
+  {
+    "title": "SUEMPRESA",
+    "description": "705-A",
+    "latitud": 19.4401215,
+    "longitud": -99.2246934
+  },
+  {
+    "title": "DECIDE SER GRANDE",
+    "description": "707-A",
+    "latitud": 19.4402063,
+    "longitud": -99.2246519
+  },
+  {
+    "title": "CARVAJAL TECNOLOGÍA Y SERVICIOS",
+    "description": "706-A",
+    "latitud": 19.4401822,
+    "longitud": -99.2246747
+  },
+  {
+    "title": "PROYECCION Y DESARROLLO EMPRESARIAL",
+    "description": "798",
+    "latitud": 19.4400266,
+    "longitud": -99.2247646
+  },
+  {
+    "title": "EJECUCIÓN ESTRATÉGICA",
+    "description": "785",
+    "latitud": 19.4400077,
+    "longitud": -99.2247431
+  },
+  {
+    "title": "AMBIT TECHNOLOGY",
+    "description": "781",
+    "latitud": 19.4399875,
+    "longitud": -99.2247189
+  },
+  {
+    "title": "BIND ERP",
+    "description": "797",
+    "latitud": 19.4400494,
+    "longitud": -99.2247404
+  },
+  {
+    "title": "CASAPYME",
+    "description": "786",
+    "latitud": 19.4400318,
+    "longitud": -99.2247163
+  },
+  {
+    "title": "ENITMA",
+    "description": "780",
+    "latitud": 19.4400114,
+    "longitud": -99.224695
+  },
+  {
+    "title": "CAZADORES DE TALENTO",
+    "description": "796",
+    "latitud": 19.4400823,
+    "longitud": -99.2246988
+  },
+  {
+    "title": "JUROSUR",
+    "description": "787",
+    "latitud": 19.4400646,
+    "longitud": -99.2246787
+  },
+  {
+    "title": "TECSYSO",
+    "description": "779",
+    "latitud": 19.4400431,
+    "longitud": -99.2246559
+  },
+  {
+    "title": "AGO CONSULTORES",
+    "description": "795",
+    "latitud": 19.4401025,
+    "longitud": -99.224672
+  },
+  {
+    "title": "SYPAE",
+    "description": "788",
+    "latitud": 19.4400862,
+    "longitud": -99.2246506
+  },
+  {
+    "title": "UNIBOX",
+    "description": "778",
+    "latitud": 19.4400671,
+    "longitud": -99.2246304
+  },
+  {
+    "title": "SISTEMAS CÚBICOS",
+    "description": "789",
+    "latitud": 19.4401493,
+    "longitud": -99.2246263
+  },
+  {
+    "title": "ERGOSISTEMAS INTEGRALES",
+    "description": "790",
+    "latitud": 19.4401671,
+    "longitud": -99.2246076
+  },
+  {
+    "title": "SIZES AND COLORS",
+    "description": "768",
+    "latitud": 19.4398547,
+    "longitud": -99.2247794
+  },
+  {
+    "title": "ATIO CLOUD SERVICES",
+    "description": "769",
+    "latitud": 19.4398799,
+    "longitud": -99.2247565
+  },
+  {
+    "title": "CONTROL 2000",
+    "description": "770",
+    "latitud": 19.4399028,
+    "longitud": -99.2247337
+  },
+  {
+    "title": "LOGICAL CONCEPT",
+    "description": "771",
+    "latitud": 19.439947,
+    "longitud": -99.2246787
+  },
+  {
+    "title": "CONSULTORES DE TECNOLOGÍA Y MOVIMIENTO KMT",
+    "description": "764",
+    "latitud": 19.4398395,
+    "longitud": -99.2247565
+  },
+  {
+    "title": "FACTURADORELECTRONICO.COM",
+    "description": "763",
+    "latitud": 19.439861,
+    "longitud": -99.224735
+  },
+  {
+    "title": "MIT",
+    "description": "762",
+    "latitud": 19.4398825,
+    "longitud": -99.2247123
+  },
+  {
+    "title": "OCC MUNDIAL",
+    "description": "772",
+    "latitud": 19.439971,
+    "longitud": -99.2246572
+  },
+  {
+    "title": "SILSA CONSULTORES",
+    "description": "773",
+    "latitud": 19.4399939,
+    "longitud": -99.2246331
+  },
+  {
+    "title": "WEB SAIT",
+    "description": "774",
+    "latitud": 19.4400292,
+    "longitud": -99.2245956
+  },
+  {
+    "title": "SIIE",
+    "description": "775",
+    "latitud": 19.4400519,
+    "longitud": -99.2245702
+  },
+  {
+    "title": "ADMINCOMMERCE",
+    "description": "776",
+    "latitud": 19.4400899,
+    "longitud": -99.2245298
+  },
+  {
+    "title": "BANWIRE",
+    "description": "761",
+    "latitud": 19.4399318,
+    "longitud": -99.2246546
+  },
+  {
+    "title": "MEXWORLD CONSULTIN",
+    "description": "760",
+    "latitud": 19.4399521,
+    "longitud": -99.2246304
+  },
+  {
+    "title": "MULTIRED GLOBAL",
+    "description": "759",
+    "latitud": 19.4399711,
+    "longitud": -99.2246076
+  },
+  {
+    "title": "ASCIENDE COMPUTA",
+    "description": "758",
+    "latitud": 19.4400115,
+    "longitud": -99.2245715
+  },
+  {
+    "title": "FÁBRICA DE SOLUCIONES DE SOFTWARE",
+    "description": "757",
+    "latitud": 19.4400304,
+    "longitud": -99.2245473
+  },
+  {
+    "title": "JPE CONSULTORES",
+    "description": "756",
+    "latitud": 19.4400709,
+    "longitud": -99.2245057
+  },
+  {
+    "title": "ARUX",
+    "description": "750",
+    "latitud": 19.4398003,
+    "longitud": -99.2247137
+  },
+  {
+    "title": "BPX4",
+    "description": "751",
+    "latitud": 19.4398179,
+    "longitud": -99.2246921
+  },
+  {
+    "title": "CHECK UP EMPRESARIAL",
+    "description": "752",
+    "latitud": 19.4398408,
+    "longitud": -99.2246707
+  },
+  {
+    "title": "FACTURA INTELIGENTE",
+    "description": "753",
+    "latitud": 19.4398926,
+    "longitud": -99.2246197
+  },
+  {
+    "title": "GRUPO CETI – CENTRO ESTRATEGICO EN TRABAJOS INTERDISCIPLINARIOS",
+    "description": "754",
+    "latitud": 19.4399128,
+    "longitud": -99.2245956
+  },
+  {
+    "title": "CENTRO DE CAPACITACIÓN DE EJECUTIVOS",
+    "description": "755",
+    "latitud": 19.4399318,
+    "longitud": -99.2245755
+  },
+  {
+    "title": "INSTITUTO MEXICANO DE EXPANSIÓN FISCAL Y DE NEGOCIOS SC",
+    "description": "726",
+    "latitud": 19.4399736,
+    "longitud": -99.2245312
+  },
+  {
+    "title": "BILDDEN",
+    "description": "725",
+    "latitud": 19.4399951,
+    "longitud": -99.2245083
+  },
+  {
+    "title": "AIMSI",
+    "description": "746",
+    "latitud": 19.4397839,
+    "longitud": -99.2246894
+  },
+  {
+    "title": "CLICKBALANCE",
+    "description": "745",
+    "latitud": 19.4398016,
+    "longitud": -99.2246694
+  },
+  {
+    "title": "PC RENT",
+    "description": "744",
+    "latitud": 19.4398205,
+    "longitud": -99.2246464
+  },
+  {
+    "title": "INMEGA INVESTIGACION DE MERCADOS",
+    "description": "743",
+    "latitud": 19.4398774,
+    "longitud": -99.2245996
+  },
+  {
+    "title": "CONSULTORA MEXICANA DE NEGOCIOS",
+    "description": "742",
+    "latitud": 19.4398939,
+    "longitud": -99.2245768
+  },
+  {
+    "title": "BPM CONSULTANTS GROUP",
+    "description": "741",
+    "latitud": 19.4399153,
+    "longitud": -99.2245567
+  },
+  {
+    "title": "GRUPO EMPRENDEDOR EMPRESARIAL",
+    "description": "721",
+    "latitud": 19.4399559,
+    "longitud": -99.2245111
+  },
+  {
+    "title": "RR BROS COMPANY",
+    "description": "722",
+    "latitud": 19.4399748,
+    "longitud": -99.2244883
+  },
+  {
+    "title": "AXAAR CONSULTORES",
+    "description": "712",
+    "latitud": 19.4399369,
+    "longitud": -99.2244869
+  },
+  {
+    "title": "NETWARMONITOR",
+    "description": "711",
+    "latitud": 19.4399545,
+    "longitud": -99.2244655
+  },
+  {
+    "title": "CORPORATELEARINING",
+    "description": "734",
+    "latitud": 19.4397496,
+    "longitud": -99.224652
+  },
+  {
+    "title": "SPERFLEX",
+    "description": "735",
+    "latitud": 19.4397661,
+    "longitud": -99.2246318
+  },
+  {
+    "title": "PRODUCTIVIDAD PLUS",
+    "description": "736",
+    "latitud": 19.4397851,
+    "longitud": -99.2246117
+  },
+  {
+    "title": "MENTE DIGITAL",
+    "description": "730",
+    "latitud": 19.4397295,
+    "longitud": -99.2246304
+  },
+  {
+    "title": "ZEUS COMPANY",
+    "description": "729",
+    "latitud": 19.4397472,
+    "longitud": -99.2246076
+  },
+  {
+    "title": "INTÉLITE",
+    "description": "728",
+    "latitud": 19.439765,
+    "longitud": -99.2245875
+  },
+  {
+    "title": "CONSULTORES EN SISTEMAS",
+    "description": "737",
+    "latitud": 19.4398332,
+    "longitud": -99.2245607
+  },
+  {
+    "title": "CODE3E",
+    "description": "738",
+    "latitud": 19.4398522,
+    "longitud": -99.2245406
+  },
+  {
+    "title": "SOLUCIONES MIPYMES.",
+    "description": "739",
+    "latitud": 19.4398736,
+    "longitud": -99.2245192
+  },
+  {
+    "title": "LEXMARK",
+    "description": "719",
+    "latitud": 19.439689,
+    "longitud": -99.2245916
+  },
+  {
+    "title": "CREACIONES DE TECNOLOGÍA DE MÉXICO",
+    "description": "718",
+    "latitud": 19.4397092,
+    "longitud": -99.2245687
+  },
+  {
+    "title": "INFOTEC",
+    "description": "720",
+    "latitud": 19.4397307,
+    "longitud": -99.2245487
+  },
+  {
+    "title": "CANIETI",
+    "description": "715",
+    "latitud": 19.4396764,
+    "longitud": -99.224566
+  },
+  {
+    "title": "AMITI",
+    "description": "714",
+    "latitud": 19.4396915,
+    "longitud": -99.2245446
+  },
+  {
+    "title": "AMIPCI",
+    "description": "713",
+    "latitud": 19.4397093,
+    "longitud": -99.2245232
+  },
+  {
+    "title": "TIENDA DIGITAL",
+    "description": "727",
+    "latitud": 19.4398154,
+    "longitud": -99.224487
+  },
+  {
+    "title": "JURÍDICA EN TELECOMUNICACIONES",
+    "description": "724",
+    "latitud": 19.4400166,
+    "longitud": -99.2244534
+  },
+  {
+    "title": "3MB",
+    "description": "723",
+    "latitud": 19.4399963,
+    "longitud": -99.2244319
+  },
+  {
+    "title": "MYBUSINESS POS DESARROLLOS",
+    "description": "710",
+    "latitud": 19.4399723,
+    "longitud": -99.2244092
+  },
+  {
+    "title": "ACTIVIDAD TURISTA",
+    "description": "740",
+    "latitud": 19.4399079,
+    "longitud": -99.2243983
+  },
+  {
+    "title": "AUTO-DIAGNOSTIC",
+    "description": "P-706",
+    "latitud": 19.4395322,
+    "longitud": -99.2245178
+  },
+  {
+    "title": "CONVOCATORIAS CATEGORÍA V",
+    "description": "P-707",
+    "latitud": 19.439627,
+    "longitud": -99.2245071
+  },
+  {
+    "title": "AUTO-DIAGNOSTICO",
+    "description": "P-704",
+    "latitud": 19.4395967,
+    "longitud": -99.2244748
+  },
+  {
+    "title": "TELMEX",
+    "description": "P-708",
+    "latitud": 19.4397055,
+    "longitud": -99.2244065
+  },
+  {
+    "title": "GOOGLE MÉXICO_EMPRESA DIGITAL",
+    "description": "P-709",
+    "latitud": 19.4398129,
+    "longitud": -99.2242898
+  },
+  {
+    "title": "MICROSOFT",
+    "description": "P-703",
+    "latitud": 19.4397649,
+    "longitud": -99.2242255
+  },
+  {
+    "title": "CONTPAQI®",
+    "description": "709-A",
+    "latitud": 19.4396461,
+    "longitud": -99.2243059
+  },
+  {
+    "title": "IBM DE MÉXICO",
+    "description": "428",
+    "latitud": 19.4396232,
+    "longitud": -99.2243314
+  },
+  {
+    "title": "BANAMEX",
+    "description": "P-702",
+    "latitud": 19.4396017,
+    "longitud": -99.2243501
+  },
+  {
+    "title": "PAYPAL MÉXICO",
+    "description": "710-A",
+    "latitud": 19.439665,
+    "longitud": -99.2242858
+  },
+  {
+    "title": "RGOV",
+    "description": "708-A",
+    "latitud": 19.4402316,
+    "longitud": -99.2246157
+  },
+  {
+    "title": "PLURIONE",
+    "description": "792",
+    "latitud": 19.4402138,
+    "longitud": -99.2245942
+  },
+  {
+    "title": "WCIT MEXICO 2014",
+    "description": "791",
+    "latitud": 19.4401937,
+    "longitud": -99.2245754
+  },
+  {
+    "title": "ACVS BIZ",
+    "description": "777",
+    "latitud": 19.4401114,
+    "longitud": -99.2245513
+  }
+]

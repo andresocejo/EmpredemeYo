@@ -9,19 +9,14 @@ public class PointStaff {
     private String description;
     private double latitud;
     private double longitud;
-    private int idIcon;
 
-    public PointStaff(String title, String description, double latitud, double longitud, int idIcon) {
+    public PointStaff(String title, String description, double latitud, double longitud) {
         this.title = title;
         this.description = description;
         this.latitud = latitud;
         this.longitud = longitud;
-        this.idIcon = idIcon;
     }
 
-    public int getIdIcon() {
-        return idIcon;
-    }
 
     public String getTitle() {
         return title;

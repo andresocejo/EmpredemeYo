@@ -56,7 +56,7 @@
     <!--URLS-->
     <string name="url_conferencias">http://se.infoexpo.mx/2014/ae/web/utilerias/ws/google/conferencias</string>
     <string name="url_login_user">http://se.infoexpo.mx/2014/ae/web/utilerias/ws/google/get_attendee</string>
-
+    <string name="fiter_ecosistemas">Ecosistemas</string>
 
 
 </resources>

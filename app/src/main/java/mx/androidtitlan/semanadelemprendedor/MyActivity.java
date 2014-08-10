@@ -12,14 +12,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+
+import mx.androidtitlan.semanadelemprendedor.Adapter.SpinnerAdapterBar;
 import mx.androidtitlan.semanadelemprendedor.Model.SpinnerModelBar;
 import mx.androidtitlan.semanadelemprendedor.fragments.Explorer;
 import mx.androidtitlan.semanadelemprendedor.fragments.Map;
-import mx.androidtitlan.semanadelemprendedor.fragments.Streaming;
-import mx.androidtitlan.semanadelemprendedor.Adapter.SpinnerAdapterBar;
 import mx.androidtitlan.semanadelemprendedor.fragments.Schedule;
-
-import java.util.ArrayList;
+import mx.androidtitlan.semanadelemprendedor.fragments.Streaming;
 
 
 public class MyActivity extends ActionBarActivity
@@ -89,13 +89,11 @@ public class MyActivity extends ActionBarActivity
                         .commit();
 
 
-
                 break;
             case 4:
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.container, Schedule.newInstance(position))
                         .commit();
-
 
 
                 break;
@@ -137,9 +135,6 @@ public class MyActivity extends ActionBarActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (!mNavigationDrawerFragment.isDrawerOpen()) {
-            // Only show items in the action bar relevant to this screen
-            // if the drawer is not showing. Otherwise, let the drawer
-            // decide what to show in the action bar.
             restoreActionBar();
             return true;
         }
@@ -181,7 +176,7 @@ public class MyActivity extends ActionBarActivity
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
+                                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_my, container, false);
             return rootView;
         }
