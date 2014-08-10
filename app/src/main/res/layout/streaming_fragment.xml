@@ -1,20 +1,20 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rlstreaming"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:paddingBottom="5dp"
-    android:paddingLeft="5dp"
-    android:paddingRight="5dp"
-    android:paddingTop="5dp"
+    android:paddingBottom="4dp"
+    android:paddingLeft="4dp"
+    android:paddingRight="4dp"
+    android:paddingTop="4dp"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
 
 
-    <mx.androidtitlan.semanadelemprendedor.GridView
-        android:id="@+id/list"
+    <GridView
+        android:id="@+id/mygrid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/transparent"
@@ -22,9 +22,10 @@
         android:gravity="center"
         android:horizontalSpacing="4dp"
         android:scrollbars="none"
+        android:numColumns="2"
         android:stretchMode="columnWidth"
         android:verticalSpacing="4dp" />
 
 
 
-</RelativeLayout>
+</LinearLayout>

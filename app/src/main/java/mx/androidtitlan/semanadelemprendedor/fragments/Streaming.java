@@ -11,10 +11,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.Toast;
 
 import mx.androidtitlan.semanadelemprendedor.Adapter.SpeakerStreamingAdapter;
-import mx.androidtitlan.semanadelemprendedor.GridView;
 import mx.androidtitlan.semanadelemprendedor.Model.SpeakerModelConference;
 import mx.androidtitlan.semanadelemprendedor.MyActivity;
 import mx.androidtitlan.semanadelemprendedor.NavigationDrawerFragment;
@@ -28,7 +28,7 @@ import java.util.List;
  */
 public class Streaming extends Fragment {
 
-    private GridView list;
+    GridView grid ;
     private Layout rls;
 
 
@@ -45,7 +45,7 @@ public class Streaming extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View v = inflater.inflate(R.layout.streaming_fragment, container, false);
 
-        list = (GridView) v.findViewById(R.id.list);
+        grid = (GridView) v.findViewById(R.id.mygrid);
 
 
 
@@ -64,17 +64,17 @@ public class Streaming extends Fragment {
         }
 
 
-        list.setAdapter(ponenteAdapter);
+        grid.setAdapter(ponenteAdapter);
 
 
       //  View header = View.inflate(getActivity(), R.layout.speaker_gridtwo, null);
         //list.addHeaderView(header);
-        list.setNumColumns(2);
+       // list.setNumColumns(2);
 
 
         try {   //detectar cual fue pinchada en el gridview
 
-            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 

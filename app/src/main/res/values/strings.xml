@@ -22,6 +22,7 @@
     <string name="input_data">ingresa los siguientes datos:</string>
     <string name="hint_email"> Correo electrónico</string>
     <string name="hint_password"> Id de Registro</string>
+    <string name="resgister_now">Registrate ahora!</string>
 
     <!--Tipos de eventos-->
     <string name="magistral">Conferencia Magistral</string>

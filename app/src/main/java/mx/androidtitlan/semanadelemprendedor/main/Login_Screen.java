@@ -5,11 +5,13 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -32,6 +34,7 @@ public class Login_Screen extends Activity {
 
     private Button go;
     private EditText edt_email, edt_password;
+    private TextView register;
     String email;
     String gafete;
     String user_email;
@@ -46,17 +49,18 @@ public class Login_Screen extends Activity {
         edt_email = (EditText) findViewById(R.id.edt_email);
         edt_password = (EditText) findViewById(R.id.edt_password);
 
-        prefs =
-                getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
 
         user_email = prefs.getString("email_usr", "");
         user_gafete = prefs.getString("gafete_usr", "");
 
-       // Toast.makeText(this,user_email + user_gafete ,Toast.LENGTH_LONG).show();
+        registerCount();
+
+        // Toast.makeText(this,user_email + user_gafete ,Toast.LENGTH_LONG).show();
 
         if (user_email != "" && user_gafete != "") {
             goHome();
-            Toast.makeText(Login_Screen.this, user_email + user_gafete, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(Login_Screen.this, user_email + user_gafete, Toast.LENGTH_SHORT).show();
 
 
         } else {
@@ -107,6 +111,8 @@ public class Login_Screen extends Activity {
         intento.putExtra("gafete", prefs.getString("gafete_usr", ""));
 
         startActivity(intento);
+
+        finish();
 
     }
 
@@ -202,6 +208,26 @@ public class Login_Screen extends Activity {
         editor.putString("email_usr", email);
         editor.putString("gafete_usr", gafetess);
         editor.commit();
+
+    }
+
+
+    private void registerCount() {
+        register = (TextView) findViewById(R.id.register_acount);
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goPagePrincipal();
+            }
+        });
+
+    }
+
+    private void goPagePrincipal() {
+        String url = "http://semanadelemprendedor.gob.mx/";
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        startActivity(intent);
+
 
     }
 
