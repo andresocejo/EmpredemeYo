@@ -26,6 +26,7 @@ dependencies {
     compile 'com.google.android.gms:play-services:4.2.42'
     compile 'com.mcxiaoke.viewpagerindicator:library:2.4.1'
     compile 'com.mcxiaoke.volley:library:1.0.6'
+    compile 'com.google.code.gson:gson:2.2.4'
     compile files('libs/stickygridheaders.jar')
 }
 
