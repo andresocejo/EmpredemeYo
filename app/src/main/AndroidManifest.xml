@@ -10,8 +10,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_logo_sde"
+        android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
+        android:logo="@drawable/ic_logo_sde"
         android:theme="@style/Theme.Semanaemprendedor2014">
 
         <meta-data
@@ -51,17 +52,19 @@
 
 
         </activity>
-        <meta-data android:name="com.crashlytics.ApiKey" android:value="81bc8c5c72679991c1e8e44b39f32d4cd9ebefc9"/>
+
+        <meta-data
+            android:name="com.crashlytics.ApiKey"
+            android:value="81bc8c5c72679991c1e8e44b39f32d4cd9ebefc9" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
-    <!--
-         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
-         Google Maps Android API v2, but are recommended.
-    -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
 </manifest>
