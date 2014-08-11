@@ -61,6 +61,8 @@ public class Schedule extends android.support.v4.app.Fragment implements android
     private List<Fragment> listaFragments;
     private TitlePageIndicator mIndicatores;
 
+    private JsonObjectRequest getEvents;
+
 
     public static Schedule newInstance(int position) {
         Schedule myschedule = new Schedule();
@@ -180,7 +182,7 @@ public class Schedule extends android.support.v4.app.Fragment implements android
 
         RequestQueue queue = Volley.newRequestQueue(getActivity());
         final String url = "http://se.infoexpo.mx/2014/ae/web/utilerias/ws/google/get_attendee?idVisitante=" + gafete + "&email=" + email;
-        JsonObjectRequest getEvents = new JsonObjectRequest(Request.Method.GET, url, null,
+        getEvents = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
@@ -201,6 +203,9 @@ public class Schedule extends android.support.v4.app.Fragment implements android
 
                         } catch (JSONException ex) {
                             Log.e("Json error", ex.toString());
+                        } catch (NullPointerException e) {
+                            Log.e("Json error", e.toString());
+
                         }
                     }
                 },
@@ -215,10 +220,20 @@ public class Schedule extends android.support.v4.app.Fragment implements android
         queue.add(getEvents);
     }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        if (getEvents != null) {
+            getEvents.cancel();
+        }
+    }
+
     public void parseEventInfo(JSONObject event) {
         try {
 
-            //Detectar el dia del evento para asignarle un arraylist/
+            if (event.length()==0)
+                return;
             Event temp = new Event();
 
             temp.setName(event.getString(getResources().getString(R.string.nombre_conferencia)));
@@ -254,8 +269,11 @@ public class Schedule extends android.support.v4.app.Fragment implements android
 
             eventsUser.add(temp);
 
-        } catch (JSONException e) {
-            Log.e("Json event error", e.toString());
+        } catch (JSONException ex) {
+            Log.e("Json error", ex.toString());
+        } catch (NullPointerException e) {
+            Log.e("Json error", e.toString());
+
         }
     }
 

@@ -3,15 +3,13 @@ package mx.androidtitlan.semanadelemprendedor.fragments;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import mx.androidtitlan.semanadelemprendedor.Adapter.FilterItemMapAdapter;
+import mx.androidtitlan.semanadelemprendedor.Adapter.FilterItemEvenAdapter;
 import mx.androidtitlan.semanadelemprendedor.R;
 
 /**
@@ -43,8 +41,9 @@ public class DialogFilterEvents extends DialogFragment {
 
         builder.setTitle(R.string.fiter_ecosistemas).setIcon(R.drawable.ic_explore);
 
-        FilterItemMapAdapter filterItemMapAdapter = new FilterItemMapAdapter(getActivity(), R.layout.item_filter_map, getResources()
+        FilterItemEvenAdapter filterItemMapAdapter = new FilterItemEvenAdapter(getActivity(), R.layout.item_filter_map, getResources()
                 .getStringArray(R.array.eco_array));
+
 
         ListView view = (ListView) getActivity().getLayoutInflater().inflate(R.layout.listiview_dialog, null, false);
         view.setAdapter(filterItemMapAdapter);
