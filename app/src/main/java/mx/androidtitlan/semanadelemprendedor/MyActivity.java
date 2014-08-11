@@ -1,6 +1,9 @@
 package mx.androidtitlan.semanadelemprendedor;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
@@ -23,11 +26,12 @@ import mx.androidtitlan.semanadelemprendedor.fragments.Explorer;
 import mx.androidtitlan.semanadelemprendedor.fragments.Map;
 import mx.androidtitlan.semanadelemprendedor.fragments.Schedule;
 import mx.androidtitlan.semanadelemprendedor.fragments.Streaming;
+import mx.androidtitlan.semanadelemprendedor.main.Login_Screen;
 
 
 public class MyActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
-
+    SharedPreferences prefs;
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
@@ -145,6 +149,7 @@ public class MyActivity extends ActionBarActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         if (!mNavigationDrawerFragment.isDrawerOpen()) {
             restoreActionBar();
+            getMenuInflater().inflate(R.menu.my, menu);
             return true;
         }
         return super.onCreateOptionsMenu(menu);
@@ -155,8 +160,29 @@ public class MyActivity extends ActionBarActivity
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+        switch (item.getItemId()){
+
+            case R.id.action_session:
+                Intent intento = new Intent(MyActivity.this,Login_Screen.class);
+                startActivity(intento);
+                SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.clear();
+                editor.commit();
+                break;
+
+
+        }
         return super.onOptionsItemSelected(item);
     }
+
+
+
+        // Inflate the menu; this adds items to the action bar if it is present.
+        // le paso menu azul que es el menu que cree el activitymenu
+
+
 
     /**
      * A placeholder fragment containing a simple view.
