@@ -27,6 +27,7 @@
     <string name="streaming_view">Streaming view</string>
     <string name="instructions">Para conocer tu número de gafete o ID, revisa el </string>
     <string name="instructions2">correo de confirmación de tu registro.</string>
+    <string name="sesion">Cerrar sesión</string>
 
     <!--Tipos de eventos-->
     <string name="magistral">Conferencia Magistral</string>
