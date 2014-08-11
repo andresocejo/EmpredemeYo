@@ -51,6 +51,9 @@ public class MyActivity extends ActionBarActivity
 
     // Navigation adapter
     private SpinnerAdapterBar adapter;
+    private int fragSelect = -1;
+
+    private static String FRAG_SELECT = "frag_selec";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,10 +69,21 @@ public class MyActivity extends ActionBarActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+
+        if (savedInstanceState != null) {
+            fragSelect = savedInstanceState.getInt(FRAG_SELECT, -1);
+        }
+
     }
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
+
+        if (fragSelect == position) {
+            return;
+        } else {
+            fragSelect = position;
+        }
 
         switch (position) {
             case 0:
@@ -113,6 +127,15 @@ public class MyActivity extends ActionBarActivity
             default:
 
         }
+
+    }
+
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putInt(FRAG_SELECT, -1);
 
     }
 
@@ -223,5 +246,6 @@ public class MyActivity extends ActionBarActivity
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
     }
+
 
 }
