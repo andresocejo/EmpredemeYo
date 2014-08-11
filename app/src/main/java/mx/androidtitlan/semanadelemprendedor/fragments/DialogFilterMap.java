@@ -8,7 +8,6 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.widget.ArrayAdapter;
 
@@ -28,12 +27,10 @@ public class DialogFilterMap extends DialogFragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
 
-
         actualizaMapa = (UpdateMap) getActivity().getSupportFragmentManager().findFragmentById(R.id.container);
 
     }
 
-    @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 

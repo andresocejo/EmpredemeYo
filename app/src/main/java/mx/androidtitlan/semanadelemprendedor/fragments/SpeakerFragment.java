@@ -9,9 +9,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import mx.androidtitlan.semanadelemprendedor.util.CircleTransform;
-import mx.androidtitlan.semanadelemprendedor.R;
 import com.squareup.picasso.Picasso;
+
+import mx.androidtitlan.semanadelemprendedor.R;
+import mx.androidtitlan.semanadelemprendedor.util.CircleTransform;
 
 /**
  *Este fragmento contiene la información de un ponente
@@ -53,11 +54,11 @@ public class SpeakerFragment extends Fragment {
         speakerDescription.setText(speaker.getString("cv"));
 
         if(speaker.getString("picture").isEmpty()){
-            Picasso.with(getActivity()).load("http://www.codejobs.biz/www/lib/files/images/b312953ac30ff5d.png").transform(new CircleTransform()).into(photo);
+            Picasso.with(getActivity()).load(R.drawable.place_holder_speaker).transform(new CircleTransform()).into(photo);
         }
 
         else{
-            Picasso.with(getActivity()).load(speaker.getString("picture")).transform(new CircleTransform()).into(photo);
+            Picasso.with(getActivity()).load(speaker.getString("picture")).placeholder(R.drawable.place_holder_speaker).transform(new CircleTransform()).into(photo);
         }
 
 

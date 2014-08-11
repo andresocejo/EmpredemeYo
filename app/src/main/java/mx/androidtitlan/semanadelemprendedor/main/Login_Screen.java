@@ -166,7 +166,6 @@ public class Login_Screen extends Activity {
 
                     }
 
-
                 } catch (JSONException e) {
                     Log.i("ERROR", "ERROR");
                 }

@@ -12,6 +12,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
+
 import java.util.ArrayList;
 
 import mx.androidtitlan.semanadelemprendedor.Adapter.SpinnerAdapterBar;
@@ -34,6 +37,11 @@ public class MyActivity extends ActionBarActivity
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
+    private RequestQueue requestQueue;
+
+    public RequestQueue getRequestQueue() {
+        return requestQueue;
+    }
 
     private ArrayList<SpinnerModelBar> navSpinner;
 
@@ -44,6 +52,7 @@ public class MyActivity extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
+        requestQueue = Volley.newRequestQueue(this);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);

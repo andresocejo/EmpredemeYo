@@ -11,11 +11,11 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
+import mx.androidtitlan.semanadelemprendedor.R;
 import mx.androidtitlan.semanadelemprendedor.util.Event;
 import mx.androidtitlan.semanadelemprendedor.util.MiscellaneousMethods;
-import mx.androidtitlan.semanadelemprendedor.R;
-
-import java.util.ArrayList;
 
 /**
  * Created by Petter on 04/08/2014.
@@ -82,7 +82,9 @@ public class EventsAdapter extends ArrayAdapter<Event> {
         return container;
     }
 
-
+    public ArrayList<Event> getEvents() {
+        return events;
+    }
 
     private class PropertyHolderView{
 

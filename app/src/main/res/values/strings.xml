@@ -38,6 +38,36 @@
         <item>Viernes, 15 de Agosto</item>
     </string-array>
 
+    <!--Ecosistemas-->
+
+    <string-array name="eco_array">
+        <item>Todos</item>
+        <item>Red de Apoyo al Emprendedor</item>
+        <item>Semillero Emprendedor</item>
+        <item>Alto Impacto y Capital</item>
+        <item>Distrito Financiero</item>
+        <item>Fábrica de Empresas</item>
+        <item>Laboratorio de Innovación</item>
+        <item>Empresa Digital</item>
+        <item>Industrias Creativas</item>
+        <item>MIPYMES en Movimiento</item>
+        <item>Desarrollo Regional</item>
+    </string-array>
+
+    <!--Eco descriptions -->
+    <string-array name="eco_descriptions">
+        <item>En el área de exposición, el primer punto que encontrarán los asistentes en la Semana del Emprendedor será el ecosistema Red de Apoyo al Emprendedor. Sus actividades son fundamentales para que la experiencia de los asistentes sea exitosa. En este ecosistema, serás atendido por personal altamente capacitado que mediante un breve diagnostico te indicará qué actividades podrás llevar a cabo en este ecosistema de acuerdo a tu perfil y necesidades.</item>
+        <item>Semillero Emprendedor es un ecosistema cuya finalidad es despertar tus ideas, tus sueños, tu espíritu emprendedor, así como ayudarte a desarrollar tu idea de negocio a través de metodologías que fácilmente te llevarán de la mano para hacer tu primer Plan o Modelo de negocio. Sin duda, este ecosistema es el lugar ideal para quienes desean emprender y empezar el camino, pues de manera dinámica te guiará en el desarrollo o consolidación de su idea.</item>
+        <item>Alto Impacto y Capital son aquellos emprendedores que por su forma de hacer negocios o derivado del producto o servicio que desarrollan generan una serie de cambios en el mercado que les rodea. En consecuencia, su crecimiento es acelerado.Este ecosistema está pensado especialmente para este tipo de emprendedores, podrás conocer diversos procesos y herramientas para potenciar tu empresa y su impacto para, posteriormente, buscar financiamiento vía capital.</item>
+        <item>En el Ecosistema Distrito Financiero podrás acceder a una amplia oferta de financiamiento según tu perfil de emprendedor o de empresa. Adicionalmente se ofrecen diversos talleres con temática financiera que facilitan el desarrollo y la adquisición de habilidades en este rubro.Para hacer realidad una gran idea o negocio es esencial contar con financiamiento. El financiamiento, a costo adecuado, permite la viabilidad de los proyectos en las etapas creación, desarrollo y consolidación de una empresa. Sin embargo, la opción financiera que se elija debe ser tan única como la empresa misma.</item>
+        <item>Fábrica de Empresas es un ecosistema que tiene por objeto mostrarte el paso a paso para iniciar un negocio, así como los retos a vivir día a día con tu propia empresa al convertirte en empresario.</item>
+        <item>En el Ecosistema Laboratorio de innovación, podrás descubrir y vivir qué es la innovación. Queremos que seas un emprendedor innovador, que mejore la forma de hacer negocios, la forma en que usamos y pensamos las cosas.La intención es acercarte a las herramientas en la materia para mejorar tu negocio, pero sobre todo queremos formar emprendedores innovadores que piensen y se atrevan a hacer negocios de manera diferente.</item>
+        <item>En el ecosistema Empresa Digital encontrarás una amplia gama de soluciones tecnológicas a tu medida, tanto para empresas de nueva creación, como para aquellas que ya están operando.Las Tecnologías de la Información y Comunicación o TIC como se les conoce por sus siglas, son una herramienta indispensable para empresas competitivas. El uso de las TIC no es exclusivo de las grandes empresas, también los negocios tradicionales —como el tuyo— obtienen grandes beneficios con su incorporación a sus procesos, por ejemplo, en el manejo de clientes, proveedores, ventas, inventarios, entre muchos otros.</item>
+        <item>Para algunos, la creatividad empresarial puede entenderse como la generación de una idea o producto para satisfacer una necesidad en el mercado. Siguiendo esta lógica, la creatividad puede dividirse en la creación y desarrollo de proyectos, así como en las formas para adquirir recursos económicos que le permitan la viabilidad posterior.</item>
+        <item>En el ecosistema MiPyMEs en Movimiento encontrarás diversas opciones y herramientas para el desarrollo de las habilidades requeridas para mantener tu empresa en el mercado y que, con el paso del tiempo y la aplicación de una estrategia, tu negocio siga creciendo y fortaleciéndose. La mejora continua es un tema obligado para las empresas, independientemente de su tamaño y alcance.</item>
+        <item>A través del Ecosistema Desarrollo Regional, podrás identificar los programas y experiencias para la integración de cadenas de valor, que muevan a los sectores estratégicos y las regiones del país, con modelos de competitividad y clústers empresariales.</item>
+    </string-array>
+
     <!--IDs Json para Requests-->
 
     <string name="nombre_conferencia">NombreConferencia</string>
@@ -48,6 +78,7 @@
     <string name="hora_inicio">HoraInicio</string>
     <string name="hora_fin">HoraFin</string>
     <string name="ponente">Ponente</string>
+    <string name="eco">Ecosistema</string>
     <string name="nombre_ponente">Nombre</string>
     <string name="foto_ponente">Foto</string>
     <string name="dependencia_ponente">Dependencia</string>
