@@ -177,7 +177,8 @@ public class Login_Screen extends Activity {
                     }
 
                 } catch (JSONException e) {
-                    Log.i("ERROR", "ERROR");
+                    progressDialog.dismiss();
+                    Toast.makeText(Login_Screen.this,"Parece que hay un problema con el servidor, intenta más tarde",Toast.LENGTH_SHORT).show();
                 }
 
                 progressDialog.dismiss();
@@ -186,7 +187,8 @@ public class Login_Screen extends Activity {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                System.out.println("Error [" + error + "]");
+                progressDialog.dismiss();
+                Toast.makeText(Login_Screen.this,"Parece que hay un problema con el servidor, intenta más tarde",Toast.LENGTH_SHORT).show();
 
             }
         })
@@ -204,7 +206,7 @@ public class Login_Screen extends Activity {
 
         };
 
-        postReq.setRetryPolicy(new DefaultRetryPolicy(17000,
+        postReq.setRetryPolicy(new DefaultRetryPolicy(30000,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 

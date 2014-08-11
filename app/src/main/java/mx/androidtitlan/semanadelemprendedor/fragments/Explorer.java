@@ -13,6 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -179,11 +180,11 @@ public class Explorer extends Fragment implements DialogFilterEvents.UpdateList{
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.i("Error on response", error.toString());
+                Toast.makeText(getActivity(), "Parece que hay un problema con el servidor, intenta más tarde", Toast.LENGTH_SHORT).show();
             }
         }
         );
-        getEvents.setRetryPolicy(new DefaultRetryPolicy(22000,
+        getEvents.setRetryPolicy(new DefaultRetryPolicy(45000,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         queue.add(getEvents);

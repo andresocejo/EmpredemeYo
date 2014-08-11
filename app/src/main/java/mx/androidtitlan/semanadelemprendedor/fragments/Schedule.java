@@ -218,12 +218,12 @@ public class Schedule extends android.support.v4.app.Fragment implements android
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.i("Error", error.toString());
+                        Toast.makeText(getActivity(), "Parece que hay un problema con el servidor, intenta más tarde", Toast.LENGTH_SHORT).show();
                     }
                 }
         );
 
-        getEvents.setRetryPolicy(new DefaultRetryPolicy(17000,
+        getEvents.setRetryPolicy(new DefaultRetryPolicy(30000,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
