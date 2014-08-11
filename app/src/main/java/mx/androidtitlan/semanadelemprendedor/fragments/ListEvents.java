@@ -60,6 +60,7 @@ public class ListEvents extends ListFragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        events = new ArrayList<Event>();
 
         return super.onCreateView(inflater, container, savedInstanceState);
     }
@@ -137,7 +138,6 @@ public class ListEvents extends ListFragment{
         if (flag == false){
 
             Log.i("Updating","");
-            events = new ArrayList<Event>();
             fillUserEvents();
 
             if (events.isEmpty()) {
@@ -208,23 +208,27 @@ public class ListEvents extends ListFragment{
     public void sortByEco (String eco){
         ArrayList<Event> eventsEco = new ArrayList<Event>();
 
-        if (eco.equals("Todos")){
-            adapter = new EventsAdapter(events, getActivity());
-            setListAdapter(adapter);
-            adapter.notifyDataSetChanged();
-        }
+        if(!events.isEmpty()){
 
-        else {
-            for (int i = 0; i<events.size(); i++){
-                if(events.get(i).getEco().equals(eco)){
-                    eventsEco.add(events.get(i));
-                }
+            if (eco.equals("Todos")){
+                adapter = new EventsAdapter(events, getActivity());
+                setListAdapter(adapter);
+                adapter.notifyDataSetChanged();
             }
 
-            adapter = new EventsAdapter(eventsEco, getActivity());
-            setListAdapter(adapter);
-            adapter.notifyDataSetChanged();
+            else {
+                for (int i = 0; i<events.size(); i++){
+                    if(events.get(i).getEco().equals(eco)){
+                        eventsEco.add(events.get(i));
+                    }
+                }
+
+                adapter = new EventsAdapter(eventsEco, getActivity());
+                setListAdapter(adapter);
+                adapter.notifyDataSetChanged();
+            }
         }
+
     }
 }
 
