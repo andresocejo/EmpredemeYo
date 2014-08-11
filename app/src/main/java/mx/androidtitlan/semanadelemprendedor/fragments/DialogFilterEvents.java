@@ -37,14 +37,14 @@ public class DialogFilterEvents extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
         final String [] days = getResources()
-                .getStringArray(R.array.ecositemas);
+                .getStringArray(R.array.eco_array);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         builder.setTitle(R.string.fiter_ecosistemas).setIcon(R.drawable.ic_explore);
 
         FilterItemMapAdapter filterItemMapAdapter = new FilterItemMapAdapter(getActivity(), R.layout.item_filter_map, getResources()
-                .getStringArray(R.array.ecositemas));
+                .getStringArray(R.array.eco_array));
 
         ListView view = (ListView) getActivity().getLayoutInflater().inflate(R.layout.listiview_dialog, null, false);
         view.setAdapter(filterItemMapAdapter);
@@ -52,6 +52,7 @@ public class DialogFilterEvents extends DialogFragment {
         view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
                 explorador.recreateList(days[i], i);
                 dismiss();
 
