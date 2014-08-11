@@ -32,6 +32,7 @@
         android:layout_height="wrap_content"
         android:text="hour start"
         android:textColor="@color/white"
+        android:textSize="12sp"
         android:id="@+id/hour_conference"
         android:layout_marginTop="3dp"
         android:layout_marginBottom="17dp"

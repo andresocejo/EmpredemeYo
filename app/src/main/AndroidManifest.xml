@@ -51,6 +51,12 @@
 
 
         </activity>
+
+        <activity
+            android:name=".Activities.StreamingView"
+            android:label="@string/streaming_view">
+
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
