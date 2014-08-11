@@ -2,6 +2,7 @@ package mx.androidtitlan.semanadelemprendedor.fragments;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import mx.androidtitlan.semanadelemprendedor.Activities.StreamingView;
 import mx.androidtitlan.semanadelemprendedor.Adapter.SpeakerStreamingAdapter;
 import mx.androidtitlan.semanadelemprendedor.Model.SpeakerModelConference;
 import mx.androidtitlan.semanadelemprendedor.MyActivity;
@@ -55,8 +57,9 @@ public class Streaming extends Fragment {
         SpeakerStreamingAdapter ponenteAdapter = new SpeakerStreamingAdapter(ponente, getActivity());
 
         //Esto es para probar el gridview con datos
-        for (int index = 0; index < 13; index++) {
+        for (int index = 0; index < 2; index++) {
             SpeakerModelConference confe = new SpeakerModelConference();
+
 
 
             ponente.add(confe);
@@ -84,8 +87,19 @@ public class Streaming extends Fragment {
 
                     Log.i("position ", num);
 
-                    Toast.makeText(
-                            getActivity(), "conference: " + num, Toast.LENGTH_SHORT).show();
+                 //   Toast.makeText(
+                   //         getActivity(), "conference: " + num, Toast.LENGTH_SHORT).show();
+
+                    String streamings[] = {"U_uxHf4WcgU","LuFittKgr4Q"};
+
+                 //  String video = "LuFittKgr4Q";//tecnologias creativas e internet de las cosas
+
+                   //  String videoConference = "U_uxHf4WcgU" ; La Creación de una Era de Abundancia
+
+
+                    Intent intento = new Intent(getActivity(), StreamingView.class);
+                    intento.putExtra("id_video",streamings[position]);
+                    startActivity(intento);
 
 
                 }

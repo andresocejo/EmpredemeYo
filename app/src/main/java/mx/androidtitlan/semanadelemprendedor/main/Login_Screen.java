@@ -1,16 +1,31 @@
 package mx.androidtitlan.semanadelemprendedor.main;
 
+import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +42,7 @@ import org.json.JSONObject;
 
 import mx.androidtitlan.semanadelemprendedor.MyActivity;
 import mx.androidtitlan.semanadelemprendedor.R;
+import mx.androidtitlan.semanadelemprendedor.util.AyudaLogin;
 
 /**
  * Created by Jhordan on 04/08/14.
@@ -35,7 +51,10 @@ public class Login_Screen extends Activity {
 
     private Button go;
     private EditText edt_email, edt_password;
-    private TextView register;
+    private TextView register, about;
+    final Context context = this;
+
+
     String email;
     String gafete;
     String user_email;
@@ -47,12 +66,12 @@ public class Login_Screen extends Activity {
         super.onCreate(savedInstanceState);
         Crashlytics.start(this);
         setContentView(R.layout.login_screen);
+        hideBar();
+        aboutShowDialog();
 
         edt_email = (EditText) findViewById(R.id.edt_email);
         edt_password = (EditText) findViewById(R.id.edt_password);
-
         prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
-
         user_email = prefs.getString("email_usr", "");
         user_gafete = prefs.getString("gafete_usr", "");
 
@@ -63,8 +82,6 @@ public class Login_Screen extends Activity {
         if (user_email != "" && user_gafete != "") {
             goHome();
             //Toast.makeText(Login_Screen.this, user_email + user_gafete, Toast.LENGTH_SHORT).show();
-
-
         } else {
 
 
@@ -94,10 +111,10 @@ public class Login_Screen extends Activity {
 
         if (edt_email.getText().toString().equals("") || edt_password.getText().toString().equals("")) {
 
-            Toast.makeText(Login_Screen.this, "Campos vacios", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Login_Screen.this, "Por favor verifica Campos vacios", Toast.LENGTH_SHORT).show();
 
         } else if (valida_mail.equals("false")) {
-            Toast.makeText(Login_Screen.this, "email invalido!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Login_Screen.this, "Email invalido!", Toast.LENGTH_SHORT).show();
         } else {
             loginUser(edt_email.getText().toString(), edt_password.getText().toString());
         }
@@ -153,7 +170,7 @@ public class Login_Screen extends Activity {
 
                     if (jsonText.equals("true") && dataText.equals("[]")) {
 
-                        Toast.makeText(Login_Screen.this, "Error password", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Login_Screen.this, "Password o email invalido!", Toast.LENGTH_SHORT).show();
 
 
                     } else {
@@ -215,10 +232,17 @@ public class Login_Screen extends Activity {
 
     private void registerCount() {
         register = (TextView) findViewById(R.id.register_acount);
+        register.setTypeface(null, Typeface.BOLD);
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goPagePrincipal();
+
+                try {
+                    goPagePrincipal();
+                } catch (Exception e) {
+                    Toast.makeText(Login_Screen.this, "Error en la Red Verifica tu conexión!", Toast.LENGTH_LONG).show();
+                }
+
             }
         });
 
@@ -228,6 +252,36 @@ public class Login_Screen extends Activity {
         String url = "http://semanadelemprendedor.gob.mx/";
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
         startActivity(intent);
+
+
+    }
+
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    private void hideBar() {
+
+        ActionBar bar = getActionBar();
+        bar.hide();
+    }
+
+    private void aboutShowDialog() {
+
+        about = (TextView) findViewById(R.id.aboutLogo);
+
+        about.setOnClickListener(new View.OnClickListener() {
+            @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+            @Override
+            public void onClick(View v) {
+
+                final Dialog dialog = new Dialog(context);
+
+                dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+                dialog.setContentView(R.layout.dialoghelp);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+
+
+            }
+        });
 
 
     }

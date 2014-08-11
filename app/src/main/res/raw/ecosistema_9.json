@@ -1,115 +1,115 @@
 [
   {
     "title": "VERBAT",
-    "description": "966Q",
+    "description": "966-Q",
     "latitud": 19.4399976,
     "longitud": -99.2239357
   },
   {
     "title": "RAVE COSULTING ",
-    "description": "966P",
+    "description": "966-P",
     "latitud": 19.4400229,
     "longitud": -99.2239129
   },
   {
     "title": "MÉXICO TRANSPORTA",
-    "description": "966H",
+    "description": "966-H",
     "latitud": 19.4400721,
     "longitud": -99.2238634
   },
   {
-    "title": "MÉXICO TRANSPORTA",
-    "description": "966H",
+    "title": "CADELEC",
+    "description": "966-A",
     "latitud": 19.4400924,
     "longitud": -99.2238391
   },
   {
     "title": "AYALA ARREDEDONDO",
-    "description": "966R",
+    "description": "966-R",
     "latitud": 19.4400216,
     "longitud": -99.2239585
   },
   {
-    "title": "CENTRO KAPPA DE CONOCIMIENTO S.C.",
-    "description": "966O",
+    "title": "CENTRO KAPPA DE CONOCIMIENTO, S.C.",
+    "description": "966- O",
     "latitud": 19.4400431,
     "longitud": -99.2239331
   },
   {
     "title": "RED MULDIAL DE DESARROLLADO DE PROVEEDORES",
-    "description": "966G",
+    "description": "966-G",
     "latitud": 19.4400912,
     "longitud": -99.2238889
   },
   {
-    "title": "RED MUNDIAL DE DESARROLLO DE PROVEEDORES ",
-    "description": "966G",
+    "title": "FUNDES",
+    "description": "966-B",
     "latitud": 19.440114,
     "longitud": -99.2238633
   },
   {
     "title": "IMPULSA",
-    "description": "966S",
+    "description": "966-S",
     "latitud": 19.4400394,
     "longitud": -99.2239827
   },
   {
     "title": "BARCELIS CONSEJEROS EMPRESARIALES",
-    "description": "966N",
+    "description": "966-N",
     "latitud": 19.440062,
     "longitud": -99.2239559
   },
   {
     "title": "MIPYMES CONSULTORES",
-    "description": "966F",
+    "description": "966-F",
     "latitud": 19.4401101,
     "longitud": -99.223913
   },
   {
     "title": "CONSULTORES INTERNACIONALES - IMP CONSULTORES",
-    "description": "966C",
+    "description": "966-C",
     "latitud": 19.440133,
     "longitud": -99.2238834
   },
   {
     "title": "MARZA SERVICIOS INTEGRADOS DE INGENIERÍA",
-    "description": "966T",
+    "description": "966-T",
     "latitud": 19.4400571,
     "longitud": -99.2240055
   },
   {
     "title": "BISNET",
-    "description": "966M",
+    "description": "966-M",
     "latitud": 19.4400785,
     "longitud": -99.2239814
   },
   {
     "title": "ENDEAVOUR BUSINESS CONNETION",
-    "description": "966E",
+    "description": "966-E",
     "latitud": 19.4401252,
     "longitud": -99.2239358
   },
   {
     "title": "SISTEMA NACIONAL DE INTEGRACIÓN DE MERCADOS (SNIIM)",
-    "description": "966D",
+    "description": "966-D",
     "latitud": 19.4401493,
     "longitud": -99.2239062
   },
   {
     "title": "LENSYS",
-    "description": "966L",
+    "description": "966-L",
     "latitud": 19.4401038,
     "longitud": -99.2239572
   },
   {
     "title": "NIRHO",
-    "description": "966K",
+    "description": "966-K",
     "latitud": 19.4400849,
     "longitud": -99.2239331
   },
   {
     "title": "PRP INNOVACIÓN EMPRESARIAL",
-    "description": "966J",
+    "description": "966-J",
     "latitud": 19.4400659,
     "longitud": -99.223913
   },
@@ -156,7 +156,7 @@
     "longitud": -99.2239866
   },
   {
-    "title": "FORZA GLOBAL SOLUTIONS",
+    "title": "FORZA GLOBAL SOLUTIONS S.A DE C.V",
     "description": "930",
     "latitud": 19.4403149,
     "longitud": -99.2240069
@@ -210,10 +210,10 @@
     "longitud": -99.2233416
   },
   {
-    "title": "STAND LIBRE",
-    "description": "963",
-    "latitud": 19.4404668,
-    "longitud": -99.2241007
+    "title": "961",
+    "description": "961",
+    "latitud": 19.4404643,
+    "longitud": -99.2241114
   },
   {
     "title": "BEUTELSPACHER S.A.",
@@ -289,9 +289,9 @@
   },
   {
     "title": "INSTITUTO DE INNOVACIÓN Y TRANSFERENCIA DE TECNOLOGÍA DE NUEVO LEÓN",
-    "description": "920A",
-    "latitud": 19.4407412,
-    "longitud": -99.2237668
+    "description": "920-A",
+    "latitud": 19.4407589,
+    "longitud": -99.2237534
   },
   {
     "title": "CAYRO INDUSTRIAL",
@@ -301,193 +301,193 @@
   },
   {
     "title": "OBSERVATORIO ESTRATÉGICO TECNOLÓGICO",
-    "description": "920B",
-    "latitud": 19.4407652,
-    "longitud": -99.2237453
+    "description": "920-B",
+    "latitud": 19.4407753,
+    "longitud": -99.2237333
   },
   {
     "title": "SOMERSET TECHNOLOGIES S.A. DE C.V",
     "description": "919",
-    "latitud": 19.4407867,
-    "longitud": -99.2237225
+    "latitud": 19.440793,
+    "longitud": -99.2237118
   },
   {
     "title": "SWOOSH",
     "description": "918",
-    "latitud": 19.4408082,
-    "longitud": -99.2236983
+    "latitud": 19.4408108,
+    "longitud": -99.2236917
   },
   {
     "title": "BOTANAS LA LUPITA",
-    "description": "924 - A",
+    "description": "924-A",
     "latitud": 19.440425,
     "longitud": -99.2240457
   },
   {
     "title": "SECRETARÍA DE FOMENTO ECONÓMICO DEL ESTADO DE YUCATÁN",
-    "description": "924 - B",
+    "description": "924-B",
     "latitud": 19.4404415,
     "longitud": -99.224027
   },
   {
     "title": "HUNAB PROYECTO DE VIDA A.C.",
-    "description": "924- C",
+    "description": "924-C",
     "latitud": 19.4404592,
     "longitud": -99.2240081
   },
   {
     "title": "PROCESADORA DE ALIMENTOS MARLET",
-    "description": "924 - D",
+    "description": "924 -D",
     "latitud": 19.4404225,
     "longitud": -99.2240216
   },
   {
     "title": "LA ANITA",
-    "description": "924 - E",
+    "description": "924-E",
     "latitud": 19.440439,
     "longitud": -99.2240015
   },
   {
     "title": "SECRETARÍA DE DESARROLLO ECONÓMICO DEL ESTADO DE QUINTANA ROO",
-    "description": "923 - A",
+    "description": "923-A",
     "latitud": 19.4404921,
     "longitud": -99.2239827
   },
   {
     "title": "SECRETARÍA DE DESARROLLO ECONÓMICO DEL ESTADO DE QUINTANA ROO",
-    "description": "923 - B",
+    "description": "923-B",
     "latitud": 19.4405085,
     "longitud": -99.2239626
   },
   {
     "title": "SECRETARÍA DE DESARROLLO ECONÓMICO DEL ESTADO DE QUINTANA ROO",
-    "description": "923 - C",
+    "description": "923-C",
     "latitud": 19.4405274,
     "longitud": -99.2239438
   },
   {
     "title": "SECRETARÍA DE DESARROLLO ECONÓMICO DEL ESTADO DE QUINTANA ROO",
-    "description": "923 - D",
+    "description": "923-D",
     "latitud": 19.440487,
     "longitud": -99.2239586
   },
   {
     "title": "SECRETARÍA DE DESARROLLO ECONÓMICO DEL ESTADO DE QUINTANA ROO",
-    "description": "923 - E",
+    "description": "923-E",
     "latitud": 19.4405035,
     "longitud": -99.2239371
   },
   {
     "title": "SECRETARÍA DE DESARROLLO ECONÓMICO DEL GOBIERNO DEL ESTADO DE SAN LUIS POTOSÍ",
-    "description": "922 - A",
+    "description": "922-A",
     "latitud": 19.4405819,
     "longitud": -99.2239317
   },
   {
     "title": "SECRETARÍA DE DESARROLLO ECONÓMICO DEL GOBIERNO DEL ESTADO DE SAN LUIS POTOSÍ",
-    "description": "922 - B",
+    "description": "922-B",
     "latitud": 19.440597,
     "longitud": -99.2239157
   },
   {
     "title": "SECRETARÍA DE DESARROLLO ECONÓMICO DEL GOBIERNO DEL ESTADO DE SAN LUIS POTOSÍ",
-    "description": "922 - C",
+    "description": "92 -C",
     "latitud": 19.4406159,
     "longitud": -99.2238995
   },
   {
     "title": "SECRETARÍA DE DESARROLLO ECONÓMICO DEL GOBIERNO DEL ESTADO DE SAN LUIS POTOSÍ",
-    "description": "922D",
+    "description": "922-D",
     "latitud": 19.440573,
     "longitud": -99.2239088
   },
   {
     "title": "SECRETARÍA DE DESARROLLO ECONÓMICO DEL GOBIERNO DEL ESTADO DE SAN LUIS POTOSÍ",
-    "description": "922E",
+    "description": "922-E",
     "latitud": 19.4405907,
     "longitud": -99.2238902
   },
   {
     "title": "SECRETARÍA DE DESARROLLO ECONÓMICO Y TURISMO DEL ESTADO DE TABASCO",
-    "description": "921 - B",
+    "description": "921-B",
     "latitud": 19.4406627,
     "longitud": -99.2238567
   },
   {
     "title": "SECRETARÍA DE DESARROLLO ECONÓMICO Y TURISMO DEL ESTADO DE TABASCO",
-    "description": "921 - A",
+    "description": "921-A",
     "latitud": 19.4406438,
     "longitud": -99.2238754
   },
   {
     "title": "SECRETARÍA DE DESARROLLO ECONÓMICO Y TURISMO DEL ESTADO DE TABASCO",
-    "description": "921 - C",
+    "description": "921-C",
     "latitud": 19.4406818,
     "longitud": -99.2238366
   },
   {
     "title": "SECRETARÍA DE DESARROLLO ECONÓMICO Y TURISMO DEL ESTADO DE TABASCO",
-    "description": "921 - D ",
+    "description": "921-D ",
     "latitud": 19.4406349,
     "longitud": -99.2238499
   },
   {
     "title": "SECRETARÍA DE DESARROLLO ECONÓMICO Y TURISMO DEL ESTADO DE TABASCO",
-    "description": "921 - E",
+    "description": "921-E",
     "latitud": 19.440654,
     "longitud": -99.2238312
   },
   {
     "title": "SEDECO CIUDAD DE MÉXICO",
-    "description": "965 - B",
+    "description": "965-B",
     "latitud": 19.4406957,
     "longitud": -99.2237869
   },
   {
     "title": "SEDECO CIUDAD DE MÉXICO",
-    "description": "965 - A",
+    "description": "965-A",
     "latitud": 19.440678,
     "longitud": -99.2238043
   },
   {
     "title": "SEDECO CIUDAD DE MÉXICO",
-    "description": "965 - C",
+    "description": "965-C",
     "latitud": 19.4407096,
     "longitud": -99.2237694
   },
   {
     "title": "SEDECO CIUDAD DE MÉXICO",
-    "description": "965 - D",
+    "description": "965-D",
     "latitud": 19.4406641,
     "longitud": -99.2237762
   },
   {
     "title": "SEDECO CIUDAD DE MÉXICO",
-    "description": "965 - D",
+    "description": "965-D",
     "latitud": 19.4406805,
     "longitud": -99.2237574
   },
   {
     "title": "GEEKDOM",
-    "description": "947 - A",
+    "description": "947-A",
     "latitud": 19.4403744,
     "longitud": -99.2239894
   },
   {
     "title": "MICROSIP",
-    "description": "947 -B ",
+    "description": "947-B ",
     "latitud": 19.4404061,
     "longitud": -99.2239599
   },
   {
     "title": "GRUPO DE INDUSTRIALES DEL SECTOR AUTOMOTRIZ DEL SECTOR AUTOMOTRIZ GIRAA",
-    "description": "939 - A",
+    "description": "939-A",
     "latitud": 19.4404402,
     "longitud": -99.2239317
   },
   {
     "title": "GRUPO DE INDUSTRIALES DEL SECTOR AUTOMOTRIZ DEL SECTOR AUTOMOTRIZ GIRAA",
-    "description": "939 - B",
+    "description": "939-B",
     "latitud": 19.4404617,
     "longitud": -99.2239063
   },
@@ -499,211 +499,211 @@
   },
   {
     "title": "ALESTRA",
-    "description": "947 - D",
+    "description": "947-D",
     "latitud": 19.4403731,
     "longitud": -99.2239493
   },
   {
     "title": "INC MONTERREY",
-    "description": "947 - E",
+    "description": "947-E",
     "latitud": 19.4403909,
     "longitud": -99.2239305
   },
   {
     "title": "CLUSTER DE TI DE AGUASCALIENTES",
-    "description": "939 - C",
+    "description": "939-C",
     "latitud": 19.4404086,
     "longitud": -99.2239117
   },
   {
     "title": "CLUSTER DE TI DE AGUASCALIENTES",
-    "description": "939 - D",
+    "description": "939-D",
     "latitud": 19.4404262,
     "longitud": -99.2238955
   },
   {
     "title": "GRUPO DE INDUSTRIALES DEL SECTOR AUTOMOTRIZ DEL SECTOR AUTOMOTRIZ GIRAA",
-    "description": "939 - E",
+    "description": "939-E",
     "latitud": 19.4404427,
     "longitud": -99.2238781
   },
   {
-    "title": "CLUSTER DEL VINO",
-    "description": "940 - C",
+    "title": "SISTEMA PRODUCTO VID DE BAJA CALIFORNIA",
+    "description": "940-C",
     "latitud": 19.4404997,
     "longitud": -99.2238687
   },
   {
     "title": "CLUSTER DE TI DE QUERÉTARO",
-    "description": "940 - D",
+    "description": "940-D",
     "latitud": 19.4405212,
     "longitud": -99.2238459
   },
   {
     "title": "PRODUCTORES DE AGAVACEAE OAXAQUEÑA",
-    "description": "940 - E",
+    "description": "940-E",
     "latitud": 19.4405453,
     "longitud": -99.2238284
   },
   {
     "title": "CLUSTER MINERO DE ZACATECAS",
-    "description": "940 - A",
+    "description": "940-A",
     "latitud": 19.4405376,
     "longitud": -99.2238794
   },
   {
-    "title": "CLUSTER DEL VINO",
-    "description": "940 - B",
+    "title": "CLUSTER PRODUCTO VID DE BAJA CALIFORNIA ",
+    "description": "940-B",
     "latitud": 19.4405591,
     "longitud": -99.2238566
   },
   {
     "title": "CLUSTER AUTOMOTRIZ DE NUEVO LEON AC",
-    "description": "946 - A",
+    "description": "946-A",
     "latitud": 19.440487,
     "longitud": -99.2238325
   },
   {
     "title": "CLUSTER AUTOMOTRIZ DEL ESTADO DE MÉXICO",
-    "description": "946 - B",
+    "description": "946-B",
     "latitud": 19.4405135,
     "longitud": -99.2238083
   },
   {
     "title": "EXTRAL",
-    "description": "946 - C",
+    "description": "946-C",
     "latitud": 19.4404592,
     "longitud": -99.2238231
   },
   {
     "title": "ANIPAC",
-    "description": "946 - D",
+    "description": "946-D",
     "latitud": 19.4404807,
     "longitud": -99.223803
   },
   {
     "title": "FYRESA",
-    "description": "946 - E",
+    "description": "946-E",
     "latitud": 19.440501,
     "longitud": -99.2237816
   },
   {
     "title": "CLUSTER DE LA VIVIENDA NL",
-    "description": "948 - A ",
+    "description": "948-A ",
     "latitud": 19.4403353,
     "longitud": -99.2239115
   },
   {
     "title": "PROTESA",
-    "description": "948 - B",
+    "description": "948-B",
     "latitud": 19.4403518,
     "longitud": -99.2238902
   },
   {
     "title": "MIND",
-    "description": "938 - C",
+    "description": "938-C",
     "latitud": 19.4403011,
     "longitud": -99.2238982
   },
   {
     "title": "MIND",
-    "description": "948 - D",
+    "description": "948-D",
     "latitud": 19.4403201,
     "longitud": -99.2238835
   },
   {
     "title": "MIND",
-    "description": "948 - E",
+    "description": "948-E",
     "latitud": 19.4403378,
     "longitud": -99.2238674
   },
   {
     "title": "CARIME ELIZABETH GODOY CAMACHO",
-    "description": "950 - A",
+    "description": "950-A",
     "latitud": 19.4404466,
     "longitud": -99.2237855
   },
   {
     "title": "ALVARO VERDIGUEL SOTELO",
-    "description": "950 - B",
+    "description": "950-B",
     "latitud": 19.4404642,
     "longitud": -99.2237627
   },
   {
     "title": "MARIA DEL ROSARIO JOANICO LUNA",
-    "description": "950 - C",
+    "description": "950-C",
     "latitud": 19.4404238,
     "longitud": -99.2237748
   },
   {
     "title": "ELIZABETH SANTAMARÍA BAHENA",
-    "description": "950 - D",
+    "description": "950-D",
     "latitud": 19.4404402,
     "longitud": -99.2237561
   },
   {
     "title": "DOS DEL EDEN",
-    "description": "950 - E",
+    "description": "950-E",
     "latitud": 19.440458,
     "longitud": -99.2237372
   },
   {
     "title": "INA",
-    "description": "949 - B",
+    "description": "949-B",
     "latitud": 19.4404098,
     "longitud": -99.2238257
   },
   {
     "title": "INA",
-    "description": "949 - A",
+    "description": "949-A",
     "latitud": 19.4403947,
     "longitud": -99.2238472
   },
   {
     "title": "INA",
-    "description": "949 - C",
+    "description": "949-C",
     "latitud": 19.4403566,
     "longitud": -99.2238432
   },
   {
     "title": "INA",
-    "description": "949 - D",
+    "description": "949-D",
     "latitud": 19.4403757,
     "longitud": -99.2238217
   },
   {
     "title": "INA",
-    "description": "949 - E",
+    "description": "949-E",
     "latitud": 19.4403972,
     "longitud": -99.2238016
   },
   {
     "title": "TERNIUM",
-    "description": "958 - A",
+    "description": "958-A",
     "latitud": 19.4402669,
     "longitud": -99.2238675
   },
   {
     "title": "TERNIUM",
-    "description": "958 - B",
+    "description": "958-B",
     "latitud": 19.4402884,
     "longitud": -99.2238485
   },
   {
     "title": "SECRETARÍA DE ECONOMÍA DEL ESTADO DE CHIAPAS",
-    "description": "957 - A",
+    "description": "957-A",
     "latitud": 19.4403226,
     "longitud": -99.2238084
   },
   {
     "title": "SECRETARÍA DE ECONOMÍA DEL ESTADO DE CHIAPAS",
-    "description": "957 - B",
+    "description": "957-B",
     "latitud": 19.4403466,
     "longitud": -99.2237842
   },
   {
     "title": "SECRETARÍA DE DESARROLLO ECONÓMICO DEL ESTADO DE MÉXICO",
-    "description": "954 - A",
+    "description": "954-A",
     "latitud": 19.4403808,
     "longitud": -99.223744
   },
@@ -715,115 +715,115 @@
   },
   {
     "title": "TERNIUM",
-    "description": "958 - C",
+    "description": "958-C",
     "latitud": 19.4402455,
     "longitud": -99.223854
   },
   {
     "title": "TERNIUM",
-    "description": "958 - D",
+    "description": "958-D",
     "latitud": 19.4402619,
     "longitud": -99.2238339
   },
   {
     "title": "TERNIUM",
-    "description": "958 - E",
+    "description": "958-E",
     "latitud": 19.4402771,
     "longitud": -99.2238138
   },
   {
     "title": "SECRETARÍA DE ECONOMÍA DEL ESTADO DE CHIAPAS",
-    "description": "957 - C",
+    "description": "957-C",
     "latitud": 19.4402972,
     "longitud": -99.2237922
   },
   {
     "title": "SECRETARÍA DE ECONOMÍA DEL ESTADO DE CHIAPAS",
-    "description": "957 - D",
+    "description": "957-D",
     "latitud": 19.440315,
     "longitud": -99.2237709
   },
   {
     "title": "SECRETARÍA DE ECONOMÍA DEL ESTADO DE CHIAPAS",
-    "description": "957 - E",
+    "description": "957 -E",
     "latitud": 19.4403353,
     "longitud": -99.2237507
   },
   {
     "title": "SECRETARÍA DE DESARROLLO ECONÓMICO DEL ESTADO DE MÉXICO",
-    "description": "954 - D",
+    "description": "954 -C",
     "latitud": 19.4403555,
     "longitud": -99.2237292
   },
   {
     "title": "SECRETARÍA DE DESARROLLO ECONÓMICO DEL ESTADO DE MÉXICO",
-    "description": "954 - D",
+    "description": "954-D",
     "latitud": 19.4403719,
     "longitud": -99.2237105
   },
   {
     "title": "SECRETARÍA DE DESARROLLO ECONÓMICO DEL ESTADO DE MÉXICO",
-    "description": "954 - E",
+    "description": "954-E",
     "latitud": 19.4403947,
     "longitud": -99.2236931
   },
   {
     "title": "SEDECO NUEVO LEÓN",
-    "description": "959 - A",
+    "description": "959-A",
     "latitud": 19.4402633,
     "longitud": -99.2237922
   },
   {
     "title": "SEDECO NUEVO LEÓN",
-    "description": "959 - B",
+    "description": "959-B",
     "latitud": 19.4402809,
     "longitud": -99.2237734
   },
   {
     "title": "SECRETARÍA DE ECONOMÍA DEL GOBIERNO DEL ESTADO DE MORELOS",
-    "description": "960 - A",
+    "description": "960-A",
     "latitud": 19.44032,
     "longitud": -99.2237279
   },
   {
     "title": "SECRETARÍA DE ECONOMÍA DEL GOBIERNO DEL ESTADO DE MORELOS",
-    "description": "960 - B",
+    "description": "960-B",
     "latitud": 19.4403403,
     "longitud": -99.2237051
   },
   {
     "title": "SEDECO NUEVO LEÓN",
-    "description": "959 - C",
+    "description": "959-C",
     "latitud": 19.4402303,
     "longitud": -99.2237895
   },
   {
     "title": "SEDECO NUEVO LEÓN",
-    "description": "959 - D",
+    "description": "959-D",
     "latitud": 19.4402492,
     "longitud": -99.2237655
   },
   {
     "title": "SEDECO NUEVO LEÓN",
-    "description": "959 - E",
+    "description": "959-E",
     "latitud": 19.440272,
     "longitud": -99.2237413
   },
   {
     "title": "ORGULLO MORELOS",
-    "description": "960 - C",
+    "description": "960-C",
     "latitud": 19.4402973,
     "longitud": -99.2237171
   },
   {
     "title": "PARQUE DE LA SALUD",
-    "description": "960 - D",
+    "description": "960-D",
     "latitud": 19.4403162,
     "longitud": -99.2236957
   },
   {
     "title": "DIVE DE YECAPIXTLA",
-    "description": "960 - E",
+    "description": "960-E",
     "latitud": 19.440334,
     "longitud": -99.2236742
   },
@@ -841,31 +841,31 @@
   },
   {
     "title": "GRUPO BAFAR",
-    "description": "941 - A ",
+    "description": "941-A ",
     "latitud": 19.4406729,
     "longitud": -99.2237292
   },
   {
     "title": "GOBIERNO DEL ESTADO DE CAMPECHE",
-    "description": "941 - B",
+    "description": "941-B",
     "latitud": 19.4406995,
     "longitud": -99.2237091
   },
   {
     "title": "GOBIERNO DEL ESTADO DE CAMPECHE",
-    "description": "941 - A",
+    "description": "941-C",
     "latitud": 19.44065,
     "longitud": -99.2237238
   },
   {
     "title": "GOBIERNO DEL ESTADO DE CAMPECHE",
-    "description": "941 - D",
+    "description": "941-D",
     "latitud": 19.4406703,
     "longitud": -99.2237038
   },
   {
     "title": "GOBIERNO DEL ESTADO DE COAHUILA",
-    "description": "941 - E",
+    "description": "941-E",
     "latitud": 19.4406894,
     "longitud": -99.2236849
   },
@@ -878,96 +878,96 @@
   {
     "title": "TRANSPORTES ONLINE",
     "description": "917",
-    "latitud": 19.440826,
-    "longitud": -99.2236756
+    "latitud": 19.4408298,
+    "longitud": -99.2236742
   },
   {
     "title": "SECRETARÍA DE ECONOMÍA DEL ESTADO DE SONORA",
-    "description": "942 -A ",
+    "description": "942-A ",
     "latitud": 19.4407374,
     "longitud": -99.2236689
   },
   {
-    "title": "CÁMARA NACIONAL DE MANUFACTURAS ELÉCTRICAS",
-    "description": "942 - B",
+    "title": "CÁMARA NACIONAL DE MANUFACTURAS ELÉCTRICAS (CANAME)",
+    "description": "942-B",
     "latitud": 19.4407563,
     "longitud": -99.223646
   },
   {
-    "title": "CÁMARA NACIONAL DE MANUFACTURAS ELÉCTRICAS",
-    "description": "942 - C",
+    "title": "CÁMARA NACIONAL DE MANUFACTURAS ELÉCTRICAS (CANAME)",
+    "description": "942-C",
     "latitud": 19.4407134,
     "longitud": -99.2236581
   },
   {
     "title": "SECRETARÍA DE ECONOMÍA DEL ESTADO DE SONORA",
-    "description": "942 - D",
+    "description": "942-D",
     "latitud": 19.4407323,
     "longitud": -99.223638
   },
   {
     "title": "SECRETARÍA DE ECONOMÍA DEL ESTADO DE SONORA",
-    "description": "942 - E",
+    "description": "942-E",
     "latitud": 19.4407513,
     "longitud": -99.2236192
   },
   {
     "title": "SECRETARÍA DE GOBERNACIÓN",
-    "description": "944A",
+    "description": "944-A",
     "latitud": 19.440635,
     "longitud": -99.2236917
   },
   {
     "title": "SECRETARÍA DE GOBERNACIÓN",
-    "description": "944B",
+    "description": "944-B",
     "latitud": 19.4406577,
     "longitud": -99.2236675
   },
   {
     "title": "SECRETARÍA DE DESARROLLO SOCIAL",
-    "description": "943A",
+    "description": "943-A",
     "latitud": 19.4406969,
     "longitud": -99.2236287
   },
   {
     "title": "SECRETARÍA DE DESARROLLO SOCIAL",
-    "description": "943B",
+    "description": "943-B",
     "latitud": 19.4407184,
     "longitud": -99.2236045
   },
   {
     "title": "SECRETARÍA DE GOBERNACIÓN",
-    "description": "944C ",
+    "description": "944-C",
     "latitud": 19.4406147,
     "longitud": -99.2236743
   },
   {
     "title": "SECRETARÍA DE GOBERNACIÓN",
-    "description": "944D",
+    "description": "944-D",
     "latitud": 19.4406374,
     "longitud": -99.2236474
   },
   {
     "title": "SECRETARÍA DE GOBERNACIÓN",
-    "description": "944E",
+    "description": "944-E",
     "latitud": 19.4406539,
     "longitud": -99.2236287
   },
   {
     "title": "SECRETARÍA DE DESARROLLO SOCIAL",
-    "description": "943C",
+    "description": "943-C",
     "latitud": 19.440678,
     "longitud": -99.2236086
   },
   {
     "title": "SECRETARÍA DE DESARROLLO SOCIAL",
-    "description": "943D",
+    "description": "943-D",
     "latitud": 19.4406969,
     "longitud": -99.2235911
   },
   {
     "title": "SECRETARÍA DE DESARROLLO SOCIAL",
-    "description": "943E",
+    "description": "943-E",
     "latitud": 19.4407147,
     "longitud": -99.2235696
   },
@@ -1032,13 +1032,13 @@
     "longitud": -99.2235468
   },
   {
-    "title": "INSTITUTO JALISCIENCE DEL EMPRENDEDOR",
+    "title": "INSTITUTO JALISCIENCE DEL EMPRENDEDOR IJALDEM",
     "description": "954-A",
     "latitud": 19.4405172,
     "longitud": -99.2236019
   },
   {
-    "title": "INSTITUTO JALISCIENCE DEL EMPRENDEDOR",
+    "title": "INSTITUTO JALISCIENCE DEL EMPRENDEDOR IJALDEM",
     "description": "954-B",
     "latitud": 19.440535,
     "longitud": -99.223579
@@ -1056,19 +1056,19 @@
     "longitud": -99.2235147
   },
   {
-    "title": "INSTITUTO JALISCIENCE DEL EMPRENDEDOR",
+    "title": "INSTITUTO JALISCIENCE DEL EMPRENDEDOR IJALDEM",
     "description": "954-C",
     "latitud": 19.4404971,
     "longitud": -99.2235924
   },
   {
-    "title": "INSTITUTO JALISCIENCE DEL EMPRENDEDOR",
+    "title": "INSTITUTO JALISCIENCE DEL EMPRENDEDOR IJALDEM ",
     "description": "954-D",
     "latitud": 19.4405122,
     "longitud": -99.2235711
   },
   {
-    "title": "INSTITUTO JALISCIENCE DEL EMPRENDEDOR",
+    "title": "INSTITUTO JALISCIENCE DEL EMPRENDEDOR IJALDEM",
     "description": "954-E",
     "latitud": 19.4405325,
     "longitud": -99.2235509
@@ -1124,7 +1124,7 @@
   {
     "title": "DIRECCIÓN GENERAL DE PROGRAMAS Y SECTORES ESTRATÉGICOS Y DESARROLLO REGIONAL",
     "description": "963",
-    "latitud": 19.4404971,
-    "longitud": -99.2234919
+    "latitud": 19.440487,
+    "longitud": -99.2234946
   }
 ]

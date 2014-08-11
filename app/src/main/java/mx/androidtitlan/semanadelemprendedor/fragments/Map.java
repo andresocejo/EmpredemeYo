@@ -3,10 +3,10 @@ package mx.androidtitlan.semanadelemprendedor.fragments;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -22,14 +22,18 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolygonOptions;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
+import mx.androidtitlan.semanadelemprendedor.Model.AreaStaffModel;
 import mx.androidtitlan.semanadelemprendedor.Model.PointStaffModel;
 import mx.androidtitlan.semanadelemprendedor.MyActivity;
 import mx.androidtitlan.semanadelemprendedor.NavigationDrawerFragment;
@@ -54,6 +58,7 @@ public class Map extends Fragment implements DialogFilterMap.UpdateMap, GoogleMa
     private GoogleMap mapa;
     private MapView mapView;
     private boolean recreaMap;
+    private List<Marker> markers;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -89,6 +94,7 @@ public class Map extends Fragment implements DialogFilterMap.UpdateMap, GoogleMa
             recreaMap = false;
             mapa = mapView.getMap();
             mapa.setMyLocationEnabled(true);
+            new ObtenerAreas().execute();
 
             mapa.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(19.4400144, -99.22433965), 17));
 
@@ -171,7 +177,6 @@ public class Map extends Fragment implements DialogFilterMap.UpdateMap, GoogleMa
     @Override
     public void recreateMap() {
 
-        mapa.clear();
         recreaMap = true;
         SharedPreferences preferences = getActivity()
                 .getSharedPreferences(DialogFilterMap.FIRTER_MAP,
@@ -241,12 +246,21 @@ public class Map extends Fragment implements DialogFilterMap.UpdateMap, GoogleMa
 
 
         if (recreaMap) {
+
+            if (markers != null) {
+                for (Marker marker : markers) {
+                    marker.remove();
+                }
+            }
+            markers = new ArrayList<Marker>();
             SharedPreferences preferences = getActivity()
                     .getSharedPreferences(DialogFilterMap.FIRTER_MAP,
                             Context.MODE_PRIVATE);
             Integer num_eco = preferences.getInt(DialogFilterMap.ECOSISTEMA, 0);
+
+
             if (num_eco == 0) {
-                new ObtenerPuntos().execute(1, 2, 3, 4, 5, 7, 8, 9, 10);
+                new ObtenerPuntos().execute(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
             } else {
                 new ObtenerPuntos().execute(num_eco);
             }
@@ -268,8 +282,12 @@ public class Map extends Fragment implements DialogFilterMap.UpdateMap, GoogleMa
             List<PointStaff> pointStaffs = null;
             int maker_map = 0;
 
+
             for (int i = 0; i < integers.length; i++) {
-                Log.d("Valor", integers[i] + "");
+
+                if (getActivity() == null) {
+                    return null;
+                }
 
                 switch (integers[i]) {
                     case 1:
@@ -339,13 +357,173 @@ public class Map extends Fragment implements DialogFilterMap.UpdateMap, GoogleMa
         protected void onProgressUpdate(PointStaffModel... values) {
             super.onProgressUpdate(values);
 
+            if (getActivity() == null || values == null || values.length == 0 || values[0] == null) {
+                return;
+            }
+
             int maker_map = values[0].getMaker_map();
             for (PointStaff pointStaff : values[0].getPointStaffs()) {
-                mapa.addMarker(new MarkerOptions().title(pointStaff.getTitle()).snippet(pointStaff.getDescription())
-                        .position(new LatLng(pointStaff.getLatitud(), pointStaff.getLongitud())).icon(BitmapDescriptorFactory.fromResource(maker_map)));
+                markers.add(
+                        mapa.addMarker(new MarkerOptions().title(pointStaff.getTitle()).snippet(pointStaff.getDescription())
+                                .position(new LatLng(pointStaff.getLatitud(), pointStaff.getLongitud())).icon(BitmapDescriptorFactory.fromResource(maker_map)))
+                );
+                ;
             }
 
         }
+    }
+
+
+    private class ObtenerAreas extends AsyncTask<Void, AreaStaffModel, Void> {
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            BufferedReader reader = null;
+            Gson gson = new Gson();
+            List<List<Double>> areaStaffs;
+            int color_staff = 0;
+
+            for (int i = 0; i < 10; i++) {
+                if (getActivity() == null) {
+                    return null;
+                }
+                switch (i) {
+                    case 0:
+                        reader = new BufferedReader(new InputStreamReader(
+                                getResources().openRawResource(R.raw.ecosistema_area_1)));
+                        color_staff = 1;
+                        break;
+                    case 1:
+                        reader = new BufferedReader(new InputStreamReader(
+                                getResources().openRawResource(R.raw.ecosistema_area_2)));
+                        color_staff = 2;
+                        break;
+                    case 2:
+                        reader = new BufferedReader(new InputStreamReader(
+                                getResources().openRawResource(R.raw.ecosistema_area_3)));
+                        color_staff = 3;
+                        break;
+                    case 3:
+                        reader = new BufferedReader(new InputStreamReader(
+                                getResources().openRawResource(R.raw.ecosistema_area_4)));
+                        color_staff = 4;
+                        break;
+                    case 4:
+                        reader = new BufferedReader(new InputStreamReader(
+                                getResources().openRawResource(R.raw.ecosistema_area_5)));
+                        color_staff = 5;
+                        break;
+                    case 5:
+                        reader = new BufferedReader(new InputStreamReader(
+                                getResources().openRawResource(R.raw.ecosistema_area_6)));
+                        color_staff = 6;
+                        break;
+                    case 6:
+                        reader = new BufferedReader(new InputStreamReader(
+                                getResources().openRawResource(R.raw.ecosistema_area_7)));
+                        color_staff = 7;
+                        break;
+                    case 7:
+                        reader = new BufferedReader(new InputStreamReader(
+                                getResources().openRawResource(R.raw.ecosistema_area_8)));
+                        color_staff = 8;
+                        break;
+                    case 8:
+                        reader = new BufferedReader(new InputStreamReader(
+                                getResources().openRawResource(R.raw.ecosistema_area_9)));
+                        color_staff = 9;
+                        break;
+                    case 9:
+                        reader = new BufferedReader(new InputStreamReader(
+                                getResources().openRawResource(R.raw.ecosistema_area_10)));
+                        color_staff = 10;
+                        break;
+                }
+
+                areaStaffs = gson.fromJson(reader, new TypeToken<List<List<Double>>>() {
+                }.getType());
+
+
+                publishProgress(new AreaStaffModel(areaStaffs, color_staff));
+
+            }
+
+            return null;
+        }
+
+
+        @Override
+        protected void onProgressUpdate(AreaStaffModel... values) {
+            super.onProgressUpdate(values);
+
+
+            if (getActivity() == null || values == null || values.length == 0 || values[0] == null) {
+                return;
+            }
+
+            int idColor = values[0].getColor();
+            int colorStroke = 0;
+            int colorFill = 0;
+
+
+            switch (idColor) {
+                case 1:
+                    colorFill = Color.rgb(221, 18, 69);
+                    colorStroke = Color.argb(127, 221, 18, 69);
+                    break;
+                case 2:
+                    colorFill = Color.rgb(144, 145, 192);
+                    colorStroke = Color.argb(127, 144, 145, 192);
+                    break;
+                case 3:
+                    colorFill = Color.rgb(65, 65, 66);
+                    colorStroke = Color.argb(127, 65, 65, 66);
+                    break;
+                case 4:
+                    colorFill = Color.rgb(78, 195, 199);
+                    colorStroke = Color.argb(127, 78, 195, 199);
+                    break;
+                case 5:
+                    colorFill = Color.rgb(233, 83, 80);
+                    colorStroke = Color.argb(127, 233, 83, 80);
+                    break;
+                case 6:
+                    colorFill = Color.rgb(187, 189, 191);
+                    colorStroke = Color.argb(127, 187, 189, 191);
+                    break;
+                case 7:
+                    colorFill = Color.rgb(108, 85, 164);
+                    colorStroke = Color.argb(127, 108, 85, 164);
+                    break;
+                case 8:
+                    colorFill = Color.rgb(162, 185, 98);
+                    colorStroke = Color.argb(127, 162, 185, 98);
+                    break;
+                case 9:
+                    colorFill = Color.rgb(243, 154, 69);
+                    colorStroke = Color.argb(127, 243, 154, 69);
+                    break;
+                case 10:
+                    colorFill = Color.rgb(232, 96, 75);
+                    colorStroke = Color.argb(127, 232, 96, 75);
+                    break;
+            }
+
+
+            for (List<Double> pointStaff : values[0].getAreaStaffs()) {
+                PolygonOptions polygonOptions = new PolygonOptions();
+                for (int i = 0; i < pointStaff.size(); i += 2) {
+                    polygonOptions.add(new LatLng(pointStaff.get(i + 1), pointStaff.get(i)));
+                }
+                polygonOptions.strokeColor(colorFill).fillColor(colorStroke);
+
+
+                mapa.addPolygon(polygonOptions);
+            }
+
+
+        }
+
     }
 
 

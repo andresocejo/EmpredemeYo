@@ -45,6 +45,3 @@ dependencies {
     compile files('libs/stickygridheaders.jar')
     compile 'com.crashlytics.android:crashlytics:1.+'
 }
-
-
-

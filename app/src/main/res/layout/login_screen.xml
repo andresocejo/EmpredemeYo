@@ -5,21 +5,25 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_login"
     android:orientation="vertical"
-    android:padding="30dp">
+    android:padding="20dp">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:src="@drawable/logo" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/logo_sde"
+        android:layout_gravity="center_horizontal" />
 
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+
+        android:textSize="14sp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
         android:text="@string/welcome_login"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/white" />
@@ -28,6 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:textSize="14sp"
         android:text="@string/input_data"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/white" />
@@ -38,7 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:drawableLeft="@drawable/ic_email"
         android:drawablePadding="10dp"
         android:ems="10"
@@ -55,12 +60,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:drawableLeft="@drawable/ic_badge_number"
         android:drawablePadding="10dp"
         android:ems="10"
         android:hint="@string/hint_password"
-        android:inputType="textPassword"
+        android:inputType="numberPassword"
         android:padding="1dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
@@ -75,15 +80,49 @@
         android:text="@string/btn_acceder" />
 
 
-
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="@string/register_now"
-        android:textColor="@color/white"
-        android:id="@+id/register_acount"
-        android:layout_gravity="center_horizontal" />
+        android:orientation="horizontal"
+        android:padding="30dp"
+        android:layout_gravity="center_horizontal">
+
+
+
+        <TextView
+            android:id="@+id/register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="2dp"
+            android:gravity="center_horizontal"
+            android:text="@string/resgister_now"
+            android:textColor="@color/white" />
+        <TextView
+            android:id="@+id/register_acount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="5dp"
+            android:typeface="normal"
+            android:gravity="center"
+            android:text="@string/Rhere"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/aboutLogo"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="295dp"
+        android:background="@drawable/ic_about"
+        android:layout_gravity="right" />
+
+
+
+
 
 
 </LinearLayout>
