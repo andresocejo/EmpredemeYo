@@ -29,15 +29,18 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.logging.Logger;
 
 import mx.androidtitlan.semanadelemprendedor.Activities.DetailEventActivity;
 import mx.androidtitlan.semanadelemprendedor.Adapter.EventsAdapter;
@@ -177,94 +180,50 @@ public class ListEvents extends ListFragment {
 
         RequestQueue queue = Volley.newRequestQueue(getActivity());
         final String url = getResources().getString(R.string.url_conferencias);
-
-        JsonObjectRequest getEvents = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>() {
-
-                    //TODO: REFACTOR THIS IN ORDER TO EXECUTE INSIDE THEIR PARENT FRAGMENT.
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            writeToFile(response);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        try {
-                            JSONObject data = response.getJSONObject("data");
-                            Iterator<?> keys = data.keys();
-
-                            while (keys.hasNext()) {
-                                String key = (String) keys.next();
-
-                                if (data.get(key) instanceof JSONObject) {
-                                    try {
-                                        JSONObject event = data.getJSONObject(key);
-                                        parseEventInfo(event);
-
-
-                                    } catch (JSONException e) {
-                                        Log.e("Error parse", e.toString());
-                                    }
-                                }
-                            }
-                            Collections.sort(events, new MiscellaneousMethods.CustomComparator());
-                            adapter = new EventsAdapter(events, getActivity());
-                            setListAdapter(adapter);
-
-                        } catch (JSONException ex) {
-                            Log.e("Json error", ex.toString());
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.i("Error", error.toString());
-                    }
-                }
-        );
-
-        queue.add(getEvents);
-    }
-
-
-    public void getUserEvents(final String email, final String gafete) throws JSONException {
-
-        RequestQueue queue = Volley.newRequestQueue(getActivity());
-        final String url = "http://se.infoexpo.mx/2014/ae/web/utilerias/ws/google/get_attendee?idVisitante=" + gafete + "&email=" + email;
-        String dataFromFile = readFromFile();
+        String dataFromFile = readFileAsString("events.txt");
         if (!dataFromFile.isEmpty()) {
-            JSONObject json = new JSONObject(dataFromFile);
+            JSONObject json = null;
+            try {
+                json = new JSONObject(dataFromFile);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                Log.wtf("***", "Error: " + e);
+            }
             //TODO: Populate everything here
-            Log.e("***", "getting data from file");
+            Log.e("***", "getting data from file: "+json.toString());
         } else {
             JsonObjectRequest getEvents = new JsonObjectRequest(Request.Method.GET, url, null,
                     new Response.Listener<JSONObject>() {
+
+                        //TODO: REFACTOR THIS IN ORDER TO EXECUTE INSIDE THEIR PARENT FRAGMENT.
                         @Override
                         public void onResponse(JSONObject response) {
-
+                            try {
+                                writeToFile(response);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                             try {
                                 JSONObject data = response.getJSONObject("data");
-                                JSONArray agenda = data.getJSONArray("Agenda");
+                                Iterator<?> keys = data.keys();
 
-                                for (int i = 0; i < agenda.length(); i++) {
-                                    JSONObject object = agenda.getJSONObject(i);
-                                    parseEventInfo(object);
+                                while (keys.hasNext()) {
+                                    String key = (String) keys.next();
 
+                                    if (data.get(key) instanceof JSONObject) {
+                                        try {
+                                            JSONObject event = data.getJSONObject(key);
+                                            parseEventInfo(event);
+
+
+                                        } catch (JSONException e) {
+                                            Log.e("Error parse", e.toString());
+                                        }
+                                    }
                                 }
-
-                                if (events.isEmpty()) {
-                                    String mensaje = "No hay eventos";
-                                    ArrayList<String> temp = new ArrayList<String>();
-                                    temp.add(mensaje);
-
-                                    ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, temp);
-                                    setListAdapter(adapter1);
-                                } else {
-                                    Collections.sort(events, new MiscellaneousMethods.CustomComparator());
-                                    adapter = new EventsAdapter(events, getActivity());
-                                    setListAdapter(adapter);
-                                }
+                                Collections.sort(events, new MiscellaneousMethods.CustomComparator());
+                                adapter = new EventsAdapter(events, getActivity());
+                                setListAdapter(adapter);
 
                             } catch (JSONException ex) {
                                 Log.e("Json error", ex.toString());
@@ -282,6 +241,56 @@ public class ListEvents extends ListFragment {
             queue.add(getEvents);
         }
     }
+
+
+    public void getUserEvents(final String email, final String gafete) throws JSONException {
+
+        RequestQueue queue = Volley.newRequestQueue(getActivity());
+        final String url = "http://se.infoexpo.mx/2014/ae/web/utilerias/ws/google/get_attendee?idVisitante=" + gafete + "&email=" + email;
+        JsonObjectRequest getEvents = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+                        try {
+                            JSONObject data = response.getJSONObject("data");
+                            JSONArray agenda = data.getJSONArray("Agenda");
+
+                            for (int i = 0; i < agenda.length(); i++) {
+                                JSONObject object = agenda.getJSONObject(i);
+                                parseEventInfo(object);
+
+                            }
+
+                            if (events.isEmpty()) {
+                                String mensaje = "No hay eventos";
+                                ArrayList<String> temp = new ArrayList<String>();
+                                temp.add(mensaje);
+
+                                ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, temp);
+                                setListAdapter(adapter1);
+                            } else {
+                                Collections.sort(events, new MiscellaneousMethods.CustomComparator());
+                                adapter = new EventsAdapter(events, getActivity());
+                                setListAdapter(adapter);
+                            }
+
+                        } catch (JSONException ex) {
+                            Log.e("Json error", ex.toString());
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.i("Error", error.toString());
+                    }
+                }
+        );
+
+        queue.add(getEvents);
+    }
+
 
     public void parseEventInfo(JSONObject event) {
         try {
@@ -329,12 +338,35 @@ public class ListEvents extends ListFragment {
         }
     }
 
+    public String readFileAsString(String fileName) {
+        Context context = getActivity().getApplicationContext();
+        StringBuilder stringBuilder = new StringBuilder();
+        String line;
+        BufferedReader in = null;
+
+        try {
+            in = new BufferedReader(new FileReader(new File(Environment.getExternalStorageDirectory()+"/sde2014/", fileName)));
+            while ((line = in.readLine()) != null) stringBuilder.append(line);
+
+        } catch (FileNotFoundException e) {
+            Log.e("readFileAsString", e.toString());
+        } catch (IOException e) {
+            Log.e("readFileAsString", e.toString());
+        }
+
+        return stringBuilder.toString();
+    }
+
+
     private String readFromFile() {
 
         String ret = "";
 
         try {
-            InputStream inputStream = getActivity().openFileInput("events.txt");
+            File file = new File(Environment.getExternalStorageDirectory() + "/sde2014/events.txt");
+            String s = file.toString();
+            InputStream inputStream = getActivity().openFileInput(s);
+            //InputStream inputStream = getActivity().openFileInput(Environment.getExternalStorageDirectory()+File.separator+"sde2014"+File.separator+"events.txt");
 
             if (inputStream != null) {
                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
