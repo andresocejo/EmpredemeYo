@@ -72,6 +72,15 @@ public class FilterItemMapAdapter extends ArrayAdapter<String> {
                 colorFill = Color.rgb(232, 96, 75);
                 break;
         }
+//        StateListDrawable states = new StateListDrawable();
+//        states.addState(new int[] {android.R.attr.state_pressed},
+//                getResources().getDrawable(R.drawable.pressed));
+//        states.addState(new int[] {android.R.attr.state_focused},
+//                getResources().getDrawable(R.drawable.focused));
+//        states.addState(new int[] { },
+//                getResources().getDrawable(R.drawable.normal));
+//        textView.setText(values[position]);
+        textView.setBackground(new ColorDrawable(colorFill));
 
         return textView;
     }
