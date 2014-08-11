@@ -108,11 +108,14 @@ public class Schedule extends android.support.v4.app.Fragment implements android
 
         mIndicatores.setFooterColor(Color.parseColor("#00e575"));
 
-        try {
-            getUserEvents(prefs.getString("email_usr", ""),prefs.getString("gafete_usr", ""));
-        } catch (JSONException e) {
-            e.printStackTrace();
+        if(eventsUser.isEmpty()){
+            try {
+                getUserEvents(prefs.getString("email_usr", ""),prefs.getString("gafete_usr", ""));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
+
         return v;
     }
 
@@ -177,6 +180,8 @@ public class Schedule extends android.support.v4.app.Fragment implements android
     }
 
     public void getUserEvents(final String email, final String gafete) throws JSONException {
+
+        Log.i("Getting","");
 
         RequestQueue queue = Volley.newRequestQueue(getActivity());
         final String url = "http://se.infoexpo.mx/2014/ae/web/utilerias/ws/google/get_attendee?idVisitante=" + gafete + "&email=" + email;

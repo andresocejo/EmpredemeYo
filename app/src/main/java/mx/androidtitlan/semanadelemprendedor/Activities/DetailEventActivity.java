@@ -42,8 +42,8 @@ public class DetailEventActivity extends ActionBarActivity{
     public boolean onKeyDown(int keyCode, KeyEvent event)
     {
         if ((keyCode == KeyEvent.KEYCODE_BACK))
-        {
-            finish();
+        {            finish();
+
         }
         return super.onKeyDown(keyCode, event);
     }
