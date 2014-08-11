@@ -26,6 +26,8 @@ public class ListEvents extends ListFragment{
     public ArrayList<Event> events;
     private EventsAdapter adapter;
 
+    public  Boolean flag = false ;
+
 
     public static ListEvents newInstance(String option, String day) {
         ListEvents fragment = new ListEvents();
@@ -38,6 +40,10 @@ public class ListEvents extends ListFragment{
 
     public ListEvents() {
 
+    }
+
+    public Boolean isUpdated(){
+        return flag;
     }
 
     @Override
@@ -55,25 +61,6 @@ public class ListEvents extends ListFragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-       /*if (getActivity() != null) {
-            try {
-                if (getArguments().getString("option").equals("Explorer") && savedInstanceState == null) {
-                    //Log.i("Creating explorer", "");
-                    events = Explorer.events;
-                    adapter = new EventsAdapter(events, getActivity());
-                    setListAdapter(adapter);
-                } else if (getArguments().getString("option").equals("Schedule") && savedInstanceState == null) {
-                    //Log.i("Creating schedule", "");
-                    events =  Explorer.events;
-                    adapter = new EventsAdapter(events, getActivity());
-                    setListAdapter(adapter);
-                }
-
-            } catch (Exception e) {
-                //Log.e("Error", e.toString());
-            }
-        }*/
-
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
@@ -81,7 +68,9 @@ public class ListEvents extends ListFragment{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
+        if (savedInstanceState != null){
+            flag = savedInstanceState.getBoolean("created");
+        }
     }
 
     @Override
@@ -118,40 +107,56 @@ public class ListEvents extends ListFragment{
     }
 
     public void updateAllConfferences(){
-        Log.i("Updating","");
 
-        events = new ArrayList<Event>();
-        fillEvents();
-        if (events.isEmpty()) {
-            String mensaje = "No hay eventos";
-            ArrayList<String> temp = new ArrayList<String>();
-            temp.add(mensaje);
+        if(flag == false){
 
-            ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, temp);
-            setListAdapter(adapter1);
-        } else {
-            Collections.sort(events, new MiscellaneousMethods.CustomComparator());
-            adapter = new EventsAdapter(events, getActivity());
-            setListAdapter(adapter);
+            Log.i("Updating","");
+            events = new ArrayList<Event>();
+            fillEvents();
+            if (events.isEmpty()) {
+                String mensaje = "No hay eventos";
+                ArrayList<String> temp = new ArrayList<String>();
+                temp.add(mensaje);
+
+                ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, temp);
+                setListAdapter(adapter1);
+            } else {
+                Collections.sort(events, new MiscellaneousMethods.CustomComparator());
+                adapter = new EventsAdapter(events, getActivity());
+                setListAdapter(adapter);
+            }
+
         }
+
+        flag = true;
+
     }
 
     public void updateUserConfference(){
-        events = new ArrayList<Event>();
-        fillUserEvents();
 
-        if (events.isEmpty()) {
-            String mensaje = "No hay eventos";
-            ArrayList<String> temp = new ArrayList<String>();
-            temp.add(mensaje);
+        if (flag == false){
 
-            ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, temp);
-            setListAdapter(adapter1);
-        } else {
-            Collections.sort(events, new MiscellaneousMethods.CustomComparator());
-            adapter = new EventsAdapter(events, getActivity());
-            setListAdapter(adapter);
+            Log.i("Updating","");
+            events = new ArrayList<Event>();
+            fillUserEvents();
+
+            if (events.isEmpty()) {
+                String mensaje = "No hay eventos";
+                ArrayList<String> temp = new ArrayList<String>();
+                temp.add(mensaje);
+
+                ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, temp);
+                setListAdapter(adapter1);
+            } else {
+                Collections.sort(events, new MiscellaneousMethods.CustomComparator());
+                adapter = new EventsAdapter(events, getActivity());
+                setListAdapter(adapter);
+            }
+
+            flag = true;
+
         }
+
     }
 
     public Bundle buildBundleEvent(Event event) {
@@ -200,7 +205,7 @@ public class ListEvents extends ListFragment{
         }
     }
 
-    public void sortByEco (String eco , int id){
+    public void sortByEco (String eco){
         ArrayList<Event> eventsEco = new ArrayList<Event>();
 
         if (eco.equals("Todos")){

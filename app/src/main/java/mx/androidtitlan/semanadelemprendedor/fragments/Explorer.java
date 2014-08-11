@@ -69,7 +69,10 @@ public class Explorer extends Fragment implements DialogFilterEvents.UpdateList{
     @Override
     public void onResume() {
         super.onResume();
-        getAllEvents();
+        if(eventsMain.isEmpty()){
+            getAllEvents();
+        }
+
     }
 
     @Override
@@ -136,11 +139,13 @@ public class Explorer extends Fragment implements DialogFilterEvents.UpdateList{
     @Override
     public void recreateList(String eco, int id) {
         for (int i = 0; i<5; i++){
-            ((ListEvents)listaFragments.get(i)).sortByEco(eco,id);
+            ((ListEvents)listaFragments.get(i)).sortByEco(eco);
         }
     }
 
     public void getAllEvents() {
+
+        Log.i("Getting","");
 
         RequestQueue queue = Volley.newRequestQueue(getActivity());
         final String url = "http://se.infoexpo.mx/2014/ae/web/utilerias/ws/google/conferencias";
@@ -165,7 +170,7 @@ public class Explorer extends Fragment implements DialogFilterEvents.UpdateList{
                                     }
                                 }
                             }
-                            for (int i = 0; i<5 ; i++){
+                            for (int i = 0; i<5; i++){
                                 ((ListEvents)listaFragments.get(i)).updateAllConfferences();
                             }
 

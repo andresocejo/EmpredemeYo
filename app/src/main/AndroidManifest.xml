@@ -4,14 +4,15 @@
     package="mx.androidtitlan.semanadelemprendedor">
 
     <uses-sdk
-        android:versionCode="4"
-        android:versionName="2.1"
+        android:versionCode="5"
+        android:versionName="2.2"
         tools:node="replace" />
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_logo_sde"
+        android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
+        android:logo="@drawable/ic_logo_sde"
         android:theme="@style/Theme.Semanaemprendedor2014">
 
         <meta-data
