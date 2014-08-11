@@ -183,7 +183,7 @@ public class Explorer extends Fragment implements DialogFilterEvents.UpdateList{
             }
         }
         );
-        getEvents.setRetryPolicy(new DefaultRetryPolicy(10000,
+        getEvents.setRetryPolicy(new DefaultRetryPolicy(22000,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         queue.add(getEvents);

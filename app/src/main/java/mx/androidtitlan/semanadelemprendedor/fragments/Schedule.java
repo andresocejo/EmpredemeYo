@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -221,6 +222,10 @@ public class Schedule extends android.support.v4.app.Fragment implements android
                     }
                 }
         );
+
+        getEvents.setRetryPolicy(new DefaultRetryPolicy(17000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
         queue.add(getEvents);
     }
