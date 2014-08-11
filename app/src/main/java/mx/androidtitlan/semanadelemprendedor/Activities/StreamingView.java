@@ -21,7 +21,7 @@ import mx.androidtitlan.semanadelemprendedor.R;
  */
 public class StreamingView extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
 
-    String apikey = "AIzaSyDXLdUf0hQat1uFHqWw1GNSmS_wQda_RV4";
+    String apikey = "AIzaSyDQpa7X_TIKDf_BvDzhSNBMlkJE73PUJ0w";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,7 @@ public class StreamingView extends YouTubeBaseActivity implements YouTubePlayer.
 
             } catch (Exception e) {
 
-                Toast.makeText(StreamingView.this, "Tenemos algunos Inconvenientes para cargar el video!", Toast.LENGTH_LONG).show();
+                Toast.makeText(StreamingView.this, "Tenemos algunos inconvenientes para cargar el video.", Toast.LENGTH_LONG).show();
 
             }
 
@@ -52,8 +52,7 @@ public class StreamingView extends YouTubeBaseActivity implements YouTubePlayer.
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.youtube&hl=es_419"));
                 startActivity(intent);
             } catch (Exception e) {
-                Toast.makeText(StreamingView.this, "Error en la Red Verifica tu conexión!", Toast.LENGTH_LONG).show();
-
+                Toast.makeText(StreamingView.this, "Error de red, verifica tu conexión.", Toast.LENGTH_LONG).show();
             }
 
 
@@ -76,13 +75,12 @@ public class StreamingView extends YouTubeBaseActivity implements YouTubePlayer.
                                         boolean wasRestored) {
         if (!wasRestored) {
 
-           // player.addFullscreenControlFlag(YouTubePlayer.FULLSCREEN_FLAG_CUSTOM_LAYOUT);
+            // player.addFullscreenControlFlag(YouTubePlayer.FULLSCREEN_FLAG_CUSTOM_LAYOUT);
             // player.cueVideo("QkeTbVHjWWI");//carga al presionar el boton
             //   player.loadVideo("-CDlu4EVeNU");//carga automaticamente
-           String conference= StreamingView.this.getIntent().getStringExtra("id_video");
+            String conference = StreamingView.this.getIntent().getStringExtra("id_video");
             player.loadVideo(conference);
             //player.setFullscreen(true);
-
 
 
         }
