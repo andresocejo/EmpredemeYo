@@ -51,6 +51,10 @@
 
 
         </activity>
+
+        <meta-data
+            android:name="com.crashlytics.ApiKey"
+            android:value="81bc8c5c72679991c1e8e44b39f32d4cd9ebefc9" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
