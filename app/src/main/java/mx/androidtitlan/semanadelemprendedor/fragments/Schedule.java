@@ -218,7 +218,7 @@ public class Schedule extends android.support.v4.app.Fragment implements android
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getActivity(), "Parece que hay un problema con el servidor, intenta más tarde", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity().getBaseContext(), "Parece que hay un problema con el servidor, intenta más tarde", Toast.LENGTH_LONG).show();
                     }
                 }
         );
