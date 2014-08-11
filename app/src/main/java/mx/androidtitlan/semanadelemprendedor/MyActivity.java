@@ -37,7 +37,7 @@ public class MyActivity extends ActionBarActivity
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
-    private RequestQueue requestQueue;
+    public static RequestQueue requestQueue;
 
     public RequestQueue getRequestQueue() {
         return requestQueue;

@@ -2,27 +2,44 @@ package mx.androidtitlan.semanadelemprendedor.fragments;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import mx.androidtitlan.semanadelemprendedor.Adapter.PageAdapter;
-import mx.androidtitlan.semanadelemprendedor.Model.SpinnerModelBar;
-import mx.androidtitlan.semanadelemprendedor.MyActivity;
-import mx.androidtitlan.semanadelemprendedor.Adapter.SpinnerAdapterBar;
-import mx.androidtitlan.semanadelemprendedor.NavigationDrawerFragment;
-import mx.androidtitlan.semanadelemprendedor.R;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.viewpagerindicator.TitlePageIndicator;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+
+import mx.androidtitlan.semanadelemprendedor.Adapter.PageAdapter;
+import mx.androidtitlan.semanadelemprendedor.Adapter.SpinnerAdapterBar;
+import mx.androidtitlan.semanadelemprendedor.Model.SpinnerModelBar;
+import mx.androidtitlan.semanadelemprendedor.MyActivity;
+import mx.androidtitlan.semanadelemprendedor.NavigationDrawerFragment;
+import mx.androidtitlan.semanadelemprendedor.R;
+import mx.androidtitlan.semanadelemprendedor.util.Event;
+import mx.androidtitlan.semanadelemprendedor.util.Speaker;
 
 
 /**
@@ -33,6 +50,8 @@ public class Schedule extends android.support.v4.app.Fragment implements android
 
     private ArrayList<SpinnerModelBar> navSpinner;
     private String [] DAYS;
+
+    public static ArrayList<Event> eventsUser;
 
     // Navigation adapter
     private SpinnerAdapterBar adapter;
@@ -57,6 +76,8 @@ public class Schedule extends android.support.v4.app.Fragment implements android
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.schedule_fragment, container, false);
+        SharedPreferences prefs = getActivity().getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        eventsUser = new ArrayList<Event>();
 
         listaFragments = new ArrayList<Fragment>();
         listaFragments.add(ListEvents.newInstance("Schedule",DAYS[0]));
@@ -87,10 +108,13 @@ public class Schedule extends android.support.v4.app.Fragment implements android
 
         mIndicatores.setFooterColor(Color.parseColor("#00e575"));
 
-
+        try {
+            getUserEvents(prefs.getString("email_usr", ""),prefs.getString("gafete_usr", ""));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         return v;
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -152,7 +176,88 @@ public class Schedule extends android.support.v4.app.Fragment implements android
 
     }
 
+    public void getUserEvents(final String email, final String gafete) throws JSONException {
 
+        RequestQueue queue = Volley.newRequestQueue(getActivity());
+        final String url = "http://se.infoexpo.mx/2014/ae/web/utilerias/ws/google/get_attendee?idVisitante=" + gafete + "&email=" + email;
+        JsonObjectRequest getEvents = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+                        try {
+                            JSONObject data = response.getJSONObject("data");
+                            JSONArray agenda = data.getJSONArray("Agenda");
+
+                            for (int i = 0; i < agenda.length(); i++) {
+                                JSONObject object = agenda.getJSONObject(i);
+                                parseEventInfo(object);
+
+                            }
+
+                            for (int i = 0; i<5; i++){
+                                ((ListEvents)listaFragments.get(i)).updateUserConfference();
+                            }
+
+                        } catch (JSONException ex) {
+                            Log.e("Json error", ex.toString());
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.i("Error", error.toString());
+                    }
+                }
+        );
+
+        queue.add(getEvents);
+    }
+
+    public void parseEventInfo(JSONObject event) {
+        try {
+
+            //Detectar el dia del evento para asignarle un arraylist/
+            Event temp = new Event();
+
+            temp.setName(event.getString(getResources().getString(R.string.nombre_conferencia)));
+            temp.setPlace(event.getString(getResources().getString(R.string.sala_conferencia)));
+            temp.setCategory(event.getString(getResources().getString(R.string.tipo_evento)));
+            temp.setDate(event.getString(getResources().getString(R.string.dia_evento)));
+            temp.setTimeInit(event.getString(getResources().getString(R.string.hora_inicio)));
+            temp.setTimeEnd(event.getString(getResources().getString(R.string.hora_fin)));
+            temp.setEco(event.getString(getResources().getString(R.string.eco)));
+            temp.setDescription(event.getString(getResources().getString(R.string.descripcion_conferencia)));
+
+            ArrayList<Speaker> speakers = new ArrayList<Speaker>();
+            JSONObject jsonSpeakers = event.getJSONObject(getResources().getString(R.string.ponente));
+            Iterator<?> iterator = jsonSpeakers.keys();
+
+            while (iterator.hasNext()) {
+                String key = (String) iterator.next();
+
+                JSONObject jsonSpeaker = jsonSpeakers.getJSONObject(key);
+                Speaker speaker = new Speaker();
+
+                speaker.setName(jsonSpeaker.getString(getResources().getString(R.string.nombre_ponente)));
+                speaker.setDependency(jsonSpeaker.getString(getResources().getString(R.string.dependencia_ponente)));
+                speaker.setCv(jsonSpeaker.getString(getResources().getString(R.string.cv_ponente)));
+
+                speaker.setUrl_photo(jsonSpeaker.getString(getResources().getString(R.string.foto_ponente)));
+
+                speakers.add(speaker);
+
+            }
+
+            temp.setSpeakers(speakers);
+
+            eventsUser.add(temp);
+
+        } catch (JSONException e) {
+            Log.e("Json event error", e.toString());
+        }
+    }
 
 
     @Override

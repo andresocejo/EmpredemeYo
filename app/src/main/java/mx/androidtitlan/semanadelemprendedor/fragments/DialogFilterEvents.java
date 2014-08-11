@@ -26,7 +26,6 @@ public class DialogFilterEvents extends DialogFragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-
         explorador = (UpdateList) getActivity().getSupportFragmentManager().findFragmentById(R.id.container);
     }
 
