@@ -1,6 +1,6 @@
 [
   {
-    "title": "FIDEICOMISO DE FOMENTO MINERO",
+    "title": "FOFOMI FIDEICOMISO DE FOMENTO MINERO",
     "description": "1042",
     "latitud": 19.4408094,
     "longitud": -99.2234905
@@ -12,7 +12,7 @@
     "longitud": -99.2234676
   },
   {
-    "title": "FIDEICOMISO PARA EL AHORRO DE ENERGÍA ELÉCTRICA",
+    "title": "FIDE FIDEICOMISO PARA EL AHORRO DE ENERGÍA ELÉCTRICA",
     "description": "1043",
     "latitud": 19.4407829,
     "longitud": -99.2234301
@@ -114,13 +114,13 @@
     "longitud": -99.2232558
   },
   {
-    "title": "BEAMONTE INVESTMENTS",
+    "title": "BEAMONTE INVESTMENTS ",
     "description": "1006",
     "latitud": 19.4407526,
     "longitud": -99.223217
   },
   {
-    "title": "ALTA VENTURES MEXICO Y PORTAFOLIO DE INVERSION",
+    "title": "ALTA VENTURES MÉXICO Y PORTAFOLIO DE INVERSIÓN ",
     "description": "1005",
     "latitud": 19.4407741,
     "longitud": -99.2231928
@@ -150,7 +150,7 @@
     "longitud": -99.2231271
   },
   {
-    "title": "FONDESO",
+    "title": "FONDESO FONDO PARA EL DESARROLLO SOCIAL DE LA CIUDAD DE MÉXICO ",
     "description": "1003",
     "latitud": 19.4408284,
     "longitud": -99.2231096
@@ -186,16 +186,22 @@
     "longitud": -99.2231298
   },
   {
+    "title": "PARQUE",
+    "description": "1039",
+    "latitud": 19.4409702,
+    "longitud": -99.2232611
+  },
+  {
     "title": "NACIONAL FINANCIERA",
     "description": "1058",
-    "latitud": 19.440879,
-    "longitud": -99.2235335
+    "latitud": 19.4408954,
+    "longitud": -99.2235255
   },
   {
     "title": "NACIONAL FINANCIERA",
     "description": "1057",
     "latitud": 19.4410118,
-    "longitud": -99.2233966
+    "longitud": -99.2234073
   },
   {
     "title": "FOCIR",
@@ -230,14 +236,14 @@
   {
     "title": "BANAMEX",
     "description": "1037",
-    "latitud": 19.4410523,
-    "longitud": -99.2231512
+    "latitud": 19.4410498,
+    "longitud": -99.2231606
   },
   {
     "title": "BANCO SANTANDER",
     "description": "1023",
-    "latitud": 19.4409789,
-    "longitud": -99.2230802
+    "latitud": 19.4409827,
+    "longitud": -99.2230842
   },
   {
     "title": "BIENESTAR, PRÉSTAMOS Y AHORRO",
@@ -356,8 +362,8 @@
   {
     "title": "UNIVERSIDAD FINANCIERA",
     "description": "1000",
-    "latitud": 19.4410499,
-    "longitud": -99.2228791
+    "latitud": 19.441055,
+    "longitud": -99.2228979
   },
   {
     "title": "DISTRITO FINANCIERO",
@@ -368,7 +374,7 @@
   {
     "title": "GRUPO BURSATIL MEXICANO",
     "description": "1061",
-    "latitud": 19.4410902,
-    "longitud": -99.2232384
+    "latitud": 19.4410851,
+    "longitud": -99.2232357
   }
 ]
