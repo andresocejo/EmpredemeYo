@@ -6,8 +6,12 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
+import mx.androidtitlan.semanadelemprendedor.Adapter.FilterItemMapAdapter;
 import mx.androidtitlan.semanadelemprendedor.R;
 
 /**
@@ -33,23 +37,28 @@ public class DialogFilterEvents extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
         final String [] days = getResources()
-                .getStringArray(R.array.eco_array);
+                .getStringArray(R.array.ecositemas);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_list_item_1, getResources()
-                .getStringArray(R.array.eco_array)
-        );
+        builder.setTitle(R.string.fiter_ecosistemas).setIcon(R.drawable.ic_explore);
 
-        builder.setTitle(R.string.fiter_ecosistemas).setIcon(R.drawable.ic_explore)
-                .setAdapter(arrayAdapter, new DialogInterface.OnClickListener() {
+        FilterItemMapAdapter filterItemMapAdapter = new FilterItemMapAdapter(getActivity(), R.layout.item_filter_map, getResources()
+                .getStringArray(R.array.ecositemas));
 
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        explorador.recreateList(days[which], which);
-                    }
-                });
+        ListView view = (ListView) getActivity().getLayoutInflater().inflate(R.layout.listiview_dialog, null, false);
+        view.setAdapter(filterItemMapAdapter);
+
+        view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                explorador.recreateList(days[i], i);
+                dismiss();
+
+            }
+        });
+
+        builder.setView(view);
 
         return builder.create();
     }
