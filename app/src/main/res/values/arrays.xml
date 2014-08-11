@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ecositemas">
+        <item>Todos</item>
+        <item>Red de Apoyo al Emprendedor</item>
+        <item>Fábrica de Empresas</item>
+        <item>Industrias Creativas</item>
+        <item>Laboratorio de Innovación</item>
+        <item>Alto Impacto y Capital</item>
+        <item>México Digital</item>
+        <item>MIPYMES en Movimiento</item>
+        <item>Desarrollo Regional</item>
+        <item>Distrito Financiero</item>
+    </string-array>
+</resources>

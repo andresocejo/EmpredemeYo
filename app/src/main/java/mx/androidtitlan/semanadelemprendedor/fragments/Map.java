@@ -1,10 +1,16 @@
 package mx.androidtitlan.semanadelemprendedor.fragments;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -13,14 +19,18 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
+import mx.androidtitlan.semanadelemprendedor.Model.PointStaffModel;
 import mx.androidtitlan.semanadelemprendedor.MyActivity;
 import mx.androidtitlan.semanadelemprendedor.NavigationDrawerFragment;
 import mx.androidtitlan.semanadelemprendedor.R;
@@ -29,7 +39,8 @@ import mx.androidtitlan.semanadelemprendedor.util.PointStaff;
 /**
  * Created by Jhordan on 04/08/14.
  */
-public class Map extends Fragment {
+public class Map extends Fragment implements DialogFilterMap.UpdateMap, GoogleMap.OnCameraChangeListener {
+
 
     public static Map newInstance(int position) {
         Map mymap = new Map();
@@ -42,6 +53,7 @@ public class Map extends Fragment {
     private View view;
     private GoogleMap mapa;
     private MapView mapView;
+    private boolean recreaMap;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -74,16 +86,20 @@ public class Map extends Fragment {
 
         if (mapa == null) {
 
-//            getActivity().setPsrogressBarIndeterminateVisibility(true);
-//            progressVisible = true;
-//            encontrado = false;
-
+            recreaMap = false;
             mapa = mapView.getMap();
             mapa.setMyLocationEnabled(true);
 
             mapa.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(19.4400144, -99.22433965), 17));
 
-            new ObtenerPuntos().execute();
+            mapa.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
+                @Override
+                public void onMapLoaded() {
+                    recreateMap();
+                }
+            });
+
+            mapa.setOnCameraChangeListener(this);
         }
 
         return view;
@@ -93,6 +109,24 @@ public class Map extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_mapa, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.filter_map:
+                DialogFilterMap dialogFilterMap = new DialogFilterMap();
+                dialogFilterMap.show(getChildFragmentManager(), null);
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -134,143 +168,184 @@ public class Map extends Fragment {
                 .getInt(NavigationDrawerFragment.ARG_SECTION_NUMBER));
     }
 
+    @Override
+    public void recreateMap() {
 
-    private class ObtenerPuntos extends AsyncTask<Void, PointStaff, Void> {
+        mapa.clear();
+        recreaMap = true;
+        SharedPreferences preferences = getActivity()
+                .getSharedPreferences(DialogFilterMap.FIRTER_MAP,
+                        Context.MODE_PRIVATE);
+        centerMap(preferences.getInt(DialogFilterMap.ECOSISTEMA, 0));
 
-        private List<PointStaff> staffs;
+
+    }
 
 
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
+    private void centerMap(int typeCente) {
+        LatLng latLngNor = null;
+        LatLng latLngSur = null;
+
+        switch (typeCente) {
+            case 0:
+                latLngNor = new LatLng(19.4409373, -99.2226025);
+                latLngSur = new LatLng(19.4391162, -99.2260666);
+                break;
+            case 1:
+                latLngNor = new LatLng(19.4390807, -99.2246452);
+                latLngSur = new LatLng(19.4384116, -99.2253989);
+                break;
+            case 2:
+                latLngNor = new LatLng(19.4391326, -99.2251106);
+                latLngSur = new LatLng(19.4387506, -99.2256349);
+                break;
+            case 3:
+                latLngNor = new LatLng(19.439278, -99.2255759);
+                latLngSur = new LatLng(19.4390731, -99.2257503);
+                break;
+            case 4:
+                latLngNor = new LatLng(19.4396372, -99.2249241);
+                latLngSur = new LatLng(19.4389732, -99.2255102);
+                break;
+            case 5:
+                latLngNor = new LatLng(19.4396928, -99.2247551);
+                latLngSur = new LatLng(19.4392135, -99.2252688);
+                break;
+            case 6:
+                latLngNor = new LatLng(19.4398281, -99.2246439);
+                latLngSur = new LatLng(19.4394525, -99.2249992);
+                break;
+            case 7:
+                latLngNor = new LatLng(19.4402316, -99.2242255);
+                latLngSur = new LatLng(19.4395322, -99.2249242);
+                break;
+            case 8:
+                latLngNor = new LatLng(19.4403163, -99.2239693);
+                latLngSur = new LatLng(19.4397902, -99.2245647);
+                break;
+            case 9:
+                latLngNor = new LatLng(19.4408449, -99.2233416);
+                latLngSur = new LatLng(19.4399976, -99.2241021);
+                break;
+            case 10:
+                latLngNor = new LatLng(19.4412609, -99.2228791);
+                latLngSur = new LatLng(19.4406059, -99.22353);
+                break;
         }
 
+        mapa.animateCamera(CameraUpdateFactory.newLatLngBounds(new LatLngBounds(latLngSur, latLngNor), 50));
+    }
+
+    @Override
+    public void onCameraChange(CameraPosition cameraPosition) {
+
+
+        if (recreaMap) {
+            SharedPreferences preferences = getActivity()
+                    .getSharedPreferences(DialogFilterMap.FIRTER_MAP,
+                            Context.MODE_PRIVATE);
+            Integer num_eco = preferences.getInt(DialogFilterMap.ECOSISTEMA, 0);
+            if (num_eco == 0) {
+                new ObtenerPuntos().execute(1, 2, 3, 4, 5, 7, 8, 9, 10);
+            } else {
+                new ObtenerPuntos().execute(num_eco);
+            }
+
+            recreaMap = false;
+        }
+        ;
+
+    }
+
+    private class ObtenerPuntos extends AsyncTask<Integer, PointStaffModel, Void> {
+
+
         @Override
-        protected Void doInBackground(Void... voids) {
+        protected Void doInBackground(Integer... integers) {
 
             BufferedReader reader = null;
+            Gson gson = new Gson();
+            List<PointStaff> pointStaffs = null;
+            int maker_map = 0;
 
-            if (getActivity() != null)
-                reader = new BufferedReader(new InputStreamReader(
-                        getResources().openRawResource(R.raw.points)));
-            else
-                return null;
-            String cadena;
-            int posición = 0;
-            String split[];
+            for (int i = 0; i < integers.length; i++) {
+                Log.d("Valor", integers[i] + "");
 
-            String nombre = "";
-            String descripcion = "";
-            double latitud = 0;
-            double longitud = 0;
-            int icon = 0;
-
-
-            try {
-                while ((cadena = reader.readLine()) != null) {
-
-                    if (cadena.contains("<name>")) {
-                        split = cadena.split(">");
-                        split = split[1].split("<");
-                        nombre = split[0];
-                    }
-                    if (cadena.contains("<description>")) {
-                        split = cadena.split("\\[");
-                        split = split[2].split("]");
-                        descripcion = split[0];
-                    }
-
-                    if (cadena.contains("<styleUrl>")) {
-                        if (cadena.contains("icon-503-DB4436")) {
-                            icon = 1;
-                        } else if (cadena.contains("icon-503-7C3592")) {
-                            icon = 2;
-                        } else if (cadena.contains("icon-503-FFFFFF")) {
-                            icon = 3;
-                        } else if (cadena.contains("icon-503-4186F0")) {
-                            icon = 4;
-                        } else if (cadena.contains("icon-503-009D57")) {
-                            icon = 5;
-                        } else if (cadena.contains("icon-503-EE9C96")) {
-                            icon = 6;
-                        } else if (cadena.contains("icon-503-3F5BA9")) {
-                            icon = 7;
-                        } else if (cadena.contains("icon-503-F4B400")) {
-                            icon = 8;
-                        } else if (cadena.contains("icon-503-FFDD5E")) {
-                            icon = 9;
-                        } else if (cadena.contains("icon-503-A61B4A")) {
-                            icon = 10;
-                        }
-                    }
-
-                    if (cadena.contains("<coordinates>")) {
-                        split = cadena.split(">");
-                        split = split[1].split("<");
-                        split = split[0].split(",");
-                        latitud = Double.parseDouble(split[0]);
-                        longitud = Double.parseDouble(split[1]);
-
-                        publishProgress(new PointStaff(nombre, descripcion, longitud, latitud, icon));
-                        nombre = "";
-                        descripcion = "";
-                    }
+                switch (integers[i]) {
+                    case 1:
+                        reader = new BufferedReader(new InputStreamReader(
+                                getResources().openRawResource(R.raw.ecosistema_1)));
+                        maker_map = R.drawable.mark_01;
+                        break;
+                    case 2:
+                        reader = new BufferedReader(new InputStreamReader(
+                                getResources().openRawResource(R.raw.ecosistema_2)));
+                        maker_map = R.drawable.mark_02;
+                        break;
+                    case 3:
+                        reader = new BufferedReader(new InputStreamReader(
+                                getResources().openRawResource(R.raw.ecosistema_3)));
+                        maker_map = R.drawable.mark_03;
+                        break;
+                    case 4:
+                        reader = new BufferedReader(new InputStreamReader(
+                                getResources().openRawResource(R.raw.ecosistema_4)));
+                        maker_map = R.drawable.mark_04;
+                        break;
+                    case 5:
+                        reader = new BufferedReader(new InputStreamReader(
+                                getResources().openRawResource(R.raw.ecosistema_5)));
+                        maker_map = R.drawable.mark_05;
+                        break;
+                    case 6:
+                        reader = new BufferedReader(new InputStreamReader(
+                                getResources().openRawResource(R.raw.ecosistema_6)));
+                        maker_map = R.drawable.mark_06;
+                        break;
+                    case 7:
+                        reader = new BufferedReader(new InputStreamReader(
+                                getResources().openRawResource(R.raw.ecosistema_7)));
+                        maker_map = R.drawable.mark_07;
+                        break;
+                    case 8:
+                        reader = new BufferedReader(new InputStreamReader(
+                                getResources().openRawResource(R.raw.ecosistema_8)));
+                        maker_map = R.drawable.mark_08;
+                        break;
+                    case 9:
+                        reader = new BufferedReader(new InputStreamReader(
+                                getResources().openRawResource(R.raw.ecosistema_9)));
+                        maker_map = R.drawable.mark_09;
+                        break;
+                    case 10:
+                        reader = new BufferedReader(new InputStreamReader(
+                                getResources().openRawResource(R.raw.ecosistema_10)));
+                        maker_map = R.drawable.mark_10;
+                        break;
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
+
+                pointStaffs = gson.fromJson(reader, new TypeToken<List<PointStaff>>() {
+                }.getType());
+
+                publishProgress(new PointStaffModel(pointStaffs, maker_map));
+
             }
 
             return null;
         }
 
+
         @Override
-        protected void onProgressUpdate(PointStaff... values) {
+        protected void onProgressUpdate(PointStaffModel... values) {
             super.onProgressUpdate(values);
 
-            int idicon = 1;
-            if (getActivity() != null) {
-
-                switch (values[0].getIdIcon()) {
-                    case 1:
-                        idicon = R.drawable.mark_01;
-                        break;
-                    case 2:
-                        idicon = R.drawable.mark_02;
-                        break;
-                    case 3:
-                        idicon = R.drawable.mark_03;
-                        break;
-                    case 4:
-                        idicon = R.drawable.mark_04;
-                        break;
-                    case 5:
-                        idicon = R.drawable.mark_05;
-                        break;
-                    case 6:
-                        idicon = R.drawable.mark_06;
-                        break;
-                    case 7:
-                        idicon = R.drawable.mark_07;
-                        break;
-                    case 8:
-                        idicon = R.drawable.mark_08;
-                        break;
-                    case 9:
-                        idicon = R.drawable.mark_09;
-                        break;
-                    case 10:
-                        idicon = R.drawable.mark_10;
-                        break;
-                }
-
-                mapa.addMarker(new MarkerOptions().title(values[0].getTitle()).snippet(values[0].getDescription()).
-                        position(new LatLng(values[0].getLatitud(), values[0].getLongitud())).icon(BitmapDescriptorFactory.fromResource(idicon)));
-            } else {
-                cancel(true);
+            int maker_map = values[0].getMaker_map();
+            for (PointStaff pointStaff : values[0].getPointStaffs()) {
+                mapa.addMarker(new MarkerOptions().title(pointStaff.getTitle()).snippet(pointStaff.getDescription())
+                        .position(new LatLng(pointStaff.getLatitud(), pointStaff.getLongitud())).icon(BitmapDescriptorFactory.fromResource(maker_map)));
             }
 
         }
-
     }
 
 

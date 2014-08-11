@@ -17,6 +17,56 @@ public class Event implements Parcelable {
     String place;
     String category;
     String description;
+    String eco;
+
+    int idEco;
+
+    public String getEco() {
+        return eco;
+    }
+
+    public int getIdEco() {
+        return idEco;
+    }
+
+    public void setIdEco() {
+        if(eco.equals("Red de Apoyo al Emprendedor")){
+            idEco = 0;
+        }
+        else if(eco.equals("Semillero Emprendedor")){
+            idEco = 1;
+        }
+        else if(eco.equals("Alto Impacto y Capital")){
+            idEco = 2;
+        }
+        else if(eco.equals("Distrito Financiero")){
+            idEco = 3;
+        }
+        else if(eco.equals("Fábrica de Empresas")){
+            idEco = 4;
+        }
+        else if(eco.equals("Laboratorio de Innovación")){
+            idEco = 5;
+        }
+        else if(eco.equals("Empresa Digital")){
+            idEco = 6;
+        }
+        else if(eco.equals("Industrias Creativas")){
+            idEco = 7;
+        }
+        else if(eco.equals("MIPYMES en Movimiento")){
+            idEco = 8;
+        }
+        else if (eco.equals("Desarrollo Regional")){
+            idEco = 9;
+        }
+    }
+
+    public void setEco(String eco) {
+        this.eco = eco;
+        setIdEco();
+
+    }
 
     ArrayList <Speaker> speakers;
 

@@ -1,0 +1,74 @@
+[
+  {
+    "title": "AUDITORIO NACIONAL",
+    "description": "504",
+    "latitud": 19.4395967,
+    "longitud": -99.2252688
+  },
+  {
+    "title": "INSTITUTO DE MODELADO Y ACELERACIÓN DE NEGOCIOS",
+    "description": "503",
+    "latitud": 19.4396928,
+    "longitud": -99.2251736
+  },
+  {
+    "title": "BANAMEX",
+    "description": "505",
+    "latitud": 19.4395145,
+    "longitud": -99.2252272
+  },
+  {
+    "title": "MOLL",
+    "description": "506",
+    "latitud": 19.4394664,
+    "longitud": -99.2251709
+  },
+  {
+    "title": "PARQUE ALTO IMPACTO",
+    "description": "508",
+    "latitud": 19.4394057,
+    "longitud": -99.2250757
+  },
+  {
+    "title": "REINVENTA",
+    "description": "509",
+    "latitud": 19.4393223,
+    "longitud": -99.2249738
+  },
+  {
+    "title": "KICHINK!",
+    "description": "501",
+    "latitud": 19.4394272,
+    "longitud": -99.2248692
+  },
+  {
+    "title": "HOSPITAL ALTO IMPACTO",
+    "description": "502",
+    "latitud": 19.4395524,
+    "longitud": -99.2249979
+  },
+  {
+    "title": "IMPACTO SOCIAL",
+    "description": "511",
+    "latitud": 19.4392135,
+    "longitud": -99.2248812
+  },
+  {
+    "title": "RESERVA AMBIENTAL",
+    "description": "510",
+    "latitud": 19.4392489,
+    "longitud": -99.2248437
+  },
+  {
+    "title": "AEROPUERTO ALTO IMPACTO",
+    "description": "500",
+    "latitud": 19.4393336,
+    "longitud": -99.2247551
+  },
+  {
+    "title": "NEURONA DIGITAL",
+    "description": "507",
+    "latitud": 19.4395676,
+    "longitud": -99.2251226
+  }
+]
