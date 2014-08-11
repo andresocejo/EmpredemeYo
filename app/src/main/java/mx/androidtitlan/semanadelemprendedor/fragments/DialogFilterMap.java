@@ -4,14 +4,15 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
-import android.widget.ArrayAdapter;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
+import mx.androidtitlan.semanadelemprendedor.Adapter.FilterItemMapAdapter;
 import mx.androidtitlan.semanadelemprendedor.R;
 
 public class DialogFilterMap extends DialogFragment {
@@ -39,13 +40,13 @@ public class DialogFilterMap extends DialogFragment {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_list_item_1, getResources()
-                .getStringArray(R.array.ecositemas)
-        );
+
+        FilterItemMapAdapter filterItemMapAdapter = new FilterItemMapAdapter(getActivity(), R.layout.item_filter_map, getResources()
+                .getStringArray(R.array.ecositemas));
+
 
         builder.setTitle(R.string.fiter_ecosistemas).setIcon(R.drawable.ic_map)
-                .setAdapter(arrayAdapter, new OnClickListener() {
+ /*               .setAdapter(filterItemMapAdapter, new OnClickListener() {
 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -62,7 +63,33 @@ public class DialogFilterMap extends DialogFragment {
                             actualizaMapa.recreateMap();
                         }
                     }
-                });
+                })*/;
+
+
+        ListView view = (ListView) getActivity().getLayoutInflater().inflate(R.layout.listiview_dialog, null, false);
+        view.setAdapter(filterItemMapAdapter);
+
+        view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                SharedPreferences preferences = getActivity()
+                        .getSharedPreferences(FIRTER_MAP,
+                                Context.MODE_PRIVATE);
+
+                if (i != preferences.getInt(ECOSISTEMA, 0)) {
+                    SharedPreferences.Editor editor = preferences
+                            .edit();
+                    editor.putInt(ECOSISTEMA, i);
+                    editor.commit();
+                    actualizaMapa.recreateMap();
+                }
+                dismiss();
+
+            }
+        });
+
+        builder.setView(view);
+
 
         return builder.create();
     }
