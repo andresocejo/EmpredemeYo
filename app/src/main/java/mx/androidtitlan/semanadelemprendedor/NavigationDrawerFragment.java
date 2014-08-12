@@ -175,6 +175,12 @@ public class NavigationDrawerFragment extends Fragment {
                     return;
                 }
 
+                if (mCurrentSelectedPosition == 1 || mCurrentSelectedPosition == 3) {
+                    FragPropertyInterface fragPropertyInterface = (FragPropertyInterface) getActivity().getSupportFragmentManager().findFragmentById(R.id.container);
+                    if (fragPropertyInterface != null)
+                        fragPropertyInterface.setDrawerOpen(false);
+                }
+
                 getActivity().supportInvalidateOptionsMenu(); // calls onPrepareOptionsMenu()
             }
 
