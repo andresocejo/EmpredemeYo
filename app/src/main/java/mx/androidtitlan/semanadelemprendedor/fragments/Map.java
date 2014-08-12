@@ -38,12 +38,13 @@ import mx.androidtitlan.semanadelemprendedor.Model.PointStaffModel;
 import mx.androidtitlan.semanadelemprendedor.MyActivity;
 import mx.androidtitlan.semanadelemprendedor.NavigationDrawerFragment;
 import mx.androidtitlan.semanadelemprendedor.R;
+import mx.androidtitlan.semanadelemprendedor.util.FragPropertyInterface;
 import mx.androidtitlan.semanadelemprendedor.util.PointStaff;
 
 /**
  * Created by Jhordan on 04/08/14.
  */
-public class Map extends Fragment implements DialogFilterMap.UpdateMap, GoogleMap.OnCameraChangeListener {
+public class Map extends Fragment implements DialogFilterMap.UpdateMap, GoogleMap.OnCameraChangeListener, FragPropertyInterface {
 
 
     public static Map newInstance(int position) {
@@ -59,6 +60,9 @@ public class Map extends Fragment implements DialogFilterMap.UpdateMap, GoogleMa
     private MapView mapView;
     private boolean recreaMap;
     private List<Marker> markers;
+
+    private boolean isDrawerOpen;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -120,9 +124,10 @@ public class Map extends Fragment implements DialogFilterMap.UpdateMap, GoogleMa
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_mapa, menu);
+        if (!isDrawerOpen) {
+            inflater.inflate(R.menu.menu_mapa, menu);
+        }
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -269,6 +274,12 @@ public class Map extends Fragment implements DialogFilterMap.UpdateMap, GoogleMa
         }
         ;
 
+    }
+
+    @Override
+    public void setDrawerOpen(boolean isDrawerOpen) {
+
+        this.isDrawerOpen = isDrawerOpen;
     }
 
     private class ObtenerPuntos extends AsyncTask<Integer, PointStaffModel, Void> {

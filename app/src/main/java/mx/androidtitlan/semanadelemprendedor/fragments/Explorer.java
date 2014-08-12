@@ -36,12 +36,13 @@ import mx.androidtitlan.semanadelemprendedor.MyActivity;
 import mx.androidtitlan.semanadelemprendedor.NavigationDrawerFragment;
 import mx.androidtitlan.semanadelemprendedor.R;
 import mx.androidtitlan.semanadelemprendedor.util.Event;
+import mx.androidtitlan.semanadelemprendedor.util.FragPropertyInterface;
 import mx.androidtitlan.semanadelemprendedor.util.Speaker;
 
 /**
  * Created by Jhordan on 04/08/14.
  */
-public class Explorer extends Fragment implements DialogFilterEvents.UpdateList{
+public class Explorer extends Fragment implements DialogFilterEvents.UpdateList, FragPropertyInterface {
 
     private String [] DAYS;
 
@@ -51,6 +52,7 @@ public class Explorer extends Fragment implements DialogFilterEvents.UpdateList{
     private TitlePageIndicator mIndicatores;
 
     public static ArrayList<Event> eventsMain;
+    private boolean isDrawerOpen;
 
 
     public static Explorer newInstance(int position) {
@@ -122,7 +124,9 @@ public class Explorer extends Fragment implements DialogFilterEvents.UpdateList{
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_mapa, menu);
+        if (!isDrawerOpen) {
+            inflater.inflate(R.menu.menu_mapa, menu);
+        }
     }
 
     @Override
@@ -230,5 +234,12 @@ public class Explorer extends Fragment implements DialogFilterEvents.UpdateList{
         } catch (JSONException e) {
             Log.e("Json event error", e.toString());
         }
+    }
+
+    @Override
+    public void setDrawerOpen(boolean isDrawerOpen) {
+
+        this.isDrawerOpen = isDrawerOpen;
+
     }
 }
