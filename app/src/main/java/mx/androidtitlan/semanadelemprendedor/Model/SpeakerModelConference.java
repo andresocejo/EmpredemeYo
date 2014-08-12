@@ -8,15 +8,17 @@ public class SpeakerModelConference {
     private String pictureSpeaker;
     private String titleConference;
     private String hourConference;
+    private String colorConference;
 
     public SpeakerModelConference() {
     }
 
-    public SpeakerModelConference(String pictureSpeaker, String titleConference, String hourConference) {
+    public SpeakerModelConference(String pictureSpeaker, String titleConference, String hourConference,String colorConference) {
 
         this.pictureSpeaker = pictureSpeaker;
         this.titleConference = titleConference;
         this.hourConference = hourConference;
+        this.colorConference = colorConference;
     }
 
     public String getPictureSpeaker() {
@@ -41,5 +43,13 @@ public class SpeakerModelConference {
 
     public void setHourConference(String hourConference) {
         this.hourConference = hourConference;
+    }
+
+    public String getColorConference() {
+        return colorConference;
+    }
+
+    public void setColorConference(String colorConference) {
+        this.colorConference = colorConference;
     }
 }

@@ -2,6 +2,7 @@ package mx.androidtitlan.semanadelemprendedor.Adapter;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,23 +30,40 @@ public class SpeakerStreamingAdapter extends BaseAdapter {
     private Integer[] images ={
             R.drawable.img_peter_diamandis,
             R.drawable.david,
+
+            R.drawable.img_arjan_dijk,
+            R.drawable.img_carlos_arguello,
+            R.drawable.img_marc_vidal,
+            R.drawable.img_ildefonso_guajardo,
+            R.drawable.bg_login,
+
             R.drawable.img_andres_bustamante,
             R.drawable.img_andy_cohen,
-            R.drawable.img_arjan_dijk,
             R.drawable.img_blanca_trevino,
-            R.drawable.img_carlos_arguello,
             R.drawable.img_christopher_gardner,
             R.drawable.img_david_konzevik,
-            R.drawable.img_ildefonso_guajardo,
             R.drawable.img_luis_barrios,
-            R.drawable.img_marc_vidal,
             R.drawable.img_ramon_munoz,
             R.drawable.img_renee_mauborgne,
             R.drawable.img_roberto_azevedo
 
     };
-    private String [] conferencias = {"La Creación de una Era de la Abundancia", "Tecnologías Creativas e Internet de las cosas"};
-    private String [] speakerConferencia = {"Peter Diamandis","David Cuartielles"};
+
+
+    private String [] conferencias = {
+            "La Creación de una Era de la Abundancia",
+            "Tecnologías Creativas e Internet de las cosas",
+
+            "Haz que todo el poder del Internet trabaje para tu Negocio",
+            "Industrias Creativas para el Desarrollo en Latinoamérica",
+            "Una hormiga en París",
+            "Reformas Transformadoras",
+            "Innovación en las MiPyMEs y el crecimiento económico"};
+
+
+
+
+    private String [] speakerConferencia = {"Peter Diamandis","David Cuartielles","Arjan Dijk","Carlos Argüello","Marc Vidal","Ildefonso G Villarreal","Emprendedor Mexico 2014"};
 
 
 
@@ -95,7 +113,7 @@ public class SpeakerStreamingAdapter extends BaseAdapter {
 
 
             container = layoutInflater.inflate(R.layout.speaker_grid, parent, false);
-            streamingHolderView.initViewsFromIds(container, R.id.speaker_image, R.id.conference_title, R.id.hour_conference);
+            streamingHolderView.initViewsFromIds(container, R.id.speaker_image, R.id.conference_title, R.id.hour_conference,R.id.speaker_color);
             container.setTag(streamingHolderView);
 
 
@@ -105,6 +123,12 @@ public class SpeakerStreamingAdapter extends BaseAdapter {
         streamingHolderView.getTitleContainer().setText(conferencias[position]);
         streamingHolderView.getHourContainer().setText(speakerConferencia[position]);
         streamingHolderView.getSpeakerImageContainer().setImageResource(images[position]);
+
+        if (position == 0 || position == 1){
+
+            streamingHolderView.getColor_conference().setBackgroundColor(Color.parseColor("#75378d3b"));
+        }
+
 
         String num = Integer.toString(position);
 
@@ -118,17 +142,24 @@ public class SpeakerStreamingAdapter extends BaseAdapter {
         private ImageView speaker_photo;
         private TextView title_conference;
         private TextView hour_conference;
+        private TextView color_conference;
+
+
+
 
 
         public ConferenceHolderView() {
 
         }
 
-        public void initViewsFromIds(View container, int speaker_photo, int title_conference, int hour_conference) {
+        public void initViewsFromIds(View container, int speaker_photo, int title_conference, int hour_conference , int color_conference) {
 
             this.speaker_photo = (ImageView) container.findViewById(speaker_photo);
             this.title_conference = (TextView) container.findViewById(title_conference);
             this.hour_conference = (TextView) container.findViewById(hour_conference);
+            this.color_conference = (TextView)container.findViewById(color_conference);
+
+
 
         }
 
@@ -144,6 +175,10 @@ public class SpeakerStreamingAdapter extends BaseAdapter {
         public TextView getHourContainer() {
             return hour_conference;
         }
+
+        public TextView getColor_conference(){return  color_conference;}
+
+
 
     }
 }

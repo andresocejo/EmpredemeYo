@@ -14,7 +14,7 @@
         android:id="@+id/speaker_image"
         android:layout_gravity="center_horizontal"
         android:background="#00e575"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         android:src="@drawable/larry_page"
         />
     <TextView

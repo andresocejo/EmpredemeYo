@@ -3,9 +3,11 @@ package mx.androidtitlan.semanadelemprendedor.main;
 import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -15,10 +17,15 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,13 +36,15 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.crashlytics.android.Crashlytics;
 
+import com.crashlytics.android.Crashlytics;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import mx.androidtitlan.semanadelemprendedor.MyActivity;
 import mx.androidtitlan.semanadelemprendedor.R;
+
+import mx.androidtitlan.semanadelemprendedor.util.AyudaLogin;
 
 /**
  * Created by Jhordan on 04/08/14.
@@ -132,13 +141,15 @@ public class Login_Screen extends Activity {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
+
+
     private void loginUser(final String email, final String gafete) {
         // savePrefereces(email, gafete);
         // String gafete="010176";
         // String email= "javierr@infoexpo.com.mx";
         RequestQueue rq = Volley.newRequestQueue(this);
         String url = "http://se.infoexpo.mx/2014/ae/web/utilerias/ws/google/get_attendee?idVisitante=" + gafete + "&email=" + email;
-        final ProgressDialog progressDialog = ProgressDialog.show(this, "Espera por Favor ...", "Validando datos ...", true);
+       final ProgressDialog progressDialog = ProgressDialog.show(this, "Espera por Favor ...", "Validando datos ...", true);
 
         StringRequest postReq = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
 
@@ -177,8 +188,7 @@ public class Login_Screen extends Activity {
                     }
 
                 } catch (JSONException e) {
-                    progressDialog.dismiss();
-                    Toast.makeText(Login_Screen.this,"Parece que hay un problema con el servidor, intenta más tarde",Toast.LENGTH_SHORT).show();
+                    Log.i("ERROR", "ERROR");
                 }
 
                 progressDialog.dismiss();
@@ -188,6 +198,7 @@ public class Login_Screen extends Activity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 progressDialog.dismiss();
+
                 Toast.makeText(Login_Screen.this,"Parece que hay un problema con el servidor, intenta más tarde",Toast.LENGTH_SHORT).show();
 
             }
@@ -210,7 +221,8 @@ public class Login_Screen extends Activity {
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
-        rq.add(postReq);
+       rq.add(postReq);
+
 
 
     }
@@ -284,6 +296,11 @@ public class Login_Screen extends Activity {
 
 
     }
+
+
+
+
+
 
 
 }
