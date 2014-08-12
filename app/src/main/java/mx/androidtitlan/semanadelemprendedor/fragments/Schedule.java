@@ -231,9 +231,8 @@ public class Schedule extends android.support.v4.app.Fragment implements android
     }
 
     @Override
-    public void onStop() {
-        super.onStop();
-
+    public void onDestroyView() {
+        super.onDestroyView();
         if (getEvents != null) {
             getEvents.cancel();
         }

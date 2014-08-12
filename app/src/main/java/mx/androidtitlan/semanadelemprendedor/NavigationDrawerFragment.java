@@ -21,13 +21,13 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
-import mx.androidtitlan.semanadelemprendedor.Adapter.ListViewItemAdapter;
-import mx.androidtitlan.semanadelemprendedor.Model.ItemContentSection;
-import mx.androidtitlan.semanadelemprendedor.util.ListViewItemInterface;
-import mx.androidtitlan.semanadelemprendedor.R;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import mx.androidtitlan.semanadelemprendedor.Adapter.ListViewItemAdapter;
+import mx.androidtitlan.semanadelemprendedor.Model.ItemContentSection;
+import mx.androidtitlan.semanadelemprendedor.util.FragPropertyInterface;
+import mx.androidtitlan.semanadelemprendedor.util.ListViewItemInterface;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
@@ -193,6 +193,14 @@ public class NavigationDrawerFragment extends Fragment {
                             .getDefaultSharedPreferences(getActivity());
                     sp.edit().putBoolean(PREF_USER_LEARNED_DRAWER, true).apply();
                 }
+
+
+                if (mCurrentSelectedPosition == 1 || mCurrentSelectedPosition == 3) {
+                    FragPropertyInterface fragPropertyInterface = (FragPropertyInterface) getActivity().getSupportFragmentManager().findFragmentById(R.id.container);
+                    if (fragPropertyInterface != null)
+                        fragPropertyInterface.setDrawerOpen(true);
+                }
+
 
                 getActivity().supportInvalidateOptionsMenu(); // calls onPrepareOptionsMenu()
             }
