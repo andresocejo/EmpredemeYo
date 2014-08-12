@@ -35,7 +35,7 @@ public class SpeakerStreamingAdapter extends BaseAdapter {
             R.drawable.img_carlos_arguello,
             R.drawable.img_marc_vidal,
             R.drawable.img_ildefonso_guajardo,
-            R.drawable.bg_login,
+
 
             R.drawable.img_andres_bustamante,
             R.drawable.img_andy_cohen,
@@ -58,12 +58,12 @@ public class SpeakerStreamingAdapter extends BaseAdapter {
             "Industrias Creativas para el Desarrollo en Latinoamérica",
             "Una hormiga en París",
             "Reformas Transformadoras",
-            "Innovación en las MiPyMEs y el crecimiento económico"};
+           };
 
 
 
 
-    private String [] speakerConferencia = {"Peter Diamandis","David Cuartielles","Arjan Dijk","Carlos Argüello","Marc Vidal","Ildefonso G Villarreal","Emprendedor Mexico 2014"};
+    private String [] speakerConferencia = {"Peter Diamandis","David Cuartielles","Arjan Dijk","Carlos Argüello","Marc Vidal","Ildefonso G Villarreal"};
 
 
 
