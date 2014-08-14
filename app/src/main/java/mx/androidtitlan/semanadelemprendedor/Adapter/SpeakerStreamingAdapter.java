@@ -84,7 +84,7 @@ public class SpeakerStreamingAdapter extends BaseAdapter {
             "Renée Mauborgne",
             "Andy Cohen",
             "Blanca Treviño",
-            "Andres Bustamante"};
+            ""};
 
 
 
