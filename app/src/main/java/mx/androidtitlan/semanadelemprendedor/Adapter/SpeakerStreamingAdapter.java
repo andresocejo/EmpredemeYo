@@ -36,21 +36,25 @@ public class SpeakerStreamingAdapter extends BaseAdapter {
             R.drawable.img_marc_vidal,
             R.drawable.img_ildefonso_guajardo,
 
-
-            R.drawable.img_andres_bustamante,
+            R.drawable.ema,
+            R.drawable.img_luis_barrios,
+            R.drawable.img_renee_mauborgne,
             R.drawable.img_andy_cohen,
+
             R.drawable.img_blanca_trevino,
+            R.drawable.logo_sde,
             R.drawable.img_christopher_gardner,
             R.drawable.img_david_konzevik,
-            R.drawable.img_luis_barrios,
+
             R.drawable.img_ramon_munoz,
-            R.drawable.img_renee_mauborgne,
+
             R.drawable.img_roberto_azevedo
 
     };
 
 
     private String [] conferencias = {
+
             "La Creación de una Era de la Abundancia",
             "Tecnologías Creativas e Internet de las cosas",
 
@@ -58,12 +62,29 @@ public class SpeakerStreamingAdapter extends BaseAdapter {
             "Industrias Creativas para el Desarrollo en Latinoamérica",
             "Una hormiga en París",
             "Reformas Transformadoras",
+            "Perspectivas de Pemex en la Industria Petrolera después de la Reforma Energética",
+            "Convicción para Emprender",
+            "La estrategia del Océano Azul: Cómo hacer que la competencia se vuelva irrelevante",
+            "El poder de pensar diferente",
+            "Tu futuro, tus fortalezas, tus decisiones",
+            "La Creatividad en la visión de un Empresario"
            };
 
 
 
 
-    private String [] speakerConferencia = {"Peter Diamandis","David Cuartielles","Arjan Dijk","Carlos Argüello","Marc Vidal","Ildefonso G Villarreal"};
+    private String [] speakerConferencia = {"Peter Diamandis",
+            "David Cuartielles",
+            "Arjan Dijk",
+            "Carlos Argüello",
+            "Marc Vidal",
+            "Ildefonso G Villarreal",
+            "Mtro. Emilio Ricardo Lozoya",
+            "Luis Barrios Sánchez",
+            "Renée Mauborgne",
+            "Andy Cohen",
+            "Blanca Treviño",
+            "Andres Bustamante"};
 
 
 
@@ -127,6 +148,23 @@ public class SpeakerStreamingAdapter extends BaseAdapter {
         if (position == 0 || position == 1){
 
             streamingHolderView.getColor_conference().setBackgroundColor(Color.parseColor("#75378d3b"));
+            streamingHolderView.getColor_conference().setText("Lunes");
+
+        }else if(position == 2 || position == 3 || position == 4 || position == 5){
+
+            streamingHolderView.getColor_conference().setBackgroundColor(Color.parseColor("#7063b4f5"));
+            streamingHolderView.getColor_conference().setText("Martes");
+
+        }else if(position == 6 || position == 7){
+            streamingHolderView.getColor_conference().setBackgroundColor(Color.parseColor("#70E8604B"));
+            streamingHolderView.getColor_conference().setText("Miercoles");
+
+
+        }else if(position == 8 || position == 9 || position == 10 || position == 11){
+
+            streamingHolderView.getColor_conference().setBackgroundColor(Color.parseColor("#707d56C1"));
+            streamingHolderView.getColor_conference().setText("Jueves");
+
         }
 
 

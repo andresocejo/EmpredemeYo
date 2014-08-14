@@ -20,8 +20,9 @@
     <TextView
         android:id="@+id/speaker_color"
         android:layout_width="match_parent"
+        android:gravity="right"
         android:layout_height="175dp"
-        android:text=""
+        android:text="dia"
         android:textColor="@color/white"
         android:background="@color/image_trans"
 

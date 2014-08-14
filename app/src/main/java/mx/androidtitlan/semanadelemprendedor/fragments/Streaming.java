@@ -57,7 +57,7 @@ public class Streaming extends Fragment {
         SpeakerStreamingAdapter ponenteAdapter = new SpeakerStreamingAdapter(ponente, getActivity());
 
         //Esto es para probar el gridview con datos
-        for (int index = 0; index < 6; index++) {
+        for (int index = 0; index < 12; index++) {
             SpeakerModelConference confe = new SpeakerModelConference();
 
 
@@ -90,7 +90,21 @@ public class Streaming extends Fragment {
                  //   Toast.makeText(
                    //         getActivity(), "conference: " + num, Toast.LENGTH_SHORT).show();
 
-                    String streamings[] = {"U_uxHf4WcgU","LuFittKgr4Q"   ,"-QKs0ulI7Z8","gJpubrrt05k","urZY6zvxlcA","OfBPdWcRfuY"};
+
+                    String streamings[] = {"U_uxHf4WcgU",
+                            "LuFittKgr4Q",
+                            "-QKs0ulI7Z8",
+                            "gJpubrrt05k",
+                            "urZY6zvxlcA",
+                            "W_g-U56UC8Y",
+                            "oKbzoMjv2Pk",
+                            "uKlhSHYGy1w",
+                            "Bk_2t0-OELE",
+                            "t6-pFLwBhl0",
+                            "jrKSzCEkL2k",
+                            "FbYNYe2lqfo"};
+
+
 
                  //  String video = "LuFittKgr4Q";//tecnologias creativas e internet de las cosas
 
