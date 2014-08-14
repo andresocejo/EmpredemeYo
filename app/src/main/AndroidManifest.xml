@@ -4,8 +4,8 @@
     package="mx.androidtitlan.semanadelemprendedor">
 
     <uses-sdk
-        android:versionCode="5"
-        android:versionName="2.2"
+        android:versionCode="8"
+        android:versionName="2.5"
         tools:node="replace" />
 
     <application

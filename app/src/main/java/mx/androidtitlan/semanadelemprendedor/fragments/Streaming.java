@@ -13,7 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import mx.androidtitlan.semanadelemprendedor.Activities.StreamingView;
 import mx.androidtitlan.semanadelemprendedor.Adapter.SpeakerStreamingAdapter;
@@ -22,15 +24,12 @@ import mx.androidtitlan.semanadelemprendedor.MyActivity;
 import mx.androidtitlan.semanadelemprendedor.NavigationDrawerFragment;
 import mx.androidtitlan.semanadelemprendedor.R;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by Jhordan on 04/08/14.
  */
 public class Streaming extends Fragment {
 
-    GridView grid ;
+    GridView grid;
     private Layout rls;
 
 
@@ -50,29 +49,22 @@ public class Streaming extends Fragment {
         grid = (GridView) v.findViewById(R.id.mygrid);
 
 
-
-
-
         List<SpeakerModelConference> ponente = new ArrayList<SpeakerModelConference>();
         SpeakerStreamingAdapter ponenteAdapter = new SpeakerStreamingAdapter(ponente, getActivity());
 
         //Esto es para probar el gridview con datos
-        for (int index = 0; index < 12; index++) {
+        for (int index = 0; index < 13; index++) {
             SpeakerModelConference confe = new SpeakerModelConference();
-
-
-
             ponente.add(confe);
-
         }
 
 
         grid.setAdapter(ponenteAdapter);
 
 
-      //  View header = View.inflate(getActivity(), R.layout.speaker_gridtwo, null);
+        //  View header = View.inflate(getActivity(), R.layout.speaker_gridtwo, null);
         //list.addHeaderView(header);
-       // list.setNumColumns(2);
+        // list.setNumColumns(2);
 
 
         try {   //detectar cual fue pinchada en el gridview
@@ -87,32 +79,32 @@ public class Streaming extends Fragment {
 
                     Log.i("position ", num);
 
-                 //   Toast.makeText(
-                   //         getActivity(), "conference: " + num, Toast.LENGTH_SHORT).show();
+                    //   Toast.makeText(
+                    //         getActivity(), "conference: " + num, Toast.LENGTH_SHORT).show();
 
-
-                    String streamings[] = {"U_uxHf4WcgU",
+                    String streamings[] = {
+                            "U_uxHf4WcgU",
                             "LuFittKgr4Q",
                             "-QKs0ulI7Z8",
                             "gJpubrrt05k",
                             "urZY6zvxlcA",
-                            "W_g-U56UC8Y",
+                            "OfBPdWcRfuY",
                             "oKbzoMjv2Pk",
                             "uKlhSHYGy1w",
+                            "Lky8LGtTKoQ",
                             "Bk_2t0-OELE",
                             "t6-pFLwBhl0",
                             "jrKSzCEkL2k",
-                            "FbYNYe2lqfo"};
+                            "FbYNYe2lqfo"
+                    };
 
+                    //  String video = "LuFittKgr4Q";//tecnologias creativas e internet de las cosas
 
-
-                 //  String video = "LuFittKgr4Q";//tecnologias creativas e internet de las cosas
-
-                   //  String videoConference = "U_uxHf4WcgU" ; La Creación de una Era de Abundancia
+                    //  String videoConference = "U_uxHf4WcgU" ; La Creación de una Era de Abundancia
 
 
                     Intent intento = new Intent(getActivity(), StreamingView.class);
-                    intento.putExtra("id_video",streamings[position]);
+                    intento.putExtra("id_video", streamings[position]);
                     startActivity(intento);
 
 
