@@ -1,13 +1,9 @@
 package mx.androidtitlan.semanadelemprendedor.main;
 
 import android.annotation.TargetApi;
-import android.app.ActionBar;
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -16,16 +12,12 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,20 +28,18 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
 import com.crashlytics.android.Crashlytics;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import mx.androidtitlan.semanadelemprendedor.MyActivity;
 import mx.androidtitlan.semanadelemprendedor.R;
 
-import mx.androidtitlan.semanadelemprendedor.util.AyudaLogin;
-
 /**
  * Created by Jhordan on 04/08/14.
  */
-public class Login_Screen extends Activity {
+public class Login_Screen extends ActionBarActivity {
 
     private Button go;
     private EditText edt_email, edt_password;
@@ -267,11 +257,9 @@ public class Login_Screen extends Activity {
 
     }
 
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private void hideBar() {
-
-        ActionBar bar = getActionBar();
-        bar.hide();
+         android.support.v7.app.ActionBar bar = getSupportActionBar();
+         bar.hide();
     }
 
     private void aboutShowDialog() {
