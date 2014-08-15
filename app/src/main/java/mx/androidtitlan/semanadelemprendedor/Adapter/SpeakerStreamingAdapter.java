@@ -41,9 +41,9 @@ public class SpeakerStreamingAdapter extends BaseAdapter {
             R.drawable.img_andy_cohen,
             R.drawable.img_blanca_trevino,
             R.drawable.img_andres_bustamante,
-            R.drawable.img_christopher_gardner,
-            R.drawable.img_ramon_munoz,
-            R.drawable.img_roberto_azevedo
+            R.drawable.arnoldo,
+            R.drawable.emanuel,
+            R.drawable.img_christopher_gardner
 
 
     };
@@ -63,6 +63,9 @@ public class SpeakerStreamingAdapter extends BaseAdapter {
             "El Poder de Pensar Diferente",
             "Tu futuro, tus fortalezas, tus decisiones",
             "La Creatividad en la visión de un Empresario",
+            "El Sueño Mexicano",
+            "Cultura Ambiental: ¿Mito o realidad?",
+            "Genética Espiritual y el Sueño Americano"
 
 
     };
@@ -81,7 +84,10 @@ public class SpeakerStreamingAdapter extends BaseAdapter {
             "Renée Mauborgne",
             "Andy Cohen",
             "Blanca Treviño",
-            ""
+            "",
+            "Arnoldo de la Rocha",
+            "Emmanuel",
+            "Christopher Gardner"
     };
 
 
@@ -150,18 +156,23 @@ public class SpeakerStreamingAdapter extends BaseAdapter {
 
         } else if (position == 2 || position == 3 || position == 4 || position == 5) {
 
-            streamingHolderView.getColor_conference().setBackgroundColor(Color.parseColor("#7063b4f5"));
+            streamingHolderView.getColor_conference().setBackgroundColor(Color.parseColor("#75378d3b"));
             streamingHolderView.getColor_conference().setText("Martes");
 
         } else if (position == 6 || position == 7 || position == 8) {
-            streamingHolderView.getColor_conference().setBackgroundColor(Color.parseColor("#70E8604B"));
+            streamingHolderView.getColor_conference().setBackgroundColor(Color.parseColor("#75378d3b"));
             streamingHolderView.getColor_conference().setText("Miercoles");
 
 
         } else if (position == 9 || position == 10 || position == 11 || position == 12) {
 
-            streamingHolderView.getColor_conference().setBackgroundColor(Color.parseColor("#707d56C1"));
+            streamingHolderView.getColor_conference().setBackgroundColor(Color.parseColor("#75378d3b"));
             streamingHolderView.getColor_conference().setText("Jueves");
+
+        }else if (position == 13 || position == 14 || position == 15 ) {
+
+            streamingHolderView.getColor_conference().setBackgroundColor(Color.parseColor("#997d56C1"));
+            streamingHolderView.getColor_conference().setText("Viernes");
 
         }
 
