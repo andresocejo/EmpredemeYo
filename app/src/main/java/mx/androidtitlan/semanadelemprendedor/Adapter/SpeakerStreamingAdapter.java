@@ -42,9 +42,9 @@ public class SpeakerStreamingAdapter extends BaseAdapter {
             R.drawable.img_blanca_trevino,
             R.drawable.img_andres_bustamante,
             R.drawable.arnoldo,
+            R.drawable.img_christopher_gardner,
             R.drawable.emanuel,
-            R.drawable.img_christopher_gardner
-
+            R.drawable.img_miguel_herrera
 
     };
 
@@ -64,10 +64,9 @@ public class SpeakerStreamingAdapter extends BaseAdapter {
             "Tu futuro, tus fortalezas, tus decisiones",
             "La Creatividad en la visión de un Empresario",
             "El Sueño Mexicano",
+            "Genética Espiritual y el Sueño Americano",
             "Cultura Ambiental: ¿Mito o realidad?",
-            "Genética Espiritual y el Sueño Americano"
-
-
+            "Una Experiencia de Vida: Trabajo en Equipo"
     };
 
 
@@ -84,10 +83,11 @@ public class SpeakerStreamingAdapter extends BaseAdapter {
             "Renée Mauborgne",
             "Andy Cohen",
             "Blanca Treviño",
-            "",
+            "Andrés Bustamante",
             "Arnoldo de la Rocha",
+            "Christopher Gardner",
             "Emmanuel",
-            "Christopher Gardner"
+            "Piojo Herrera"
     };
 
 
@@ -169,7 +169,7 @@ public class SpeakerStreamingAdapter extends BaseAdapter {
             streamingHolderView.getColor_conference().setBackgroundColor(Color.parseColor("#75378d3b"));
             streamingHolderView.getColor_conference().setText("Jueves");
 
-        }else if (position == 13 || position == 14 || position == 15 ) {
+        }else if (position == 13 || position == 14 || position == 15 || position == 16 ) {
 
             streamingHolderView.getColor_conference().setBackgroundColor(Color.parseColor("#997d56C1"));
             streamingHolderView.getColor_conference().setText("Viernes");
